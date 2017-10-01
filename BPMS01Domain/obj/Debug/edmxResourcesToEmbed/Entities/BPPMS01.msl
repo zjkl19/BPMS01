@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BPMS01ModelStoreContainer" CdmEntityContainer="BPMS01Entities">
+    <EntitySetMapping Name="bridge">
+      <EntityTypeMapping TypeName="BPMS01Model.bridge">
+        <MappingFragment StoreEntitySet="bridge">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="length" ColumnName="length" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="structure_type" ColumnName="structure_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contract">
+      <EntityTypeMapping TypeName="BPMS01Model.contract">
+        <MappingFragment StoreEntitySet="contract">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+          <ScalarProperty Name="conrtact_no" ColumnName="conrtact_no" />
+          <ScalarProperty Name="contract_name" ColumnName="contract_name" />
+          <ScalarProperty Name="contract_amount" ColumnName="contract_amount" />
+          <ScalarProperty Name="contract_signed_data" ColumnName="contract_signed_data" />
+          <ScalarProperty Name="contract_deadline" ColumnName="contract_deadline" />
+          <ScalarProperty Name="contract_agmt_wk_cnt" ColumnName="contract_agmt_wk_cnt" />
+          <ScalarProperty Name="project_location" ColumnName="project_location" />
+          <ScalarProperty Name="delegation_client" ColumnName="delegation_client" />
+          <ScalarProperty Name="dlg_contactperson" ColumnName="dlg_contactperson" />
+          <ScalarProperty Name="dlg_contactperson_phone" ColumnName="dlg_contactperson_phone" />
+          <ScalarProperty Name="accept_way" ColumnName="accept_way" />
+          <ScalarProperty Name="is_corporation_signed" ColumnName="is_corporation_signed" />
+          <ScalarProperty Name="is_client_signed" ColumnName="is_client_signed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="inspection_project">
+      <EntityTypeMapping TypeName="BPMS01Model.inspection_project">
+        <MappingFragment StoreEntitySet="inspection_project">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="contract_id" ColumnName="contract_id" />
+          <ScalarProperty Name="bridge_id" ColumnName="bridge_id" />
+          <ScalarProperty Name="enter_date" ColumnName="enter_date" />
+          <ScalarProperty Name="exit_date" ColumnName="exit_date" />
+          <ScalarProperty Name="bridge_inspection" ColumnName="bridge_inspection" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="r_bridge_inspection_staff">
+      <EntityTypeMapping TypeName="BPMS01Model.r_bridge_inspection_staff">
+        <MappingFragment StoreEntitySet="r_bridge_inspection_staff">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="inspection_project_id" ColumnName="inspection_project_id" />
+          <ScalarProperty Name="职工_id" ColumnName="职工_id" />
+          <ScalarProperty Name="is_response" ColumnName="is_response" />
+          <ScalarProperty Name="scene_coff" ColumnName="scene_coff" />
+          <ScalarProperty Name="plan_coff" ColumnName="plan_coff" />
+          <ScalarProperty Name="report_coff" ColumnName="report_coff" />
+          <ScalarProperty Name="report_check_coff" ColumnName="report_check_coff" />
+          <ScalarProperty Name="others_coff" ColumnName="others_coff" />
+          <ScalarProperty Name="production_value_ratio" ColumnName="production_value_ratio" />
+          <ScalarProperty Name="production_value" ColumnName="production_value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="staff">
+      <EntityTypeMapping TypeName="BPMS01Model.staff">
+        <MappingFragment StoreEntitySet="staff">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="staff_no" ColumnName="staff_no" />
+          <ScalarProperty Name="staff_password" ColumnName="staff_password" />
+          <ScalarProperty Name="staff_name" ColumnName="staff_name" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="office_phone" ColumnName="office_phone" />
+          <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="job_title" ColumnName="job_title" />
+          <ScalarProperty Name="education" ColumnName="education" />
+          <ScalarProperty Name="hiredate" ColumnName="hiredate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

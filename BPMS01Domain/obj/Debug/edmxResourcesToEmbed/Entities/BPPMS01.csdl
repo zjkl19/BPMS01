@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BPMS01Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="bridge">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="length" Type="Double" Nullable="false" />
+    <Property Name="width" Type="Double" Nullable="false" />
+    <Property Name="structure_type" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="inspection_project" Relationship="Self.FK_INSPECTI_HAVE_BRIDGE" FromRole="bridge" ToRole="inspection_project" />
+  </EntityType>
+  <EntityType Name="contract">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="staff_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="conrtact_no" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="contract_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contract_amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="contract_signed_data" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="contract_deadline" Type="Int64" Nullable="false" />
+    <Property Name="contract_agmt_wk_cnt" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="project_location" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="delegation_client" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dlg_contactperson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dlg_contactperson_phone" Type="String" MaxLength="13" FixedLength="false" Unicode="false" />
+    <Property Name="accept_way" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="is_corporation_signed" Type="Boolean" Nullable="false" />
+    <Property Name="is_client_signed" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="staff" Relationship="Self.FK_CONTRACT_ACCEPT_STAFF" FromRole="contract" ToRole="staff" />
+    <NavigationProperty Name="inspection_project" Relationship="Self.FK_INSPECTI_HAVE4_CONTRACT" FromRole="contract" ToRole="inspection_project" />
+  </EntityType>
+  <EntityType Name="inspection_project">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="contract_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="bridge_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="enter_date" Type="DateTime" Precision="3" />
+    <Property Name="exit_date" Type="DateTime" Precision="3" />
+    <Property Name="bridge_inspection" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="bridge" Relationship="Self.FK_INSPECTI_HAVE_BRIDGE" FromRole="inspection_project" ToRole="bridge" />
+    <NavigationProperty Name="contract" Relationship="Self.FK_INSPECTI_HAVE4_CONTRACT" FromRole="inspection_project" ToRole="contract" />
+    <NavigationProperty Name="r_bridge_inspection_staff" Relationship="Self.FK_R_BRIDGE_R_BRIDGE__INSPECTI" FromRole="inspection_project" ToRole="r_bridge_inspection_staff" />
+  </EntityType>
+  <EntityType Name="r_bridge_inspection_staff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="inspection_project_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="职工_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="is_response" Type="Boolean" Nullable="false" />
+    <Property Name="scene_coff" Type="Boolean" Nullable="false" />
+    <Property Name="plan_coff" Type="Boolean" Nullable="false" />
+    <Property Name="report_coff" Type="Boolean" Nullable="false" />
+    <Property Name="report_check_coff" Type="Boolean" Nullable="false" />
+    <Property Name="others_coff" Type="Boolean" Nullable="false" />
+    <Property Name="production_value_ratio" Type="Double" />
+    <Property Name="production_value" Type="Double" />
+    <NavigationProperty Name="inspection_project" Relationship="Self.FK_R_BRIDGE_R_BRIDGE__INSPECTI" FromRole="r_bridge_inspection_staff" ToRole="inspection_project" />
+    <NavigationProperty Name="staff" Relationship="Self.FK_R_BRIDGE_R_BRIDGE__STAFF" FromRole="r_bridge_inspection_staff" ToRole="staff" />
+  </EntityType>
+  <EntityType Name="staff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="staff_no" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="staff_password" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="staff_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="gender" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="office_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="mobile_phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="position" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="job_title" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="education" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="hiredate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="contract" Relationship="Self.FK_CONTRACT_ACCEPT_STAFF" FromRole="staff" ToRole="contract" />
+    <NavigationProperty Name="r_bridge_inspection_staff" Relationship="Self.FK_R_BRIDGE_R_BRIDGE__STAFF" FromRole="staff" ToRole="r_bridge_inspection_staff" />
+  </EntityType>
+  <Association Name="FK_INSPECTI_HAVE_BRIDGE">
+    <End Role="bridge" Type="Self.bridge" Multiplicity="0..1" />
+    <End Role="inspection_project" Type="Self.inspection_project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bridge">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="inspection_project">
+        <PropertyRef Name="bridge_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTRACT_ACCEPT_STAFF">
+    <End Role="staff" Type="Self.staff" Multiplicity="1" />
+    <End Role="contract" Type="Self.contract" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="contract">
+        <PropertyRef Name="staff_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INSPECTI_HAVE4_CONTRACT">
+    <End Role="contract" Type="Self.contract" Multiplicity="0..1" />
+    <End Role="inspection_project" Type="Self.inspection_project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="contract">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="inspection_project">
+        <PropertyRef Name="contract_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_R_BRIDGE_R_BRIDGE__INSPECTI">
+    <End Role="inspection_project" Type="Self.inspection_project" Multiplicity="1" />
+    <End Role="r_bridge_inspection_staff" Type="Self.r_bridge_inspection_staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inspection_project">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="r_bridge_inspection_staff">
+        <PropertyRef Name="inspection_project_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_R_BRIDGE_R_BRIDGE__STAFF">
+    <End Role="staff" Type="Self.staff" Multiplicity="1" />
+    <End Role="r_bridge_inspection_staff" Type="Self.r_bridge_inspection_staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="staff">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="r_bridge_inspection_staff">
+        <PropertyRef Name="职工_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BPMS01Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="bridge" EntityType="Self.bridge" />
+    <EntitySet Name="contract" EntityType="Self.contract" />
+    <EntitySet Name="inspection_project" EntityType="Self.inspection_project" />
+    <EntitySet Name="r_bridge_inspection_staff" EntityType="Self.r_bridge_inspection_staff" />
+    <EntitySet Name="staff" EntityType="Self.staff" />
+    <AssociationSet Name="FK_INSPECTI_HAVE_BRIDGE" Association="Self.FK_INSPECTI_HAVE_BRIDGE">
+      <End Role="bridge" EntitySet="bridge" />
+      <End Role="inspection_project" EntitySet="inspection_project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTRACT_ACCEPT_STAFF" Association="Self.FK_CONTRACT_ACCEPT_STAFF">
+      <End Role="staff" EntitySet="staff" />
+      <End Role="contract" EntitySet="contract" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INSPECTI_HAVE4_CONTRACT" Association="Self.FK_INSPECTI_HAVE4_CONTRACT">
+      <End Role="contract" EntitySet="contract" />
+      <End Role="inspection_project" EntitySet="inspection_project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_R_BRIDGE_R_BRIDGE__INSPECTI" Association="Self.FK_R_BRIDGE_R_BRIDGE__INSPECTI">
+      <End Role="inspection_project" EntitySet="inspection_project" />
+      <End Role="r_bridge_inspection_staff" EntitySet="r_bridge_inspection_staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_R_BRIDGE_R_BRIDGE__STAFF" Association="Self.FK_R_BRIDGE_R_BRIDGE__STAFF">
+      <End Role="staff" EntitySet="staff" />
+      <End Role="r_bridge_inspection_staff" EntitySet="r_bridge_inspection_staff" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
