@@ -187,7 +187,7 @@
           </Key>
           <Property Name="id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="staff_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="conrtact_no" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="contract_no" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="contract_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="contract_amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="contract_signed_data" Type="DateTime" Nullable="false" Precision="3" />
@@ -223,7 +223,7 @@
           </Key>
           <Property Name="id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="inspection_project_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
-          <Property Name="职工_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="staff_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="is_response" Type="Boolean" Nullable="false" />
           <Property Name="scene_coff" Type="Boolean" Nullable="false" />
           <Property Name="plan_coff" Type="Boolean" Nullable="false" />
@@ -309,7 +309,7 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="r_bridge_inspection_staff">
-              <PropertyRef Name="职工_id" />
+              <PropertyRef Name="staff_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -362,7 +362,7 @@
               <MappingFragment StoreEntitySet="contract">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="staff_id" ColumnName="staff_id" />
-                <ScalarProperty Name="conrtact_no" ColumnName="conrtact_no" />
+                <ScalarProperty Name="contract_no" ColumnName="conrtact_no" />
                 <ScalarProperty Name="contract_name" ColumnName="contract_name" />
                 <ScalarProperty Name="contract_amount" ColumnName="contract_amount" />
                 <ScalarProperty Name="contract_signed_data" ColumnName="contract_signed_data" />
@@ -395,7 +395,7 @@
               <MappingFragment StoreEntitySet="r_bridge_inspection_staff">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="inspection_project_id" ColumnName="inspection_project_id" />
-                <ScalarProperty Name="职工_id" ColumnName="职工_id" />
+                <ScalarProperty Name="staff_id" ColumnName="职工_id" />
                 <ScalarProperty Name="is_response" ColumnName="is_response" />
                 <ScalarProperty Name="scene_coff" ColumnName="scene_coff" />
                 <ScalarProperty Name="plan_coff" ColumnName="plan_coff" />

@@ -17,7 +17,7 @@
         <MappingFragment StoreEntitySet="contract">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="staff_id" ColumnName="staff_id" />
-          <ScalarProperty Name="conrtact_no" ColumnName="conrtact_no" />
+          <ScalarProperty Name="contract_no" ColumnName="conrtact_no" />
           <ScalarProperty Name="contract_name" ColumnName="contract_name" />
           <ScalarProperty Name="contract_amount" ColumnName="contract_amount" />
           <ScalarProperty Name="contract_signed_data" ColumnName="contract_signed_data" />
@@ -50,7 +50,7 @@
         <MappingFragment StoreEntitySet="r_bridge_inspection_staff">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="inspection_project_id" ColumnName="inspection_project_id" />
-          <ScalarProperty Name="职工_id" ColumnName="职工_id" />
+          <ScalarProperty Name="staff_id" ColumnName="职工_id" />
           <ScalarProperty Name="is_response" ColumnName="is_response" />
           <ScalarProperty Name="scene_coff" ColumnName="scene_coff" />
           <ScalarProperty Name="plan_coff" ColumnName="plan_coff" />

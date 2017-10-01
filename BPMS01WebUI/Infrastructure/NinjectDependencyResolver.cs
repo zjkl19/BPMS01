@@ -31,7 +31,8 @@ namespace BPMS01WebUI.Infrastructure
         private void AddBindings()
         {
             //将绑定放这里
-            kernel.Bind<IStaffRepository>().To<EFStaffRepository>();
+            kernel.Bind<IStaffRepository>().To<EFStaffRepository>();    //绑定staff
+            kernel.Bind<IContractRepository>().To<EFContractRepository>();     //绑定contract
         }
     }
 }

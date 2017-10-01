@@ -212,7 +212,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IContractRepository.cs" />
     <Compile Include="Abstract\IStaffRepository.cs" />
+    <Compile Include="Concrete\EFContractRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFStaffRepository.cs" />
     <Compile Include="Entities\BPPMS01.Context.cs">

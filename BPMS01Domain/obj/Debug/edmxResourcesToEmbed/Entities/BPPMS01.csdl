@@ -17,7 +17,7 @@
     </Key>
     <Property Name="id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="staff_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="conrtact_no" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="contract_no" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="contract_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="contract_amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <Property Name="contract_signed_data" Type="DateTime" Nullable="false" Precision="3" />
@@ -53,7 +53,7 @@
     </Key>
     <Property Name="id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="inspection_project_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="职工_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="staff_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="is_response" Type="Boolean" Nullable="false" />
     <Property Name="scene_coff" Type="Boolean" Nullable="false" />
     <Property Name="plan_coff" Type="Boolean" Nullable="false" />
@@ -139,7 +139,7 @@
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="r_bridge_inspection_staff">
-        <PropertyRef Name="职工_id" />
+        <PropertyRef Name="staff_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

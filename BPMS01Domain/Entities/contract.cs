@@ -22,7 +22,7 @@ namespace BPMS01Domain.Entities
     
         public string id { get; set; }
         public string staff_id { get; set; }
-        public string conrtact_no { get; set; }
+        public string contract_no { get; set; }
         public string contract_name { get; set; }
         public decimal contract_amount { get; set; }
         public System.DateTime contract_signed_data { get; set; }

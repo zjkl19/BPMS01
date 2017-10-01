@@ -16,7 +16,7 @@ namespace BPMS01Domain.Entities
     {
         public string id { get; set; }
         public string inspection_project_id { get; set; }
-        public string 职工_id { get; set; }
+        public string staff_id { get; set; }
         public bool is_response { get; set; }
         public bool scene_coff { get; set; }
         public bool plan_coff { get; set; }
