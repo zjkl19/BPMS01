@@ -30,6 +30,15 @@ namespace BPMS01WebUI.Controllers
         }
 
         /// <summary>
+        /// 列出职工信息
+        /// </summary>
+        /// <returns>PartialView:所有职工信息的视图</returns>
+        public PartialViewResult ListStaff()
+        {
+            return PartialView(repository.staff);
+        }
+
+        /// <summary>
         /// 添加职工信息
         /// </summary>
         /// <returns>ViewResult:添加职工信息的视图</returns>

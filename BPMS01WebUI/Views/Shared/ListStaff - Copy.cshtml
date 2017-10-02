@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BPMS01Domain.Entities.staff>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+        </th>
+
+        <th>
+            工号
+        </th>
+
+        <th>
+            姓名
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.HiddenFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.TextBoxFor(modelItem => item.staff_no, new { @readonly = "readonly" })
+            </td>
+
+            <td>
+                @Html.TextBoxFor(modelItem => item.staff_name, new { @readonly = "readonly" })
+            </td>
+        </tr>
+    }
+
+</table>
+

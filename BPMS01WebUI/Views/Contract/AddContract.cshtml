@@ -1,0 +1,116 @@
+﻿@model BPMS01WebUI.Models.AddContractViewModel
+
+@{
+    ViewBag.Title = "AddContract";
+}
+
+@*
+    <script src="../scripts/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            alert("xslbt!");
+        });
+    </script>
+*@
+
+<h2>AddContract</h2>
+
+@using (Html.BeginForm("AddContract", "Contract", FormMethod.Post))
+{
+    @Html.LabelFor(p=>p.contract_no, "合同编号")
+    @Html.TextBoxFor(p=>p.contract_no)
+    <br />            
+    @Html.LabelFor(p=> p.contract_name, "合同名称")
+    @Html.TextBoxFor(p=> p.contract_name)
+    <br />
+    @Html.LabelFor(p=> p.contract_amount, "合同金额")
+    @Html.TextBoxFor(p=> p.contract_amount)
+    <br />
+    @Html.LabelFor(p=> p.contract_signed_data, "合同签订日期")
+    @Html.TextBoxFor(p=> p.contract_signed_data)
+    <br />
+    @Html.LabelFor(p => p.contract_deadline, "合同期限")
+    @Html.TextBoxFor(p => p.contract_deadline)
+    <br />
+    @Html.LabelFor(p=> p.contract_agmt_wk_cnt, "合同约定工作内容")
+    @Html.TextAreaFor(p=> p.contract_agmt_wk_cnt)   //使用了TextAreaFor，不是TextBoxFor
+    <br />
+    @Html.LabelFor(p => p.project_location, "工程地点")
+    @Html.TextBoxFor(p => p.project_location)
+    <br />
+    @Html.LabelFor(p=> p.delegation_client, "委托单位")
+    @Html.TextBoxFor(p=> p.delegation_client)
+    <br />
+    @Html.LabelFor(p => p.dlg_contactperson, "委托单位联系人")
+    @Html.TextBoxFor(p => p.dlg_contactperson)
+    <br />
+    @Html.LabelFor(p => p.dlg_contactperson_phone, "委托单位联系人电话")
+    @Html.TextBoxFor(p => p.dlg_contactperson_phone)
+    <br />
+
+    @Html.LabelFor(p => p.staff_id, "承接人")
+    @Html.HiddenFor(p => p.staff_id, "")        //参考代码：@Html.Hidden("staff_id", "4562c49835d44f7a861f49af4593d6dc") //4562...为林迪南id
+    <input type="button" data-toggle="modal"  data-target="#popup_id" value="选择承接人" />
+                                                      
+    @Html.LabelFor(p => p.staff_name, "承接人姓名：")
+    @Html.LabelFor(p => p.staff_name, "")
+
+    <br />
+    @Html.LabelFor(p => p.accept_way, "承接方式")
+    @Html.TextBoxFor(p => p.accept_way)
+    <br />
+    @Html.LabelFor(p => p.is_corporation_signed, "单位是否签订")
+    @Html.CheckBoxFor(p => p.is_corporation_signed)
+    <br />
+    @Html.LabelFor(p => p.is_client_signed, "客户是否签订")
+    @Html.CheckBoxFor(p => p.is_client_signed)
+    <br />
+    
+
+    //<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">选择承接人</button>
+    //@Html.ActionLink("列出所有职工", "ListStaff", "Staff")
+    @Html.LabelFor(p=> p.staff_id, "")
+    <br />
+   //-----------------
+    //用分部视图
+    /*@foreach (var q in Model.staff)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(q =>q.staff_no)
+            </td>
+        </tr>
+    }
+    */
+    //-----------------
+    <input type="submit" value="添加" />
+}
+<br />@ViewBag.message
+
+<div class="modal fade" id="popup_id" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">  
+    <div class="modal-dialog modal-sm">  
+        <div class="modal-content text-left">  
+            <div class="modal-header">  
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>  
+                <h4 class="modal-title" id="myModalLabel">请选择职工</h4>  
+                  
+            </div>  
+            <form action="@Url.Action("AddContract")" method="POST">  
+                <div class="modal-body">  
+                    @Html.Action("ListStaff", "Staff")
+                    
+                </div>  
+                <div class="modal-footer">  
+                    <div style="display: inline-block">                                        
+                        <input type="submit" value="提交" />  
+                    </div>  
+                    <div style="display: inline-block">  
+                        <button class="btn btn-default" data-dismiss="modal">取消</button>  
+                    </div>  
+                </div>  
+            </form>  
+  
+        </div>  
+    </div>  
+</div>  
+

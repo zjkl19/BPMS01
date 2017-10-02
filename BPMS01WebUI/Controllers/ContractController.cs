@@ -10,6 +10,8 @@ using BPMS01Domain.Entities;
 
 using Ninject;  //重要！
 
+using BPMS01WebUI.Models;
+
 namespace BPMS01WebUI.Controllers
 {
     public class ContractController : Controller
@@ -30,26 +32,46 @@ namespace BPMS01WebUI.Controllers
         public ViewResult AddContract()
         {
             return View();
+
         }
 
         /// <summary>
-        /// 添加合同信息
+        /// 往合同模型添加职工id信息，往视图模型添加职工信息
         /// </summary>
-        /// <param name="fc">含有合同信息的表单</param>
-        /// <returns>ViewResult:添加合同信息后返回的视图</returns>
+        /// <param name="staffInfo">含有职工id，工号，姓名的信息</param>
+        /// <returns>ViewResult:含有职工id，工号，姓名的信息的AddContract View</returns>
         [HttpPost]
-        public ViewResult AddContract(FormCollection fc)
+        public ViewResult AddContract(staff staffInfo)
         {
-            ViewBag.message = "添加信息成功！";
-
-            var result = repository.AddContract(fc);
-
-            if (result == false)
+            var myViewModel = new AddContractViewModel
             {
-                ViewBag.message = "添加信息失败！";
-            }
-            return View();
+                staff_id = staffInfo.id,
+                staff_no = staffInfo.staff_no,
+                staff_name = staffInfo.staff_name
+            };
+            return View(myViewModel);
 
         }
+
+    /// <summary>
+    /// 添加合同信息
+    /// </summary>
+    /// <param name="fc">含有合同信息的表单</param>
+    /// <returns>ViewResult:添加合同信息后返回的视图</returns>
+    [HttpPost]
+    public ViewResult AddContract(FormCollection fc)
+    {
+        ViewBag.message = "添加信息成功！";
+
+        var result = repository.AddContract(fc);
+
+        if (result == false)
+        {
+            ViewBag.message = "添加信息失败！";
+        }
+
+        return View();
+
     }
+}
 }
