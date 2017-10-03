@@ -16,7 +16,7 @@
     </Key>
     <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
     <Property Name="staff_id" Type="char" MaxLength="32" Nullable="false" />
-    <Property Name="conrtact_no" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="contract_no" Type="char" MaxLength="13" Nullable="false" />
     <Property Name="contract_name" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="contract_amount" Type="money" Nullable="false" />
     <Property Name="contract_signed_data" Type="datetime" Nullable="false" />

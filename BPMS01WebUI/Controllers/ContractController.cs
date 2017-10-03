@@ -40,6 +40,7 @@ namespace BPMS01WebUI.Controllers
         /// </summary>
         /// <param name="staffInfo">含有职工id，工号，姓名的信息</param>
         /// <returns>ViewResult:含有职工id，工号，姓名的信息的AddContract View</returns>
+        [NonAction]
         [HttpPost]
         public ViewResult AddContract(staff staffInfo)
         {

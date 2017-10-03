@@ -45,8 +45,8 @@ namespace BPMS01Domain.Concrete
             string project_location = Convert.ToString(fc["project_location"]);
 
             string delegation_client = Convert.ToString(fc["delegation_client"]);
-            string dlg_contractperson = Convert.ToString(fc["dlg_contractperson"]);
-            string dlg_contractperson_phone = Convert.ToString(fc["dlg_contractperson_phone"]);
+            string dlg_contactperson = Convert.ToString(fc["dlg_contactperson"]);
+            string dlg_contactperson_phone = Convert.ToString(fc["dlg_contactperson_phone"]);
 
             string staff_id = Convert.ToString(fc["staff_id"]);
 
@@ -67,9 +67,9 @@ namespace BPMS01Domain.Concrete
             newData.contract_agmt_wk_cnt = contract_agmt_wk_cnt;
             newData.project_location = project_location;
             newData.delegation_client = delegation_client;
-            newData.dlg_contactperson = dlg_contractperson;
+            newData.dlg_contactperson = dlg_contactperson;
 
-            newData.dlg_contactperson_phone = dlg_contractperson_phone;
+            newData.dlg_contactperson_phone = dlg_contactperson_phone;
             newData.staff_id = staff_id;
             newData.accept_way = accept_way;
             newData.is_corporation_signed = is_corporation_signed;

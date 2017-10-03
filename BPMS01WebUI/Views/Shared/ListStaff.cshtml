@@ -2,12 +2,14 @@
 
 
 
-<table  class="table">
+<table id="staff_table" class="table">
+
     <tr>
         <th data-field="state" data-radio="true"></th>
+        <!--由于主键不显示，所以该th可以去掉
         <th>
         </th>
-
+        -->
         <th>
             工号
         </th>
@@ -21,16 +23,19 @@
     {
         <tr>
 
-            <td></td>
-            <td>
-                @Html.HiddenFor(modelItem => item.id)
+            <td>@Html.RadioButtonFor(modelItem => item.id, false)</td>
+            <td style="display: none">
+                @Html.DisplayFor(modelItem => item.id)
+                @*@Html.HiddenFor(modelItem => item.id, item.id)*@
             </td>
             <td>
-                @Html.TextBoxFor(modelItem => item.staff_no, new { @readonly = "readonly" })
+                @Html.DisplayFor(modelItem => item.staff_no)
+                @*@Html.TextBoxFor(modelItem => item.staff_no, new { @readonly = "readonly" })*@
             </td>
 
             <td>
-                @Html.TextBoxFor(modelItem => item.staff_name, new { @readonly = "readonly" })
+                @Html.DisplayFor(modelItem => item.staff_name)
+                @* @Html.TextBoxFor(modelItem => item.staff_name, new { @readonly = "readonly" })*@
             </td>
         </tr>
     }
