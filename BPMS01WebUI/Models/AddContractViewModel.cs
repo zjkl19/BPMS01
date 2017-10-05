@@ -5,6 +5,9 @@ using System.Web;
 
 using BPMS01Domain.Entities;
 
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+
 namespace BPMS01WebUI.Models
 {
     public class AddContractViewModel
@@ -21,6 +24,7 @@ namespace BPMS01WebUI.Models
         public string contract_name { get; set; }
         public decimal contract_amount { get; set; }
 
+        //[DataType(DataType.Date)]
         public DateTime contract_signed_data { get; set; }
         public long contract_deadline { get; set; }
         public string contract_agmt_wk_cnt { get; set; }

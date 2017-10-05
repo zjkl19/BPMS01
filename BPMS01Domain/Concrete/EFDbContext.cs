@@ -14,5 +14,7 @@ namespace BPMS01Domain.Concrete
         //这里第一个Staff是模型名，第2个是数据库中的表名
 
         public DbSet<contract> contract { get; set; }
+        public DbSet<bridge> bridge { get; set; }
+
     }
 }

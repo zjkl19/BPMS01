@@ -212,8 +212,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IBridgeRepository.cs" />
     <Compile Include="Abstract\IContractRepository.cs" />
     <Compile Include="Abstract\IStaffRepository.cs" />
+    <Compile Include="Concrete\EFBridgeRepository.cs" />
     <Compile Include="Concrete\EFContractRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFStaffRepository.cs" />

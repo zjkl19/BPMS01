@@ -1,0 +1,30 @@
+﻿@model BPMS01WebUI.Models.AddBridgeViewModel
+
+@{
+    ViewBag.Title = "AddBridge";
+}
+
+<h2>AddBridge</h2>
+@using (Html.BeginForm("AddBridge", "Bridge", FormMethod.Post))
+{
+    @Html.EditorForModel()
+
+    @Html.LabelFor(p => p.structure_type, "桥梁结构类型")
+    <br />
+    @Html.DropDownListFor(p => p.structure_type, new[] {
+    new SelectListItem() {Text="简支梁、板桥",
+    Value=Convert.ToString(1) },
+    new SelectListItem() {Text="石拱桥、圬工拱桥",
+    Value=Convert.ToString(2) },
+    new SelectListItem() {Text="连续梁桥、连续刚构桥",
+    Value=Convert.ToString(3) },
+    new SelectListItem() {Text="钢管混凝土拱桥、钢筋混凝土拱桥",
+    Value=Convert.ToString(4) },
+    new SelectListItem() {Text="悬索桥、斜拉桥",
+    Value=Convert.ToString(5) }
+    }, "请选择")
+    <br />
+    <input type="submit" value="添加" />
+}
+
+<br />@ViewBag.message
