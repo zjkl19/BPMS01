@@ -43,11 +43,49 @@
 
     })
 
+    $(function () {
+
+        $('#selectButton').on('click', function () {
+            id = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(0).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+            staff_no = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(1).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+            staff_name = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(2).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+            //alert(id);
+
+            //alert(staff_no); 
+
+            //alert(staff_name);   // 输出
+
+            //document.getElementById('staff_id').value = id; //javascript
+
+            $("#staff_id").attr("value", $.trim(id));
+            //alert($("#staff_id").val());
+
+            $("#staff_name").attr("value", staff_name);
+            //alert($("#staff_name").val());
+        })
+
+    })
+
 </script>
 
 <h2>AddContract</h2>
 
-<button id="testButton">测试按钮</button>
+ <!-- <button id="testButton">测试按钮</button> -->
 
 
 @using (Html.BeginForm("AddContract", "Contract", FormMethod.Post))
@@ -117,8 +155,8 @@
 
     //<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">选择承接人</button>
     //@Html.ActionLink("列出所有职工", "ListStaff", "Staff")
-    @Html.LabelFor(p => p.staff_id, "")
-    <br />
+    //@Html.LabelFor(p => p.staff_id, "")
+    //<br />
     //-----------------
     //用分部视图
     /*@foreach (var q in Model.staff)
@@ -143,20 +181,19 @@
                 <h4 class="modal-title" id="myModalLabel">请选择职工</h4>
 
             </div>
-            <form action="@Url.Action("AddContract")" method="POST">
+
                 <div class="modal-body">
                     @Html.Action("ListStaff", "Staff")
-
                 </div>
                 <div class="modal-footer">
                     <div style="display: inline-block">
-                        <input type="submit" value="提交" />
+                        <button id="selectButton" class="btn btn-default" data-dismiss="modal">选择</button>
                     </div>
                     <div style="display: inline-block">
                         <button class="btn btn-default" data-dismiss="modal">取消</button>
                     </div>
                 </div>
-            </form>
+
 
         </div>
     </div>
