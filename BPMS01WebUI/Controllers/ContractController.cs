@@ -26,6 +26,16 @@ namespace BPMS01WebUI.Controllers
         }
 
         /// <summary>
+        /// 列出合同信息
+        /// </summary>
+        /// <returns>PartialView:所有合同信息的视图</returns>
+        public PartialViewResult ListContract()
+        {
+            return PartialView(repository.contract);
+        }
+
+
+        /// <summary>
         /// 添加合同信息
         /// </summary>
         /// <returns>ViewResult:添加合同信息的视图</returns>

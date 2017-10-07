@@ -1,0 +1,43 @@
+﻿@model IEnumerable <BPMS01Domain.Entities.bridge>
+
+
+<table id="bridge_table" class="table">
+
+    <tr>
+        <th data-field="state" data-radio="true"></th>
+
+        <th>
+            桥梁名称
+        </th>
+
+        <th>
+            桥梁全长
+        </th>
+
+        <th>
+            桥梁宽度
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@Html.RadioButtonFor(modelItem => item.id, false)</td>
+            <td style="display: none">
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.width)
+            </td>
+        </tr>
+    }
+
+</table>
+

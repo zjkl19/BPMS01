@@ -23,9 +23,11 @@ namespace BPMS01Domain.Entities
         public string id { get; set; }
         public string contract_id { get; set; }
         public string bridge_id { get; set; }
+        public string name { get; set; }
         public Nullable<System.DateTime> enter_date { get; set; }
         public Nullable<System.DateTime> exit_date { get; set; }
         public decimal bridge_inspection { get; set; }
+        public Nullable<decimal> standard_price { get; set; }
     
         public virtual bridge bridge { get; set; }
         public virtual contract contract { get; set; }

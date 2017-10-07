@@ -224,6 +224,7 @@
     <Compile Include="Controllers\BridgeController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Inspection_projectController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Global.asax.cs">
@@ -233,6 +234,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddBridgeViewModel.cs" />
     <Compile Include="Models\AddContractViewModel.cs" />
+    <Compile Include="Models\AddInspection_projectViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -303,6 +305,9 @@
     <Content Include="Views\Bridge\AddBridge.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\structure_type.cshtml" />
+    <Content Include="Views\Inspection_project\AddInspection_project.cshtml" />
+    <Content Include="Views\Shared\ListContract.cshtml" />
+    <Content Include="Views\Shared\ListBridge.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

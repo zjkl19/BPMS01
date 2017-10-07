@@ -36,13 +36,14 @@
     <EntitySetMapping Name="inspection_project">
       <EntityTypeMapping TypeName="BPMS01Model.inspection_project">
         <MappingFragment StoreEntitySet="inspection_project">
-          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="contract_id" ColumnName="contract_id" />
           <ScalarProperty Name="bridge_id" ColumnName="bridge_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="enter_date" ColumnName="enter_date" />
           <ScalarProperty Name="exit_date" ColumnName="exit_date" />
           <ScalarProperty Name="bridge_inspection" ColumnName="bridge_inspection" />
+          <ScalarProperty Name="standard_price" ColumnName="standard_price" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -51,6 +52,7 @@
         <MappingFragment StoreEntitySet="r_bridge_inspection_staff">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="inspection_project_id" ColumnName="inspection_project_id" />
+          <ScalarProperty Name="staff_id" ColumnName="staff_id" />
           <ScalarProperty Name="is_response" ColumnName="is_response" />
           <ScalarProperty Name="scene_coff" ColumnName="scene_coff" />
           <ScalarProperty Name="plan_coff" ColumnName="plan_coff" />

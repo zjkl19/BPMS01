@@ -42,9 +42,11 @@
           <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
           <Property Name="contract_id" Type="char" MaxLength="32" />
           <Property Name="bridge_id" Type="char" MaxLength="32" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="enter_date" Type="datetime" />
           <Property Name="exit_date" Type="datetime" />
           <Property Name="bridge_inspection" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="standard_price" Type="money" />
         </EntityType>
         <EntityType Name="r_bridge_inspection_staff">
           <Key>
@@ -52,7 +54,7 @@
           </Key>
           <Property Name="id" Type="char" MaxLength="32" Nullable="false" />
           <Property Name="inspection_project_id" Type="char" MaxLength="32" Nullable="false" />
-          <Property Name="职工_id" Type="char" MaxLength="32" Nullable="false" />
+          <Property Name="staff_id" Type="char" MaxLength="32" Nullable="false" />
           <Property Name="is_response" Type="bit" Nullable="false" />
           <Property Name="scene_coff" Type="bit" Nullable="false" />
           <Property Name="plan_coff" Type="bit" Nullable="false" />
@@ -134,7 +136,7 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="r_bridge_inspection_staff">
-              <PropertyRef Name="职工_id" />
+              <PropertyRef Name="staff_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -210,9 +212,11 @@
           <Property Name="id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="contract_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
           <Property Name="bridge_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="enter_date" Type="DateTime" Precision="3" />
           <Property Name="exit_date" Type="DateTime" Precision="3" />
           <Property Name="bridge_inspection" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="standard_price" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="bridge" Relationship="Self.FK_INSPECTI_HAVE_BRIDGE" FromRole="inspection_project" ToRole="bridge" />
           <NavigationProperty Name="contract" Relationship="Self.FK_INSPECTI_HAVE4_CONTRACT" FromRole="inspection_project" ToRole="contract" />
           <NavigationProperty Name="r_bridge_inspection_staff" Relationship="Self.FK_R_BRIDGE_R_BRIDGE__INSPECTI" FromRole="inspection_project" ToRole="r_bridge_inspection_staff" />
@@ -384,9 +388,11 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="contract_id" ColumnName="contract_id" />
                 <ScalarProperty Name="bridge_id" ColumnName="bridge_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="enter_date" ColumnName="enter_date" />
                 <ScalarProperty Name="exit_date" ColumnName="exit_date" />
                 <ScalarProperty Name="bridge_inspection" ColumnName="bridge_inspection" />
+                <ScalarProperty Name="standard_price" ColumnName="standard_price" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -395,7 +401,7 @@
               <MappingFragment StoreEntitySet="r_bridge_inspection_staff">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="inspection_project_id" ColumnName="inspection_project_id" />
-                <ScalarProperty Name="staff_id" ColumnName="职工_id" />
+                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
                 <ScalarProperty Name="is_response" ColumnName="is_response" />
                 <ScalarProperty Name="scene_coff" ColumnName="scene_coff" />
                 <ScalarProperty Name="plan_coff" ColumnName="plan_coff" />

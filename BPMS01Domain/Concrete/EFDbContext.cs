@@ -15,6 +15,7 @@ namespace BPMS01Domain.Concrete
 
         public DbSet<contract> contract { get; set; }
         public DbSet<bridge> bridge { get; set; }
+        public DbSet<inspection_project> inspection_project { get; set; }
 
     }
 }

@@ -23,6 +23,16 @@ namespace BPMS01WebUI.Controllers
         }
 
         /// <summary>
+        /// 列出桥梁信息
+        /// </summary>
+        /// <returns>PartialView:所有桥梁信息的视图</returns>
+        public PartialViewResult ListBridge()
+        {
+            return PartialView(repository.bridge);
+        }
+
+
+        /// <summary>
         /// 添加桥梁信息
         /// </summary>
         /// <returns>ViewResult:添加桥梁信息的视图</returns>

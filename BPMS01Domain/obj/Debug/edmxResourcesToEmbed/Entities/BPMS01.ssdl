@@ -41,6 +41,7 @@
     <Property Name="enter_date" Type="datetime" />
     <Property Name="exit_date" Type="datetime" />
     <Property Name="bridge_inspection" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="standard_price" Type="money" />
   </EntityType>
   <EntityType Name="r_bridge_inspection_staff">
     <Key>

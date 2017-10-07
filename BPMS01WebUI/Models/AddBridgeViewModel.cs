@@ -25,12 +25,12 @@ namespace BPMS01WebUI.Models
         public double width { get; set; }
 
 
-
         //[Display(Name = "结构类型"), EnumDataType(typeof(Type))]
         //[UIHint("Enum")]
         //public structure_type structure_type { get; set; }
         [ScaffoldColumn(false)]
         public decimal structure_type { get; set; }
+
 
     }
     /*

@@ -214,40 +214,42 @@
   <ItemGroup>
     <Compile Include="Abstract\IBridgeRepository.cs" />
     <Compile Include="Abstract\IContractRepository.cs" />
+    <Compile Include="Abstract\IInspection_projectRepository.cs" />
     <Compile Include="Abstract\IStaffRepository.cs" />
     <Compile Include="Concrete\EFBridgeRepository.cs" />
     <Compile Include="Concrete\EFContractRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
+    <Compile Include="Concrete\EFInspection_projectRepository.cs" />
     <Compile Include="Concrete\EFStaffRepository.cs" />
-    <Compile Include="Entities\BPPMS01.Context.cs">
+    <Compile Include="Entities\BPMS01.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BPPMS01.Context.tt</DependentUpon>
+      <DependentUpon>BPMS01.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\BPPMS01.cs">
+    <Compile Include="Entities\BPMS01.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BPPMS01.tt</DependentUpon>
+      <DependentUpon>BPMS01.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\BPPMS01.Designer.cs">
+    <Compile Include="Entities\BPMS01.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BPPMS01.edmx</DependentUpon>
+      <DependentUpon>BPMS01.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\bridge.cs">
-      <DependentUpon>BPPMS01.tt</DependentUpon>
+      <DependentUpon>BPMS01.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\contract.cs">
-      <DependentUpon>BPPMS01.tt</DependentUpon>
+      <DependentUpon>BPMS01.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\inspection_project.cs">
-      <DependentUpon>BPPMS01.tt</DependentUpon>
+      <DependentUpon>BPMS01.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\r_bridge_inspection_staff.cs">
-      <DependentUpon>BPPMS01.tt</DependentUpon>
+      <DependentUpon>BPMS01.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\staff.cs">
-      <DependentUpon>BPPMS01.tt</DependentUpon>
+      <DependentUpon>BPMS01.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -257,26 +259,19 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Entities\BPPMS01.Context.tt">
+    <Content Include="Entities\BPMS01.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BPPMS01.edmx</DependentUpon>
-      <LastGenOutput>BPPMS01.Context.cs</LastGenOutput>
+      <DependentUpon>BPMS01.edmx</DependentUpon>
+      <LastGenOutput>BPMS01.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entities\BPPMS01.tt">
+    <Content Include="Entities\BPMS01.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BPPMS01.edmx</DependentUpon>
-      <LastGenOutput>BPPMS01.cs</LastGenOutput>
+      <DependentUpon>BPMS01.edmx</DependentUpon>
+      <LastGenOutput>BPMS01.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Entities\BPPMS01.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BPPMS01.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Entities\BPPMS01.edmx.diagram">
-      <DependentUpon>BPPMS01.edmx</DependentUpon>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -318,6 +313,13 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
+    <EntityDeploy Include="Entities\BPMS01.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BPMS01.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entities\BPMS01.edmx.diagram">
+      <DependentUpon>BPMS01.edmx</DependentUpon>
+    </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

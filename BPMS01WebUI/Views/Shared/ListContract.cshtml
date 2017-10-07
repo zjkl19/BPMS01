@@ -1,0 +1,37 @@
+﻿@model IEnumerable <BPMS01Domain.Entities.contract>
+
+
+<table id="contract_table" class="table">
+
+    <tr>
+        <th data-field="state" data-radio="true"></th>
+
+        <th>
+            合同编号
+        </th>
+
+        <th>
+            合同名称
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@Html.RadioButtonFor(modelItem => item.id, false)</td>
+            <td style="display: none">
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contract_no)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.contract_name)
+            </td>
+        </tr>
+    }
+
+</table>
+

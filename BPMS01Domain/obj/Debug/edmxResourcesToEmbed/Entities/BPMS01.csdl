@@ -40,13 +40,14 @@
     <Property Name="id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="contract_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
     <Property Name="bridge_id" Type="String" MaxLength="32" FixedLength="true" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="enter_date" Type="DateTime" Precision="3" />
     <Property Name="exit_date" Type="DateTime" Precision="3" />
     <Property Name="bridge_inspection" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="standard_price" Type="Decimal" Precision="19" Scale="4" />
     <NavigationProperty Name="bridge" Relationship="Self.FK_INSPECTI_HAVE_BRIDGE" FromRole="inspection_project" ToRole="bridge" />
     <NavigationProperty Name="contract" Relationship="Self.FK_INSPECTI_HAVE4_CONTRACT" FromRole="inspection_project" ToRole="contract" />
     <NavigationProperty Name="r_bridge_inspection_staff" Relationship="Self.FK_R_BRIDGE_R_BRIDGE__INSPECTI" FromRole="inspection_project" ToRole="r_bridge_inspection_staff" />
-    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="r_bridge_inspection_staff">
     <Key>
@@ -170,21 +171,5 @@
       <End Role="staff" EntitySet="staff" />
       <End Role="r_bridge_inspection_staff" EntitySet="r_bridge_inspection_staff" />
     </AssociationSet>
-    <AssociationSet Name="FK_R_BRIDGE_R_BRIDGE__STAFF1" Association="BPMS01Model.FK_R_BRIDGE_R_BRIDGE__STAFF1">
-      <End Role="staff" EntitySet="staff" />
-      <End Role="r_bridge_inspection_staff" EntitySet="r_bridge_inspection_staff" />
-    </AssociationSet>
   </EntityContainer>
-  <Association Name="FK_R_BRIDGE_R_BRIDGE__STAFF1">
-    <End Type="BPMS01Model.staff" Role="staff" Multiplicity="1" />
-    <End Type="BPMS01Model.r_bridge_inspection_staff" Role="r_bridge_inspection_staff" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="staff">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="r_bridge_inspection_staff">
-        <PropertyRef Name="staff_id1" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

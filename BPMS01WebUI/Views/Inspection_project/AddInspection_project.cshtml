@@ -1,0 +1,159 @@
+﻿@model BPMS01WebUI.Models.AddInspection_projectViewModel
+
+@{
+    ViewBag.Title = "AddInspection_project";
+}
+
+<script src="../Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    
+    $(function () {
+
+        $('#selectContractButton').on('click', function () {
+            id = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(0).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 合同id
+
+            contract_no = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(1).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 合同编号
+
+            contract_name = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(2).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   //合同名称
+
+            $("#contract_id").attr("value", $.trim(id));
+            //alert($("#staff_id").val());
+
+            $("#contract_name").attr("value", contract_name);
+            //alert($("#staff_name").val());
+        })
+    })
+
+    $(function () {
+
+        $('#selectBridgeButton').on('click', function () {
+            id = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(0).text();  
+
+            }).get();   // 桥梁id
+
+            name = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(1).text();  
+
+            }).get();   // 桥梁名称
+
+
+
+            $("#bridge_id").attr("value", $.trim(id));
+            //alert($("#staff_id").val());
+
+            $("#bridge_name").attr("value", name);
+            //alert($("#staff_name").val());
+        })
+    })
+   
+
+</script>
+
+<h2>AddInspection_project</h2>
+
+@using (Html.BeginForm("AddInspection_project", "Inspection_project", FormMethod.Post))
+{
+    @Html.EditorForModel()
+
+    @Html.LabelFor(p => p.bridge_inspection, "桥梁检测类型")
+    <br />
+    @Html.DropDownListFor(p => p.bridge_inspection, new[] {
+    new SelectListItem() {Text="常规定期检测",
+    Value=Convert.ToString(1) },
+    new SelectListItem() {Text="结构定期检测",
+    Value=Convert.ToString(2) },
+    new SelectListItem() {Text="静力荷载试验",
+    Value=Convert.ToString(3) },
+    new SelectListItem() {Text="动力荷载试验",
+    Value=Convert.ToString(4) }
+    }, "请选择")
+    <br />
+
+    @Html.LabelFor(p => p.contract_id, "关联合同")
+    //参考AddContract.cshtml
+    @Html.Hidden("contract_id", "")
+    <input type="button" data-toggle="modal" data-target="#popup_contract" value="选择合同" />
+
+    @Html.Label("合同名称：")
+    @Html.TextBoxFor(p => p.contract_name, new { @readonly = "readonly" })
+    <br />
+
+    @Html.LabelFor(p => p.bridge_id, "关联合同")
+    //参考AddContract.cshtml
+    @Html.Hidden("bridge_id", "")
+    <input type="button" data-toggle="modal" data-target="#popup_bridge" value="选择桥梁" />
+
+    @Html.Label("桥梁名称：")
+    @Html.TextBoxFor(p => p.bridge_name, new { @readonly = "readonly" })
+    <br />
+    <input type="submit" value="添加" />
+}
+
+<br />@ViewBag.message
+
+<div class="modal fade" id="popup_contract" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content text-left">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">请选择合同</h4>
+
+            </div>
+
+            <div class="modal-body">
+                @Html.Action("ListContract", "Contract")
+            </div>
+            <div class="modal-footer">
+                <div style="display: inline-block">
+                    <button id="selectContractButton" class="btn btn-default" data-dismiss="modal">选择</button>
+                </div>
+                <div style="display: inline-block">
+                    <button class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="popup_bridge" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content text-left">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">请选择桥梁</h4>
+
+            </div>
+
+            <div class="modal-body">
+                @Html.Action("ListBridge", "Bridge")
+            </div>
+            <div class="modal-footer">
+                <div style="display: inline-block">
+                    <button id="selectBridgeButton" class="btn btn-default" data-dismiss="modal">选择</button>
+                </div>
+                <div style="display: inline-block">
+                    <button class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
