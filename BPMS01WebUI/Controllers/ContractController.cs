@@ -64,25 +64,25 @@ namespace BPMS01WebUI.Controllers
 
         }
 
-    /// <summary>
-    /// 添加合同信息
-    /// </summary>
-    /// <param name="fc">含有合同信息的表单</param>
-    /// <returns>ViewResult:添加合同信息后返回的视图</returns>
-    [HttpPost]
-    public ViewResult AddContract(FormCollection fc)
-    {
-        ViewBag.message = "添加信息成功！";
-
-        var result = repository.AddContract(fc);
-
-        if (result == false)
+        /// <summary>
+        /// 添加合同信息
+        /// </summary>
+        /// <param name="fc">含有合同信息的表单</param>
+        /// <returns>ViewResult:添加合同信息后返回的视图</returns>
+        [HttpPost]
+        public ViewResult AddContract(FormCollection fc)
         {
-            ViewBag.message = "添加信息失败！";
+            ViewBag.message = "添加信息成功！";
+
+            var result = repository.AddContract(fc);
+
+            if (result == false)
+            {
+                ViewBag.message = "添加信息失败！";
+            }
+
+            return View();
+
         }
-
-        return View();
-
     }
-}
 }

@@ -25,6 +25,15 @@ namespace BPMS01WebUI.Controllers
         }
 
         /// <summary>
+        /// 列出项目信息
+        /// </summary>
+        /// <returns>PartialView:所有项目信息的视图</returns>
+        public PartialViewResult ListInspection_project()
+        {
+            return PartialView(repository.inspection_project);
+        }
+
+        /// <summary>
         /// 添加检测项目信息
         /// </summary>
         /// <returns>ViewResult:添加检测项目信息的视图</returns>

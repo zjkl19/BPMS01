@@ -1,16 +1,16 @@
-﻿@model IEnumerable <BPMS01Domain.Entities.contract>
+﻿@model IEnumerable < BPMS01Domain.Entities.inspection_project>
 
-<table id="contract_table" class="table">
+<table id="inspection_project_table" class="table">
 
     <tr>
         <th data-field="state" data-radio="true"></th>
 
         <th>
-            合同编号
+            项目名称
         </th>
 
         <th>
-            合同名称
+            检测类型
         </th>
     </tr>
 
@@ -23,11 +23,10 @@
                 @Html.DisplayFor(modelItem => item.id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.contract_no)
+                @Html.DisplayFor(modelItem => item.name)
             </td>
-
             <td>
-                @Html.DisplayFor(modelItem => item.contract_name)
+                @Html.DisplayFor(modelItem => item.bridge_inspection)
             </td>
         </tr>
     }

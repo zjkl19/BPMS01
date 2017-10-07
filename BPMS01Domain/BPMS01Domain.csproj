@@ -215,11 +215,13 @@
     <Compile Include="Abstract\IBridgeRepository.cs" />
     <Compile Include="Abstract\IContractRepository.cs" />
     <Compile Include="Abstract\IInspection_projectRepository.cs" />
+    <Compile Include="Abstract\IR_bridge_inspection_staffRepository.cs" />
     <Compile Include="Abstract\IStaffRepository.cs" />
     <Compile Include="Concrete\EFBridgeRepository.cs" />
     <Compile Include="Concrete\EFContractRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFInspection_projectRepository.cs" />
+    <Compile Include="Concrete\EFR_bridge_inspection_staffRepository.cs" />
     <Compile Include="Concrete\EFStaffRepository.cs" />
     <Compile Include="Entities\BPMS01.Context.cs">
       <AutoGen>True</AutoGen>

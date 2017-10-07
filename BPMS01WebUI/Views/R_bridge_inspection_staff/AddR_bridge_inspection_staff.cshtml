@@ -1,0 +1,198 @@
+﻿@model BPMS01WebUI.Models.AddR_bridge_inspection_staffViewModel
+
+@{
+    ViewBag.Title = "AddR_bridge_inspection_staff";
+}
+
+<h2>AddR_bridge_inspection_staff</h2>
+
+<script src="../Scripts/jquery-1.10.2.min.js"></script>
+<script>
+
+    $(function () {
+
+        $('#selectInspection_projectButton').on('click', function () {
+            id = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(0).text();
+
+            }).get();   // 项目id
+
+            inspection_project_name = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(1).text();  
+
+            }).get();   // 项目名称
+
+            $("#inspection_project_id").attr("value", $.trim(id));
+
+            $("#inspection_project_name").attr("value", inspection_project_name);
+        })
+    })
+
+    $(function () {
+
+        $('#selectStaffButton').on('click', function () {
+            id = $(":input:radio:checked").map(function () {
+                return $(this).parent().siblings('td').eq(0).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+            staff_no = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(1).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+            staff_name = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(2).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+ 
+
+            $("#staff_id").attr("value", $.trim(id));
+
+            $("#staff_name").attr("value", staff_name);
+        })
+    })
+
+
+</script>
+
+<h2>AddInspection_project</h2>
+
+@using (Html.BeginForm("AddR_bridge_inspection_staff", "R_bridge_inspection_staff", FormMethod.Post))
+{
+    @Html.LabelFor(p => p.inspection_project_id, "项目")
+    @Html.Hidden("inspection_project_id", "")
+    <input type="button" data-toggle="modal" data-target="#popup_inspection_project" value="选择项目" />
+    @Html.Label("项目名称：")
+    @Html.TextBoxFor(p => p.inspection_project_name, new { @readonly = "readonly" })
+    <br />
+
+    @Html.LabelFor(p => p.staff_id, "选择职工")
+    @Html.Hidden("staff_id", "")
+    <input type="button" data-toggle="modal" data-target="#popup_staff" value="选择职工" />
+    @Html.Label("职工姓名：")
+    @Html.TextBoxFor(p => p.staff_name, new { @readonly = "readonly" })
+    <br />
+
+    @Html.EditorForModel()
+
+    @Html.LabelFor(p => p.is_response, "项目负责")
+    //@Html.CheckBoxFor(p => p.is_client_signed)
+    @Html.DropDownListFor(p => p.is_response, new[] {
+    new SelectListItem() {Text="是",
+    Value=bool.TrueString },
+    new SelectListItem() {Text="否",
+    Value=bool.FalseString }
+    }, "请选择")
+    <br />
+
+    @Html.LabelFor(p => p.scene_coff, "现场检测")
+    //@Html.CheckBoxFor(p => p.is_client_signed)
+    @Html.DropDownListFor(p => p.scene_coff, new[] {
+    new SelectListItem() {Text="是",
+    Value=bool.TrueString },
+    new SelectListItem() {Text="否",
+    Value=bool.FalseString }
+    }, "请选择")
+    <br />
+
+    @Html.LabelFor(p => p.plan_coff, "方案制定")
+    //@Html.CheckBoxFor(p => p.is_client_signed)
+    @Html.DropDownListFor(p => p.plan_coff, new[] {
+    new SelectListItem() {Text="是",
+    Value=bool.TrueString },
+    new SelectListItem() {Text="否",
+    Value=bool.FalseString }
+    }, "请选择")
+    <br />
+
+    @Html.LabelFor(p => p.report_coff, "报告撰写")
+    //@Html.CheckBoxFor(p => p.is_client_signed)
+    @Html.DropDownListFor(p => p.report_coff, new[] {
+    new SelectListItem() {Text="是",
+    Value=bool.TrueString },
+    new SelectListItem() {Text="否",
+    Value=bool.FalseString }
+    }, "请选择")
+    <br />
+
+    @Html.LabelFor(p => p.report_check_coff, "报告校核")
+    //@Html.CheckBoxFor(p => p.is_client_signed)
+    @Html.DropDownListFor(p => p.report_check_coff, new[] {
+    new SelectListItem() {Text="是",
+    Value=bool.TrueString },
+    new SelectListItem() {Text="否",
+    Value=bool.FalseString }
+    }, "请选择")
+    <br />
+
+    @Html.LabelFor(p => p.others_coff, "其它")
+    //@Html.CheckBoxFor(p => p.is_client_signed)
+    @Html.DropDownListFor(p => p.others_coff, new[] {
+    new SelectListItem() {Text="是",
+    Value=bool.TrueString },
+    new SelectListItem() {Text="否",
+    Value=bool.FalseString }
+    }, "请选择")
+    <br />
+    <input type="submit" value="添加" />
+}
+
+<br />@ViewBag.message
+
+<div class="modal fade" id="popup_inspection_project" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content text-left">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">请选择合同</h4>
+
+            </div>
+
+            <div class="modal-body">
+                @Html.Action("ListInspection_project", "Inspection_project")
+            </div>
+            <div class="modal-footer">
+                <div style="display: inline-block">
+                    <button id="selectInspection_projectButton" class="btn btn-default" data-dismiss="modal">选择</button>
+                </div>
+                <div style="display: inline-block">
+                    <button class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="popup_staff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content text-left">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">请选择桥梁</h4>
+
+            </div>
+
+            <div class="modal-body">
+                @Html.Action("ListStaff", "Staff")
+            </div>
+            <div class="modal-footer">
+                <div style="display: inline-block">
+                    <button id="selectStaffButton" class="btn btn-default" data-dismiss="modal">选择</button>
+                </div>
+                <div style="display: inline-block">
+                    <button class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -226,6 +226,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Inspection_projectController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\R_bridge_inspection_staffController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -235,6 +236,7 @@
     <Compile Include="Models\AddBridgeViewModel.cs" />
     <Compile Include="Models\AddContractViewModel.cs" />
     <Compile Include="Models\AddInspection_projectViewModel.cs" />
+    <Compile Include="Models\AddR_bridge_inspection_staffViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -308,6 +310,8 @@
     <Content Include="Views\Inspection_project\AddInspection_project.cshtml" />
     <Content Include="Views\Shared\ListContract.cshtml" />
     <Content Include="Views\Shared\ListBridge.cshtml" />
+    <Content Include="Views\Shared\ListInspection_project.cshtml" />
+    <Content Include="Views\R_bridge_inspection_staff\AddR_bridge_inspection_staff.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
