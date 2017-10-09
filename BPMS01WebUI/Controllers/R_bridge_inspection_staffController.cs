@@ -27,6 +27,43 @@ namespace BPMS01WebUI.Controllers
 
 
         /// <summary>
+        ///通过职工id查询职工的参与情况
+        /// </summary>
+        /// <returns>查询界面默认视图<see cref="join_r_bridge_inspection_staff"/></returns>
+        public ViewResult  Query_R_bridge_inspection_staff_By_staff_id()
+        {
+            ViewBag.query = 0;
+            return View();
+        }
+
+        /// <summary>
+        /// 提交表单中的职工id进行查询
+        /// </summary>
+        /// <returns>查询界面视图</returns>
+        [HttpPost]
+        public ViewResult Query_R_bridge_inspection_staff_By_staff_id(FormCollection fc)
+        {
+            ViewBag.query = 1;
+
+            string staff_id = fc["staff_id"];
+            ViewBag.staff_id = staff_id;
+
+            return View();
+        }
+
+        /// <summary>
+        ///列出指定职工id的职工项目参与情况
+        /// </summary>
+        /// <param name="staff_id"><see cref="BPMS01Domain.Entities.staff.id"/></param>
+        /// <returns>含有职工项目参与信息的ViewResult<see cref="join_r_bridge_inspection_staff"/></returns>
+        [ChildActionOnly]
+        [HttpPost]
+        public PartialViewResult  List_R_bridge_inspection_staff_By_staff_id(string staff_id)
+        {
+            return PartialView(repository.Query_R_bridge_inspection_staff_By_staff_id(staff_id));
+        }
+
+        /// <summary>
         /// 添加项目参与信息
         /// </summary>
         /// <returns>ViewResult:添加项目参与信息的视图</returns>

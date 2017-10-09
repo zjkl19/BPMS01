@@ -250,6 +250,7 @@
     <Compile Include="Entities\r_bridge_inspection_staff.cs">
       <DependentUpon>BPMS01.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\join_r_bridge_inspection_staff.cs" />
     <Compile Include="Entities\staff.cs">
       <DependentUpon>BPMS01.tt</DependentUpon>
     </Compile>

@@ -239,6 +239,7 @@
     <Compile Include="Models\AddR_bridge_inspection_staffViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Query_R_bridge_inspection_staff_By_staff_idViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -312,6 +313,8 @@
     <Content Include="Views\Shared\ListBridge.cshtml" />
     <Content Include="Views\Shared\ListInspection_project.cshtml" />
     <Content Include="Views\R_bridge_inspection_staff\AddR_bridge_inspection_staff.cshtml" />
+    <Content Include="Views\Shared\List_R_bridge_inspection_staff_By_staff_id.cshtml" />
+    <Content Include="Views\R_bridge_inspection_staff\Query_R_bridge_inspection_staff_By_staff_id.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

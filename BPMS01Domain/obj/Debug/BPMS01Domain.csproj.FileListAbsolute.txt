@@ -84,8 +84,8 @@ D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.Owin.Security.Twitter.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\vsProjects\BPMS01\BPMS01Domain\obj\Debug\BPMS01Domain.dll
 D:\vsProjects\BPMS01\BPMS01Domain\obj\Debug\BPMS01Domain.pdb
-D:\vsProjects\BPMS01\BPMS01Domain\obj\Debug\BPMS01Domain.csprojResolveAssemblyReference.cache
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.ApplicationInsights.TraceListener.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Diagnostics.DiagnosticSource.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.ApplicationInsights.TraceListener.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Diagnostics.DiagnosticSource.xml
+D:\vsProjects\BPMS01\BPMS01Domain\obj\Debug\BPMS01Domain.csprojResolveAssemblyReference.cache
