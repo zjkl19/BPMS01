@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 using BPMS01Domain.Abstract;
 using BPMS01Domain.Entities;
+using BPMS01Domain.Models;
 
 using Ninject;  //重要！
 
@@ -31,6 +32,25 @@ namespace BPMS01WebUI.Controllers
         public PartialViewResult ListInspection_project()
         {
             return PartialView(repository.inspection_project);
+        }
+
+        /// <summary>
+        /// 计算标准产值
+        /// </summary>
+        /// <returns>null</returns>
+        
+        //改注释,补单元测试？
+        [HttpPost]
+        public ActionResult GetStd_pdt_value(FormCollection fc)
+        {
+
+            int bridgeStructure_type = Convert.ToInt32(fc["bridge_structure_type"]);  //桥梁结构类型
+            int inspection_type = Convert.ToInt32(fc["bridge_inspection"]);           //检测类型
+            double bridgeLength= Convert.ToDouble(fc["bridge_length"]);
+            double bridgeWidth = Convert.ToDouble(fc["bridge_width"]);
+            //int bridgeStructure_type, double bridgeLength, double bridgeWidth, int bridgeNspan, int inspection_type
+            TempData["std_pdt_value"] = GetQuota.GetStdPdtValue(bridgeStructure_type, bridgeLength, bridgeWidth,1, inspection_type);
+            return RedirectToAction("AddInspection_project");
         }
 
         /// <summary>

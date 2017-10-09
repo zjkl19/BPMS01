@@ -4,8 +4,11 @@
     ViewBag.Title = "AddInspection_project";
 }
 
-<script src="../Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script>
+
+    //windows.bridge_id = 0;
+    //windows.bridge_inspection = 0;
     
     $(function () {
 
@@ -51,11 +54,36 @@
 
             }).get();   // 桥梁名称
 
+            structure_type = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(2).text();
+
+            }).get();   // 桥梁结构形式
+
+            length = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(3).text();
+
+            }).get();   // 桥梁总长
+
+            width = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(4).text();
+
+            }).get();   // 桥梁宽度
+
 
 
             $("#bridge_id").attr("value", $.trim(id));
 
             $("#bridge_name").attr("value", name);
+
+            $("#bridge_structure_type").attr("value", parseInt(structure_type));
+
+            $("#bridge_length").attr("value", length);
+
+            $("#bridge_width").attr("value", width);
+
         })
     })
    
@@ -67,6 +95,14 @@
 @using (Html.BeginForm("AddInspection_project", "Inspection_project", FormMethod.Post))
 {
     @Html.EditorForModel()
+
+    @Html.Label("收费标准价格：")
+    //@Html.TextBoxFor(p => p.standard_price)
+    @Html.TextBox("standard_price",TempData["std_pdt_value"])
+    //@Html.ActionLink("自动计算","GetStd_pdt_value")
+    //<button type="submit" id="button1" name="button1" formaction='@Url.Action("GetStd_pdt_value", "Inspection_project",new {bridge_id=0, bridge_inspection=1})'>自动计算</button>
+    <button type="submit" id="button1" name="button1" formaction='@Url.Action("GetStd_pdt_value", "Inspection_project")'>自动计算</button>
+    <br />
 
     @Html.LabelFor(p => p.bridge_inspection, "桥梁检测类型")
     <br />
@@ -91,7 +127,7 @@
     @Html.TextBoxFor(p => p.contract_name, new { @readonly = "readonly" })
     <br />
 
-    @Html.LabelFor(p => p.bridge_id, "关联合同")
+    @Html.LabelFor(p => p.bridge_id, "关联桥梁")
     //参考AddContract.cshtml
     @Html.Hidden("bridge_id", "")
     <input type="button" data-toggle="modal" data-target="#popup_bridge" value="选择桥梁" />

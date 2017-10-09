@@ -9,6 +9,9 @@
         <th>
             桥梁名称
         </th>
+        <th>
+            桥梁结构类型
+        </th>
 
         <th>
             桥梁全长
@@ -29,6 +32,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.structure_type)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.length)
