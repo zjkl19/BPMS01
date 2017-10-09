@@ -5,16 +5,16 @@ using System.Web;
 
 namespace BPMS01Domain.Models
 {
-    public class GetQuota
+    public static class GetQuota
     {
-        public double standard_product_value;  //标准产值
+        public static double standard_product_value;  //标准产值
         
         //public double[,,] QuotaArray = new double[5, 4, 6] {
 
         //定额计算表格
         //请参考收费标准进行匹配
         //每一行表示每一种桥型
-        protected double[,,] QuotaArray = new double[, , ] { { { 12000, 120, 30,120,30,0 },{25000, 150, 30,150,40,0 },{60000, 0, 0,0,0,30000 },{25000, 0, 0,0,0,10000 }},
+        public static double[,,] QuotaArray = new double[, , ] { { { 12000, 120, 30,120,30,0 },{25000, 150, 30,150,40,0 },{60000, 0, 0,0,0,30000 },{25000, 0, 0,0,0,10000 }},
                                        { { 30000, 100, 30,100,40,0 },{35000, 120, 30,120,40,0 },{65000, 0, 0,0,0,30000 },{30000, 0, 0,0,0,15000 } },
                                        { { 35000, 120, 100,120,40,0 },{50000, 150, 100,150,40,0 },{80000, 0, 0,0,0,40000 },{40000, 0, 0,0,0,20000 } },
                                        { { 50000, 120, 100,120,40,0 },{70000, 150, 100,150,40,0 },{100000, 0, 0,0,0,50000 },{60000, 0, 0,0,0,0 } },
@@ -27,7 +27,7 @@ namespace BPMS01Domain.Models
         /// </summary>
         /// <param name="fc">包含项目id、职工id等在内的表单信息</param>
         /// <returns>添加成功返回1，否则返回0</returns>
-        public double GetStdPdtValue(int bridgeStructure_type, double bridgeLength, double bridgeWidth, int bridgeNspan, int inspection_type)
+        public static double GetStdPdtValue(int bridgeStructure_type, double bridgeLength, double bridgeWidth, int bridgeNspan, int inspection_type)
         {
             var myBridge =new bridge(bridgeStructure_type, bridgeLength, bridgeWidth, bridgeNspan);
             var st = myBridge.structure_type;
