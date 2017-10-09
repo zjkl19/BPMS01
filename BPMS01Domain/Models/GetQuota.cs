@@ -7,5 +7,6 @@ namespace BPMS01Domain.Models
 {
     public class GetQuota
     {
+        public int std_price;
     }
 }
