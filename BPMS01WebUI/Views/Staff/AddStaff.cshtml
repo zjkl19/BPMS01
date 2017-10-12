@@ -1,4 +1,4 @@
-﻿@model BPMS01Domain.Entities.staff
+﻿@model BPMS01WebUI.Models.AddStaffViewModel
 
 @{
     ViewBag.Title = "AddStaff";
@@ -8,36 +8,11 @@
 
 @using (Html.BeginForm("AddStaff", "Staff", FormMethod.Post))
 {
-    @Html.Label("staff_no", "工号")
-    @Html.TextBoxFor(p => p.staff_no)
+    @Html.EditorForModel()
+    <br/>
+    @Html.EnumDropDownListFor(x => x.gender, new BPMS01WebUI.Models.gender())
     <br />
-    @Html.Label("staff_password", "密码")
-    @Html.TextBoxFor(p=>p.staff_password)
-    <br />
-    @Html.Label("staff_name", "姓名")
-    @Html.TextBoxFor(p => p.staff_name)
-    <br />
-    @Html.Label("gender", "性别")
-    @Html.TextBoxFor(p => p.gender)
-    <br />
-    @Html.Label("office_phone", "办公电话")
-    @Html.TextBoxFor(p => p.office_phone)
-    <br />
-    @Html.Label("mobile_phone", "移动电话")
-    @Html.TextBoxFor(p => p.mobile_phone)
-    <br />
-    @Html.Label("position", "职位")
-    @Html.TextBoxFor(p => p.position)
-    <br />
-    @Html.Label("job_title", "职称")
-    @Html.TextBoxFor(p => p.job_title)
-    <br />
-    @Html.Label("education", "学历")
-    @Html.TextBoxFor(p => p.education)
-    <br />
-    @Html.Label("hiredate", "入职时间")
-    @Html.TextBoxFor(p => p.hiredate)
-    <br />
+    
     <input type="submit" value="添加" />
 }
 <br />@ViewBag.message
