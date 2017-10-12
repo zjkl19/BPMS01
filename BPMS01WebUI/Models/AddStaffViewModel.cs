@@ -26,8 +26,8 @@ namespace BPMS01WebUI.Models
         public string staff_name { get; set; }
 
         [Display(Name = "性别")]  
-        [UIHint("Enum")]
-        [ScaffoldColumn(false)]
+        [UIHint("gender")]
+        //[ScaffoldColumn(false)]
         public gender gender { get; set; }
 
         [Display(Name = "办公电话")]
