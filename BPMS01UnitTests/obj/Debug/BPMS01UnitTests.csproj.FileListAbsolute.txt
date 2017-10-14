@@ -56,3 +56,11 @@ D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\System.Web.WebPages.Deployment.xm
 D:\vsProjects\BPMS01\BPMS01UnitTests\obj\Debug\BPMS01UnitTests.csprojResolveAssemblyReference.cache
 D:\vsProjects\BPMS01\BPMS01UnitTests\obj\Debug\BPMS01UnitTests.dll
 D:\vsProjects\BPMS01\BPMS01UnitTests\obj\Debug\BPMS01UnitTests.pdb
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\BPMS01UnitTests.dll.config
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Castle.Core.dll
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Moq.dll
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\System.Web.Helpers.dll
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Castle.Core.xml
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Moq.pdb
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Moq.xml
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\System.Web.Helpers.xml

@@ -44,7 +44,7 @@ namespace BPMS01Domain.Concrete
         /// <summary>
         ///往数据库中添加职工信息
         /// </summary>
-        /// <param name="fc">包含职工工号，密码等在内的信息</param>
+        /// <param name="staff">包含职工工号，密码等在内的信息</param>
         /// <returns>true表示添加成功,false表示添加失败</returns>
         public bool AddStaff(staff staff)
         {
@@ -62,8 +62,6 @@ namespace BPMS01Domain.Concrete
                 staff.staff_password = staff.staff_password + bytes[i].ToString("x2");
                 //sb.Append(bytes[i]);
             }
-
-            staff.gender = Convert.ToDecimal(staff.gender);
 
             try
             {
