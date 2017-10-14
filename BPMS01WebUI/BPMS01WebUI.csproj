@@ -318,6 +318,7 @@
     <Content Include="Views\R_bridge_inspection_staff\Query_R_bridge_inspection_staff_By_staff_id.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\gender.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\gender1.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EnumInt32.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
