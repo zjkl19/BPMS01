@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using BPMS01Domain.Abstract;
 using BPMS01Domain.Entities;
 
+using BPMS01WebUI.Models;
+
 using Ninject;
 
 
@@ -44,7 +46,8 @@ namespace BPMS01WebUI.Controllers
         /// <returns>ViewResult:添加职工信息的视图</returns>
         public ViewResult AddStaff()
         {
-            return View();
+            //参考代码：var newData = new staff();
+            return View(new AddStaffViewModel());
         }
 
         /// <summary>
@@ -53,17 +56,17 @@ namespace BPMS01WebUI.Controllers
         /// <param name="fc">含有职工信息的表单</param>
         /// <returns>ViewResult:添加职工信息后返回的视图</returns>
         [HttpPost]
-        public ViewResult AddStaff(FormCollection fc)
+        public ViewResult AddStaff(staff staff)
         {
             ViewBag.message = "添加信息成功！";
 
-            var result = repository.AddStaff(fc);
+            var result = repository.AddStaff(staff);
 
             if (result == false)
             {
                 ViewBag.message = "添加信息失败！";
             }
-            return View();
+            return View(new AddStaffViewModel());
 
         }
     }

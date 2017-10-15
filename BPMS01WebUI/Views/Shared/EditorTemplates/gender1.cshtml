@@ -1,0 +1,4 @@
+﻿@model BPMS01WebUI.Models.gender
+
+@Html.DropDownListFor(m => m,
+    new SelectList(Enum.GetNames(Model.GetType()), Model.ToString()))
