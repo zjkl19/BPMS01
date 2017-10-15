@@ -93,3 +93,5 @@ D:\vsProjects\BPMS01\BPMS01WebUI\bin\Microsoft.Owin.Security.MicrosoftAccount.xm
 D:\vsProjects\BPMS01\BPMS01WebUI\obj\Debug\BPMS01WebUI.csprojResolveAssemblyReference.cache
 D:\vsProjects\BPMS01\BPMS01WebUI\obj\Debug\BPMS01WebUI.dll
 D:\vsProjects\BPMS01\BPMS01WebUI\obj\Debug\BPMS01WebUI.pdb
+D:\vsProjects\BPMS01\BPMS01WebUI\bin\X.PagedList.dll
+D:\vsProjects\BPMS01\BPMS01WebUI\bin\X.PagedList.Mvc.dll

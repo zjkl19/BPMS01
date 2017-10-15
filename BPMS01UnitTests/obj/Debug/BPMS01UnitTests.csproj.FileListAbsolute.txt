@@ -64,3 +64,4 @@ D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Castle.Core.xml
 D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Moq.pdb
 D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Moq.xml
 D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\System.Web.Helpers.xml
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\X.PagedList.dll

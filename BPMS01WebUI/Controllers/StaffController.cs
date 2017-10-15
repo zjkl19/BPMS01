@@ -9,6 +9,8 @@ using BPMS01Domain.Entities;
 
 using BPMS01WebUI.Models;
 
+using X.PagedList;
+
 using Ninject;
 
 
@@ -26,9 +28,23 @@ namespace BPMS01WebUI.Controllers
         }
 
         // GET: Staff
-        public ActionResult Index()
+        public ActionResult Index(int?page)
         {
-            return View();
+
+            //第几页
+            int pageNumber = page ?? 1;
+
+            //每页显示多少条  
+            int pageSize = 1;
+
+            //根据id排序  
+            var rs = repository.staff.OrderBy(x => x.id); 
+
+            //通过ToPagedList扩展方法进行分页  
+            IPagedList<staff> pagedList = rs.ToPagedList(pageNumber, pageSize);
+
+            //将分页处理后的列表传给View  
+            return View(pagedList);
         }
 
         /// <summary>
