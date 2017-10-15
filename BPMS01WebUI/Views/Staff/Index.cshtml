@@ -1,4 +1,4 @@
-﻿@model IPagedList<BPMS01Domain.Entities.staff>  
+﻿@model IPagedList<BPMS01Domain.Entities.enum_staff> 
 @using X.PagedList.Mvc; 
 @using X.PagedList;
 
@@ -51,7 +51,8 @@
             @Html.DisplayFor(modelItem => item.staff_name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.gender)
+            @*@Html.DisplayFor(modelItem => item.gender)*@
+            @Html.EnumDropDownListFor(modelItem => item.gender,new { @disabled = "disabled" })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.office_phone)

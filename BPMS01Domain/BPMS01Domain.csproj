@@ -244,6 +244,7 @@
     <Compile Include="Entities\contract.cs">
       <DependentUpon>BPMS01.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\enum_staff.cs" />
     <Compile Include="Entities\inspection_project.cs">
       <DependentUpon>BPMS01.tt</DependentUpon>
     </Compile>

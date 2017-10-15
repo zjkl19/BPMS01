@@ -41,12 +41,40 @@ namespace BPMS01Domain.Concrete
             return context.staff.Where(p=>p.staff_no==staff_no);
         }
 
-        /// <summary>
-        ///往数据库中添加职工信息
-        /// </summary>
-        /// <param name="staff">包含职工工号，密码等在内的信息</param>
-        /// <returns>true表示添加成功,false表示添加失败</returns>
-        public bool AddStaff(staff staff)
+        public IQueryable<enum_staff> enum_staff 
+        {
+            get
+            {
+                var query = from p in context.staff
+                            select new enum_staff
+                            {
+                                id = p.id,
+                                staff_no = 1633,
+                                staff_password = p.staff_password,
+                                staff_name = p.staff_name,
+                                gender = (gender)(p.gender),
+                                //typeof(LevelPower).GetCustomAttributes(typeof(Description), false);          
+                                office_phone = p.office_phone,
+                                mobile_phone = p.mobile_phone,
+                                //position=(position)p.position,T
+                                //job_title=(job_title)p.job_title,
+                                //education=(education)p.education,
+                                position = (position)(1),
+                                job_title = (job_title)(1),
+                                education = (education)(2),
+                                hiredate = p.hiredate
+                            };
+                return query;
+            }
+        }
+    
+
+    /// <summary>
+    ///往数据库中添加职工信息
+    /// </summary>
+    /// <param name="staff">包含职工工号，密码等在内的信息</param>
+    /// <returns>true表示添加成功,false表示添加失败</returns>
+    public bool AddStaff(staff staff)
         {
             staff.id = Guid.NewGuid().ToString("N"); //去掉短横杠
 

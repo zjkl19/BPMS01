@@ -21,6 +21,14 @@ namespace BPMS01Domain.Abstract
         IEnumerable<staff> QueryStaffBystaff_no(int staff_no);
 
         /// <summary>
+        ///通过职工id查询职工的参与情况
+        /// </summary>
+        /// <param name="staff_id"><see cref="BPMS01Domain.Entities.staff.id"/></param>
+        /// <returns>指定职工id的职工参与情况<see cref="join_r_bridge_inspection_staff"/></returns>
+        IQueryable<enum_staff> enum_staff { get; }
+
+
+        /// <summary>
         ///往数据库添加职工信息
         /// </summary>
         /// <param name="staff">staff model<see cref="staff"/></param>

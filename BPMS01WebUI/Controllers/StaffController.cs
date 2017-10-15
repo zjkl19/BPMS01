@@ -35,15 +35,19 @@ namespace BPMS01WebUI.Controllers
             int pageNumber = page ?? 1;
 
             //每页显示多少条  
-            int pageSize = 1;
+            int pageSize = 5;   //后期将该编码放到AppSetting里面
 
             //根据id排序  
-            var rs = repository.staff.OrderBy(x => x.id); 
+            //var rs = repository.staff.OrderBy(x => x.id);
 
             //通过ToPagedList扩展方法进行分页  
-            IPagedList<staff> pagedList = rs.ToPagedList(pageNumber, pageSize);
+            //IPagedList <staff> pagedList = rs.ToPagedList(pageNumber, pageSize);
 
             //将分页处理后的列表传给View  
+            //return View(pagedList);
+
+            var re = repository.enum_staff.OrderBy(x => x.id);
+            IPagedList<enum_staff> pagedList = re.ToPagedList(pageNumber, pageSize);
             return View(pagedList);
         }
 
