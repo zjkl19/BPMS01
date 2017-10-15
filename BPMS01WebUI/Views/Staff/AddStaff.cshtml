@@ -4,15 +4,23 @@
     ViewBag.Title = "AddStaff";
 }
 
+<script>
+  $(function() {
+      $("#hiredate").datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+</script>
+
+
 <h2>AddStaff</h2>
 
 @using (Html.BeginForm("AddStaff", "Staff", FormMethod.Post))
 {
     @Html.EditorForModel()
     <br/>
-    //@Html.EnumDropDownListFor(x => x.gender, new BPMS01WebUI.Models.gender())
-    //<br />
-    
+
     <input type="submit" value="添加" />
 }
 <br />@ViewBag.message

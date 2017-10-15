@@ -39,7 +39,7 @@ namespace BPMS01UnitTests
                 position = "检测员",
                 job_title = "工程师",
                 education = "博士",
-                hiredate = Convert.ToDateTime("2015-06-25")
+                hiredate = Convert.ToDateTime("2015-06-25"),
 
             };
 
@@ -85,6 +85,38 @@ namespace BPMS01UnitTests
 
             //assert: ensure the add method is for the correct object
             mock.Verify(m => m.AddStaff(stf));
+        }
+        [TestMethod]
+        public void Can_Send_gender_ViewModel()
+        {
+            //arrange
+            Mock<IStaffRepository> mock = new Mock<IStaffRepository>();
+            mock.Setup(m => m.staff).Returns(new staff[]    {
+                new staff{
+                id = "4562c49835d44f7a861f49af4593d6dc",
+                staff_no = 1743,
+                staff_password = "123456",
+                staff_name = "林迪南",
+                gender = 1,
+                office_phone = "123456",
+                mobile_phone = "123456",
+                position = "检测员",
+                job_title = "工程师",
+                education = "研究生",
+                hiredate = Convert.ToDateTime("2016-07-25")
+
+            },
+            });
+            //arrange: create controller
+            var myController = new StaffController(mock.Object);
+
+            //act: 
+            var result = (AddStaffViewModel)myController.AddStaff().Model;
+
+            //assert
+            var p = result.gender;
+            //Text = m.GetType().GetProperty("Name").ToString(),
+            Assert.AreEqual(p.GetType().GetProperty("Name").ToString(), "未知");
         }
 
     }
