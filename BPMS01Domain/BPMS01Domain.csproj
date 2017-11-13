@@ -259,6 +259,12 @@
     <Compile Include="Models\GetQuota.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="NewModels\BPMSCodeFirst.cs" />
+    <Compile Include="NewModels\bridge.cs" />
+    <Compile Include="NewModels\contract.cs" />
+    <Compile Include="NewModels\inspection_project.cs" />
+    <Compile Include="NewModels\r_bridge_inspection_staff.cs" />
+    <Compile Include="NewModels\staff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
