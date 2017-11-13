@@ -29,10 +29,10 @@ namespace BPMS01Domain.Abstract
 
 
         /// <summary>
-        ///往数据库添加职工信息
+        ///往数据库中添加职工信息
         /// </summary>
-        /// <param name="staff">staff model<see cref="staff"/></param>
-        /// <returns>添加成功返回1，否则返回0</returns>
+        /// <param name="staff">包含职工工号，密码等在内的信息</param>
+        /// <returns>true表示添加成功,false表示添加失败</returns>
         bool AddStaff(staff staff);
     }
 }

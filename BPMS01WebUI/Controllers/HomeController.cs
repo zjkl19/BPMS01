@@ -8,8 +8,13 @@ namespace BPMS01WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        
+
         public ActionResult Index()
         {
+
+            var dbContext = new BPMS01Domain.Entities.BPMSContext();
+            dbContext.Database.CreateIfNotExists();
             return View();
         }
 

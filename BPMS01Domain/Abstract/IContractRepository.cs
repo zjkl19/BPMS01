@@ -13,10 +13,10 @@ namespace BPMS01Domain.Abstract
         IEnumerable<contract> contract { get; }
 
         /// <summary>
-        /// 往数据库添加合同信息
+        ///往数据库添加合同信息
         /// </summary>
-        /// <param name="fc">包含合同编号、合同名称等在内的表单信息</param>
+        /// <param name="contract">合同信息</param>
         /// <returns>添加成功返回1，否则返回0</returns>
-        bool AddContract(FormCollection fc);
+        bool AddContract(contract contract);
     }
 }

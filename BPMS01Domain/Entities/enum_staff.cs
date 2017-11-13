@@ -18,7 +18,7 @@ namespace BPMS01Domain.Entities
     {
  
         [ScaffoldColumn(false)]    //using System.ComponentModel.DataAnnotations;
-        public string id { get; set; }
+        public Guid id { get; set; }
 
         [Display(Name = "工号")]
         [DataType(DataType.Text)]

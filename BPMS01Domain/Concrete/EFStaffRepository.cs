@@ -16,7 +16,7 @@ namespace BPMS01Domain.Concrete
 {
     public class EFStaffRepository:IStaffRepository
     {
-        private EFDbContext context = new EFDbContext();
+        private BPMSContext context = new BPMSContext();
 
         //全部职工信息
         public IEnumerable<staff> staff
@@ -69,14 +69,10 @@ namespace BPMS01Domain.Concrete
         }
     
 
-    /// <summary>
-    ///往数据库中添加职工信息
-    /// </summary>
-    /// <param name="staff">包含职工工号，密码等在内的信息</param>
-    /// <returns>true表示添加成功,false表示添加失败</returns>
+
     public bool AddStaff(staff staff)
         {
-            staff.id = Guid.NewGuid().ToString("N"); //去掉短横杠
+            staff.id = Guid.NewGuid(); //去掉短横杠
 
             MD5 md5 = MD5.Create(); //实例化一个md5对像
             byte[] bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(staff.staff_password));//加密后是一个字节类型的数组

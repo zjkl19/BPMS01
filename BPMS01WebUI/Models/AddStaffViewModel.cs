@@ -13,7 +13,7 @@ namespace BPMS01WebUI.Models
         [DisplayName("添加职工")]    //using System.ComponentModel;
 
         [ScaffoldColumn(false)]    //using System.ComponentModel.DataAnnotations;
-        public string id { get; set; }
+        public Guid id { get; set; }
 
         [Display(Name = "工号")]
         [DataType(DataType.Text)]

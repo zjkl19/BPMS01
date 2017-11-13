@@ -36,9 +36,9 @@ namespace BPMS01UnitTests
                 gender = 1,
                 office_phone = "123456",
                 mobile_phone = "123456",
-                position = "检测员",
-                job_title = "工程师",
-                education = "博士",
+                position = 1,
+                job_title = 1,
+                education = 1,
                 hiredate = Convert.ToDateTime("2015-06-25"),
 
             };
@@ -47,30 +47,30 @@ namespace BPMS01UnitTests
             Mock<IStaffRepository> mock = new Mock<IStaffRepository>();
             mock.Setup(m => m.staff).Returns(new staff[]    {
                 new staff{
-                id = "4562c49835d44f7a861f49af4593d6dc",
+                id = Guid.NewGuid(),
                 staff_no = 1743,
                 staff_password = "123456",
                 staff_name = "林迪南",
                 gender = 1,
                 office_phone = "123456",
                 mobile_phone = "123456",
-                position = "检测员",
-                job_title = "工程师",
-                education = "研究生",
+                position = 1,
+                job_title = 1,
+                education = 1,
                 hiredate = Convert.ToDateTime("2016-07-25")
 
             },
                 new staff{
-                id = "7a876d66c9a54558b37ce2037bc1fb23",
+                id = Guid.NewGuid(),
                 staff_no = 1234,
                 staff_password = "123456",
                 staff_name = "张啸",
                 gender = 1,
                 office_phone = "654321",
                 mobile_phone = "654321",
-                position = "检测员",
-                job_title = "工程师",
-                education = "本科",
+                position = 1,
+                job_title = 1,
+                education = 1,
                 hiredate = Convert.ToDateTime("2014-07-25")
 
             }
@@ -93,16 +93,16 @@ namespace BPMS01UnitTests
             Mock<IStaffRepository> mock = new Mock<IStaffRepository>();
             mock.Setup(m => m.staff).Returns(new staff[]    {
                 new staff{
-                id = "4562c49835d44f7a861f49af4593d6dc",
+                id =Guid.NewGuid(),
                 staff_no = 1743,
                 staff_password = "123456",
                 staff_name = "林迪南",
                 gender = 1,
                 office_phone = "123456",
                 mobile_phone = "123456",
-                position = "检测员",
-                job_title = "工程师",
-                education = "研究生",
+                position = 1,
+                job_title = 1,
+                education = 1,
                 hiredate = Convert.ToDateTime("2016-07-25")
 
             },

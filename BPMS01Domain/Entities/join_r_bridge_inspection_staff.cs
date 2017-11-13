@@ -9,11 +9,11 @@ namespace BPMS01Domain.Entities
     
     public partial class join_r_bridge_inspection_staff
     {
-        public string id { get; set; }
-        public string inspection_project_id { get; set; }
+        public Guid id { get; set; }
+        public Guid inspection_project_id { get; set; }
         public string inspection_project_name { get; set; }   //add
 
-        public string staff_id { get; set; }
+        public Guid staff_id { get; set; }
         public int staff_no { get; set; }
         public string staff_name { get; set; }    //add
 

@@ -13,9 +13,9 @@ namespace BPMS01WebUI.Models
     public class AddContractViewModel
     {
         //一般情况下5个1分隔
-        public string id { get; set; }
+        public Guid id { get; set; }
 
-        public string staff_id { get; set; }
+        public Guid staff_id { get; set; }
 
         public decimal staff_no { get; set; }    //视图模型中额外增加的部分
         public string staff_name { get; set; }   //视图模型中额外增加的部分

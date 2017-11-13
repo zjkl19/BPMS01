@@ -66,14 +66,14 @@ namespace BPMS01WebUI.Controllers
         /// <summary>
         /// 往数据库添加项目信息
         /// </summary>
-        /// <param name="fc">包含项目名称、进场时间等在内的表单信息</param>
+        /// <param name="inspection_project">检测信息</param>
         /// <returns>添加成功返回1，否则返回0</returns>
         [HttpPost]
-        public ViewResult AddInspection_project(FormCollection fc)
+        public ViewResult AddInspection_project(inspection_project inspection_project)
         {
             ViewBag.message = "添加信息成功！";
 
-            var result = repository.AddInspection_project(fc);
+            var result = repository.AddInspection_project(inspection_project);
 
             if (result == false)
             {

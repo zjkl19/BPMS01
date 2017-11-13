@@ -88,4 +88,3 @@ D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.ApplicationInsights.TraceListene
 D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Diagnostics.DiagnosticSource.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.ApplicationInsights.TraceListener.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Diagnostics.DiagnosticSource.xml
-D:\vsProjects\BPMS01\BPMS01Domain\obj\Debug\BPMS01Domain.csprojResolveAssemblyReference.cache

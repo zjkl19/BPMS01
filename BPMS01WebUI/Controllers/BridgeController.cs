@@ -45,14 +45,14 @@ namespace BPMS01WebUI.Controllers
         /// <summary>
         /// 添加桥梁信息
         /// </summary>
-        /// <param name="fc">含有桥梁信息的表单</param>
+        /// <param name="bridge">桥梁信息</param>
         /// <returns>ViewResult:添加桥梁信息后返回的视图</returns>
         [HttpPost]
-        public ViewResult AddBridge(FormCollection fc)
+        public ViewResult AddBridge(bridge bridge)
         {
             ViewBag.message = "添加信息成功！";
 
-            var result = repository.AddBridge(fc);
+            var result = repository.AddBridge(bridge);
 
             if (result == false)
             {
