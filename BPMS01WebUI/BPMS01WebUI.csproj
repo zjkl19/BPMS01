@@ -232,6 +232,7 @@
     <Compile Include="Controllers\BridgeController.cs" />
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\HtmlExtensions.cs" />
     <Compile Include="Controllers\Inspection_projectController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\R_bridge_inspection_staffController.cs" />
@@ -375,6 +376,7 @@
     <Content Include="Views\Shared\EditorTemplates\gender1.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\EnumInt32.cshtml" />
     <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

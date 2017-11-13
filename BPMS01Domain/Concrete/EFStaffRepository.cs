@@ -49,7 +49,7 @@ namespace BPMS01Domain.Concrete
                             select new enum_staff
                             {
                                 id = p.id,
-                                staff_no = 1633,
+                                staff_no = p.staff_no,
                                 staff_password = p.staff_password,
                                 staff_name = p.staff_name,
                                 gender = (gender)(p.gender),
@@ -59,9 +59,9 @@ namespace BPMS01Domain.Concrete
                                 //position=(position)p.position,T
                                 //job_title=(job_title)p.job_title,
                                 //education=(education)p.education,
-                                position = (position)(1),
-                                job_title = (job_title)(1),
-                                education = (education)(2),
+                                position = (position)(p.position),
+                                job_title = (job_title)(p.job_title),
+                                education = (education)(p.education),
                                 hiredate = p.hiredate
                             };
                 return query;
