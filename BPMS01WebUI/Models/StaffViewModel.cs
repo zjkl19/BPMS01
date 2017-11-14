@@ -6,15 +6,12 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-//enum_staff
-namespace BPMS01Domain.Entities
+namespace BPMS01WebUI.Models
 {
-    using System;
-    using System.Collections.Generic;
-
-    public partial class enum_staff
+    public abstract class StaffViewModel
     {
- 
+        [DisplayName("添加职工")]    //using System.ComponentModel;
+
         [ScaffoldColumn(false)]    //using System.ComponentModel.DataAnnotations;
         public Guid id { get; set; }
 
@@ -30,7 +27,7 @@ namespace BPMS01Domain.Entities
         [DataType(DataType.Text)]
         public string staff_name { get; set; }
 
-        [Display(Name = "性别")]
+        [Display(Name = "性别")]  
         [UIHint("EnumInt32")]
         public gender gender { get; set; }
 
@@ -56,16 +53,15 @@ namespace BPMS01Domain.Entities
 
         [Display(Name = "入职时间")]
         public DateTime hiredate { get; set; }
-
     }
     public enum gender
     {
         [Display(Name = "未知")]
-        unknown = 0,
+        unknown =0,
         [Display(Name = "男")]
-        male = 1,
+        male =1,
         [Display(Name = "女")]
-        female = 2
+        female =2
     }
 
     public enum position
@@ -109,6 +105,4 @@ namespace BPMS01Domain.Entities
         [Display(Name = "博士")]
         doctor = 4
     }
-
-
 }

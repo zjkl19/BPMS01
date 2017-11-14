@@ -233,6 +233,7 @@
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\DataBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\StaffViewModel.cs" />
     <Compile Include="Models\HtmlExtensions.cs" />
     <Compile Include="Controllers\Inspection_projectController.cs" />
     <Compile Include="Controllers\ManageController.cs" />

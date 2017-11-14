@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 using System.Data.Entity;
 using BPMS01Domain.Entities;
+using System.Collections;
 
 namespace BPMS01WebUI.Controllers
 {
@@ -47,6 +48,51 @@ namespace BPMS01WebUI.Controllers
                 hiredate=Convert.ToDateTime("2016-07-25")
             });
 
+            var staff_lp = dbContext.staff.Add(new staff()
+            {
+                id = Guid.NewGuid(),
+                no = 528,
+                name = "李鹏",
+                password = "e10adc3949ba59abbe56e057f20f883e",
+                gender = Convert.ToInt32(gender.male),
+                office_phone = "123456",
+                mobile_phone = "654321",
+                position = Convert.ToInt32(BPMS01Domain.Entities.position.viceManager),
+                job_title = Convert.ToInt32(BPMS01Domain.Entities.job_title.engineer),
+                education = Convert.ToInt32(BPMS01Domain.Entities.education.master),
+                hiredate = Convert.ToDateTime("2011-08-25")
+            });
+
+            var staff_djb = dbContext.staff.Add(new staff()
+            {
+                id = Guid.NewGuid(),
+                no = 1891,
+                name = "戴杰斌",
+                password = "e10adc3949ba59abbe56e057f20f883e",
+                gender = Convert.ToInt32(gender.male),
+                office_phone = "123456",
+                mobile_phone = "654321",
+                position = Convert.ToInt32(BPMS01Domain.Entities.position.none),
+                job_title = Convert.ToInt32(BPMS01Domain.Entities.job_title.none),
+                education = Convert.ToInt32(BPMS01Domain.Entities.education.undergraduate),
+                hiredate = Convert.ToDateTime("2017-10-25")
+            });
+            var staff_wxq = dbContext.staff.Add(new staff()
+            {
+                id = Guid.NewGuid(),
+                no = 1117,
+                name = "王曦强",
+                password = "e10adc3949ba59abbe56e057f20f883e",
+                gender = Convert.ToInt32(gender.male),
+                office_phone = "123456",
+                mobile_phone = "654321",
+                position = Convert.ToInt32(BPMS01Domain.Entities.position.none),
+                job_title = Convert.ToInt32(BPMS01Domain.Entities.job_title.assistantEngineer),
+                education = Convert.ToInt32(BPMS01Domain.Entities.education.undergraduate),
+                hiredate = Convert.ToDateTime("2012-07-20")
+            });
+
+
 
             var contract01=dbContext.contract.Add(new contract()
             {
@@ -67,15 +113,35 @@ namespace BPMS01WebUI.Controllers
                   is_client_signed=1
             });
 
+            //
+            var bridgeArr = new ArrayList();
+
+            //arr.Add(你的对象);
+
+            //访问：
+            //(你的类）arr[索引]
             var bridge01 = dbContext.bridge.Add(new bridge()
             {
                 id = Guid.NewGuid(),
-                name="某桥",
+                name="莆田某桥",
                 length=25.0,
                 width=10,
                 span_number=1,
                 structure_type=1
             });
+            bridgeArr.Add(bridge01);
+            //(BPMSContext)bridgeArr[0]
+            var bridge02 = dbContext.bridge.Add(new bridge()
+            {
+                id = Guid.NewGuid(),
+                name = "福州某桥",
+                length =60.0,
+                width = 14,
+                span_number = 2,
+                structure_type = 2
+            });
+            bridgeArr.Add(bridge02);
+
 
             var project01 = dbContext.inspection_project.Add(new inspection_project()
             {

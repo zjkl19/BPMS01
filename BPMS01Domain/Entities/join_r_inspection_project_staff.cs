@@ -18,12 +18,12 @@ namespace BPMS01Domain.Entities
         public int staff_no { get; set; }
         public string staff_name { get; set; }    //add
 
-        public bool is_response { get; set; }
-        public bool scene_coff { get; set; }
-        public bool plan_coff { get; set; }
-        public bool report_coff { get; set; }
-        public bool report_check_coff { get; set; }
-        public bool others_coff { get; set; }
+        public int is_response { get; set; }
+        public int scene_coff { get; set; }
+        public int plan_coff { get; set; }
+        public int report_coff { get; set; }
+        public int report_check_coff { get; set; }
+        public int others_coff { get; set; }
 
         public Nullable<double> production_value_ratio { get; set; }
         public Nullable<double> production_value { get; set; }
