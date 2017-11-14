@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 //自定义“项目-职工” “扩展”模型
 //添加了职工姓名、项目名称的显示
-//是r_bridge_inspection_staff业务模型的扩展版
+//是r_inspection_project_staff业务模型的扩展版
 namespace BPMS01Domain.Entities
 {
     using System;

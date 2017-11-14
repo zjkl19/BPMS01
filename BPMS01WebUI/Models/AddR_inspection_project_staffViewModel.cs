@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace BPMS01WebUI.Models
 {
-    public class AddR_bridge_inspection_staffViewModel
+    public class AddR_inspection_project_staffViewModel
     {
         [DisplayName("添加职工参与信息")]    //using System.ComponentModel;
 

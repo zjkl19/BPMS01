@@ -6,10 +6,10 @@ namespace BPMS01Domain.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("r_bridge_inspection_staff")]
-    public partial class r_bridge_inspection_staff
+    [Table("r_inspection_project_staff")]
+    public partial class r_inspection_project_staff
     {
-
+        [Key]
         public Guid id { get; set; }
 
         [Required]
@@ -23,32 +23,32 @@ namespace BPMS01Domain.Entities
         /// <summary>
         /// 是否负责
         /// </summary>
-        public bool is_response { get; set; }
+        public int is_response { get; set; }
 
         /// <summary>
         /// 现场
         /// </summary>
-        public bool scene_coff { get; set; }
+        public int scene_coff { get; set; }
 
         /// <summary>
         /// 方案
         /// </summary>
-        public bool plan_coff { get; set; }
+        public int plan_coff { get; set; }
 
         /// <summary>
         /// 报告撰写
         /// </summary>
-        public bool report_coff { get; set; }
+        public int report_coff { get; set; }
 
         /// <summary>
         /// 报告校核
         /// </summary>
-        public bool report_check_coff { get; set; }
+        public int report_check_coff { get; set; }
 
         /// <summary>
         /// 其它工作
         /// </summary>
-        public bool others_coff { get; set; }
+        public int others_coff { get; set; }
 
         /// <summary>
         /// 产值比例

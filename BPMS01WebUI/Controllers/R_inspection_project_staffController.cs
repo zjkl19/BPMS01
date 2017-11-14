@@ -14,22 +14,22 @@ using BPMS01WebUI.Models;
 
 namespace BPMS01WebUI.Controllers
 {
-    public class R_bridge_inspection_staffController : Controller
+    public class R_inspection_project_staffController : Controller
     {
         //职工参与信息仓库（库模式）
-        private IR_bridge_inspection_staffRepository repository;
+        private IR_inspection_project_staffRepository repository;
 
         //构造函数
-        public R_bridge_inspection_staffController(IR_bridge_inspection_staffRepository r_bridge_inspection_staffRepository)
+        public R_inspection_project_staffController(IR_inspection_project_staffRepository r_inspection_project_staffRepository)
         {
-            this.repository = r_bridge_inspection_staffRepository;
+            this.repository = r_inspection_project_staffRepository;
         }
 
 
         /// <summary>
         ///通过职工id查询职工的参与情况
         /// </summary>
-        /// <returns>查询界面默认视图<see cref="join_r_bridge_inspection_staff"/></returns>
+        /// <returns>查询界面默认视图<see cref="r_inspection_project_staff"/></returns>
         public ViewResult  Query_R_bridge_inspection_staff_By_staff_id()
         {
             ViewBag.query = 0;
@@ -55,19 +55,19 @@ namespace BPMS01WebUI.Controllers
         ///列出指定职工id的职工项目参与情况
         /// </summary>
         /// <param name="staff_id"><see cref="BPMS01Domain.Entities.staff.id"/></param>
-        /// <returns>含有职工项目参与信息的ViewResult<see cref="join_r_bridge_inspection_staff"/></returns>
+        /// <returns>含有职工项目参与信息的ViewResult<see cref="r_inspection_project_staff"/></returns>
         [ChildActionOnly]
         [HttpPost]
         public PartialViewResult  List_R_bridge_inspection_staff_By_staff_id(Guid staff_id)
         {
-            return PartialView(repository.Query_R_bridge_inspection_staff_By_staff_id(staff_id));
+            return PartialView(repository.Query_R_inspection_project_staff_By_staff_id(staff_id));
         }
 
         /// <summary>
         /// 添加项目参与信息
         /// </summary>
         /// <returns>ViewResult:添加项目参与信息的视图</returns>
-        public ViewResult AddR_bridge_inspection_staff()
+        public ViewResult AddR_inspection_project_staff()
         {
             return View();
 
@@ -77,14 +77,14 @@ namespace BPMS01WebUI.Controllers
         /// <summary>
         /// 添加项目参与信息
         /// </summary>
-        /// <param name="r_bridge_inspection_staff">"桥梁检测-职工"信息</param>
+        /// <param name="r_inspection_project_staff">"桥梁检测-职工"信息</param>
         /// <returns>ViewResult:添加添加项目参与信息后返回的视图</returns>
         [HttpPost]
-        public ViewResult AddR_bridge_inspection_staff(r_bridge_inspection_staff r_bridge_inspection_staff)
+        public ViewResult AddR_inspection_project_staff(r_inspection_project_staff r_inspection_project_staff)
         {
             ViewBag.message = "添加信息成功！";
 
-            var result = repository.AddR_bridge_inspection_staff(r_bridge_inspection_staff);
+            var result = repository.AddR_inspection_project_staff(r_inspection_project_staff);
 
             if (result == false)
             {

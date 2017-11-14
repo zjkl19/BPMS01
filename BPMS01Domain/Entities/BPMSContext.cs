@@ -26,7 +26,7 @@ namespace BPMS01Domain.Entities
         public virtual DbSet<bridge> bridge { get; set; }
         public virtual DbSet<contract> contract { get; set; }
         public virtual DbSet<inspection_project> inspection_project { get; set; }
-        public virtual DbSet<r_bridge_inspection_staff> r_bridge_inspection_staff { get; set; }
+        public virtual DbSet<r_inspection_project_staff> r_inspection_project_staff { get; set; }
         public virtual DbSet<staff> staff { get; set; }
 
 
@@ -57,7 +57,7 @@ namespace BPMS01Domain.Entities
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<inspection_project>()
-                .HasMany(e => e.r_bridge_inspection_staff)
+                .HasMany(e => e.r_inspection_project_staff)
                 .WithRequired(e => e.inspection_project)
                 .HasForeignKey(e => e.inspection_project_id)
                 .WillCascadeOnDelete(false);
@@ -73,7 +73,7 @@ namespace BPMS01Domain.Entities
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<staff>()
-                .HasMany(e => e.r_bridge_inspection_staff)
+                .HasMany(e => e.r_inspection_project_staff)
                 .WithRequired(e => e.staff)
                 .HasForeignKey(e => e.staff_id)
                 .WillCascadeOnDelete(false);

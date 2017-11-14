@@ -24,7 +24,7 @@ namespace BPMS01Domain.Abstract
         ///通过职工id查询职工的参与情况
         /// </summary>
         /// <param name="staff_id"><see cref="BPMS01Domain.Entities.staff.id"/></param>
-        /// <returns>指定职工id的职工参与情况<see cref="join_r_bridge_inspection_staff"/></returns>
+        /// <returns>指定职工id的职工参与情况<see cref="r_inspection_project_staff"/></returns>
         IQueryable<enum_staff> enum_staff { get; }
 
 

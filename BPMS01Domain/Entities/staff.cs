@@ -13,7 +13,7 @@ namespace BPMS01Domain.Entities
         public staff()
         {
             contract = new HashSet<contract>();
-            r_bridge_inspection_staff = new HashSet<r_bridge_inspection_staff>();
+            r_inspection_project_staff = new HashSet<r_inspection_project_staff>();
         }
         
         public Guid id { get; set; }
@@ -81,6 +81,6 @@ namespace BPMS01Domain.Entities
         public virtual ICollection<contract> contract { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<r_bridge_inspection_staff> r_bridge_inspection_staff { get; set; }
+        public virtual ICollection<r_inspection_project_staff> r_inspection_project_staff { get; set; }
     }
 }

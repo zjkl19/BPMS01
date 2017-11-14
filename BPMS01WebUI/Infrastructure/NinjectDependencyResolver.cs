@@ -35,7 +35,7 @@ namespace BPMS01WebUI.Infrastructure
             kernel.Bind<IContractRepository>().To<EFContractRepository>();     //绑定contract
             kernel.Bind<IBridgeRepository>().To<EFBridgeRepository>();     //绑定bridge
             kernel.Bind<IInspection_projectRepository>().To<EFInspection_projectRepository>();     //绑定Inspection_project
-            kernel.Bind<IR_bridge_inspection_staffRepository>().To<EFR_bridge_inspection_staffRepository>();     //绑定r_bridge_inspection_staff
+            kernel.Bind<IR_inspection_project_staffRepository>().To<EFR_inspection_project_staffRepository>();     //绑定r_inspection_project_staff
 
         }
     }

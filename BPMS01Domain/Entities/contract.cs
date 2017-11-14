@@ -83,18 +83,20 @@ namespace BPMS01Domain.Entities
 
         /// <summary>
         /// 承接方式
+        /// 暂定：1表示投标，2表示未知
         /// </summary>
         public int accept_way { get; set; }
 
         /// <summary>
         /// 单位是否签订
+        /// 暂定0表示未签，1表示签订，2表示未知
         /// </summary>
-        public bool is_corporation_signed { get; set; }
+        public int is_corporation_signed { get; set; }
 
         /// <summary>
         /// 客户是否签订
         /// </summary>
-        public bool is_client_signed { get; set; }
+        public int is_client_signed { get; set; }
 
         public virtual staff staff { get; set; }
 

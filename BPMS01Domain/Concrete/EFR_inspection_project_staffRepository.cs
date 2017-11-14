@@ -10,28 +10,28 @@ using BPMS01Domain.Entities;
 
 namespace BPMS01Domain.Concrete
 {
-    public class EFR_bridge_inspection_staffRepository:IR_bridge_inspection_staffRepository
+    public class EFR_inspection_project_staffRepository:IR_inspection_project_staffRepository
     {
         private BPMSContext context = new BPMSContext();
 
         //全部项目参与者信息
-        public IEnumerable<r_bridge_inspection_staff> r_bridge_inspection_staff
+        public IEnumerable<r_inspection_project_staff> r_inspection_project_staff
         {
             get
             {
-                return context.r_bridge_inspection_staff;
+                return context.r_inspection_project_staff;
             }
         }
 
         //请查看接口部分注释
-        public IQueryable<join_r_bridge_inspection_staff> Query_R_bridge_inspection_staff_By_staff_id(Guid staff_id)
+        public IQueryable<join_r_inspection_project_staff> Query_R_inspection_project_staff_By_staff_id(Guid staff_id)
         {
             
             var query = from p in context.inspection_project
-                        join q in context.r_bridge_inspection_staff
+                        join q in context.r_inspection_project_staff
                         on p.id equals q.inspection_project_id
                         where q.staff_id == staff_id
-                        select new join_r_bridge_inspection_staff
+                        select new join_r_inspection_project_staff
                         {
                             
                             inspection_project_id = q.id,
@@ -53,14 +53,14 @@ namespace BPMS01Domain.Concrete
 
 
         [HttpPost]
-        public bool AddR_bridge_inspection_staff(r_bridge_inspection_staff r_bridge_inspection_staff)
+        public bool AddR_inspection_project_staff(r_inspection_project_staff r_inspection_project_staff)
         {
 
-            r_bridge_inspection_staff.id = Guid.NewGuid();      
+            r_inspection_project_staff.id = Guid.NewGuid();      
 
             try
             {
-                context.r_bridge_inspection_staff.Add(r_bridge_inspection_staff);
+                context.r_inspection_project_staff.Add(r_inspection_project_staff);
                 context.SaveChanges();
                 return true;
             }

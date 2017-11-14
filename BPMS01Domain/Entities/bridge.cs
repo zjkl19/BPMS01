@@ -37,6 +37,12 @@ namespace BPMS01Domain.Entities
         public double width { get; set; }
 
         /// <summary>
+        /// 桥梁跨数
+        /// </summary>
+        [Required]
+        public int span_number { get; set; }
+
+        /// <summary>
         /// 结构形式
         /// </summary>
         [Required]
