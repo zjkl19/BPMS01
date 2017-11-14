@@ -30,9 +30,9 @@ namespace BPMS01UnitTests
             {
                 //id = Guid.NewGuid().ToString("N"),
                 //AddStaff方法中自动生成id
-                staff_no = 1644,
-                staff_password = "e10adc3949ba59abbe56e057f20f883e",
-                staff_name = "黄学漾",
+                no = 1644,
+                password = "e10adc3949ba59abbe56e057f20f883e",
+                name = "黄学漾",
                 gender = 1,
                 office_phone = "123456",
                 mobile_phone = "123456",
@@ -48,9 +48,9 @@ namespace BPMS01UnitTests
             mock.Setup(m => m.staff).Returns(new staff[]    {
                 new staff{
                 id = Guid.NewGuid(),
-                staff_no = 1743,
-                staff_password = "123456",
-                staff_name = "林迪南",
+                no = 1743,
+                password = "123456",
+                name = "林迪南",
                 gender = 1,
                 office_phone = "123456",
                 mobile_phone = "123456",
@@ -62,9 +62,9 @@ namespace BPMS01UnitTests
             },
                 new staff{
                 id = Guid.NewGuid(),
-                staff_no = 1234,
-                staff_password = "123456",
-                staff_name = "张啸",
+                no = 1234,
+                password = "123456",
+                name = "张啸",
                 gender = 1,
                 office_phone = "654321",
                 mobile_phone = "654321",
@@ -94,9 +94,9 @@ namespace BPMS01UnitTests
             mock.Setup(m => m.staff).Returns(new staff[]    {
                 new staff{
                 id =Guid.NewGuid(),
-                staff_no = 1743,
-                staff_password = "123456",
-                staff_name = "林迪南",
+                no = 1743,
+                password = "123456",
+                name = "林迪南",
                 gender = 1,
                 office_phone = "123456",
                 mobile_phone = "123456",

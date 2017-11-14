@@ -22,21 +22,21 @@ namespace BPMS01Domain.Entities
         /// 工号
         /// </summary>
         [Required]
-        public int staff_no { get; set; }
+        public int no { get; set; }
 
         /// <summary>
         /// MD5加密后密码
         /// </summary>
         [Required]
         [StringLength(32)]
-        public string staff_password { get; set; }
+        public string password { get; set; }
 
         /// <summary>
         /// 职工姓名
         /// </summary>
         [Required]
         [StringLength(50)]
-        public string staff_name { get; set; }
+        public string name { get; set; }
 
         /// <summary>
         /// 性别

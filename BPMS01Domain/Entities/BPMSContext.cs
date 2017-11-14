@@ -5,6 +5,17 @@ namespace BPMS01Domain.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
+    /*
+    public class MyDbInitializer:IDatabaseInitializer<BPMSContext>
+    {
+        public void InitializeDatabase(BPMSContext context)
+        {
+            context.Database.CreateIfNotExists();
+
+        }
+    }
+    */
+
     public partial class BPMSContext : DbContext
     {
         public BPMSContext()
@@ -17,6 +28,7 @@ namespace BPMS01Domain.Entities
         public virtual DbSet<inspection_project> inspection_project { get; set; }
         public virtual DbSet<r_bridge_inspection_staff> r_bridge_inspection_staff { get; set; }
         public virtual DbSet<staff> staff { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -51,7 +63,7 @@ namespace BPMS01Domain.Entities
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<staff>()
-                .Property(e => e.staff_password)
+                .Property(e => e.password)
                 .IsFixedLength();
 
             modelBuilder.Entity<staff>()

@@ -57,8 +57,8 @@ namespace BPMS01WebUI.Controllers
             var myViewModel = new AddContractViewModel
             {
                 staff_id = staffInfo.id,
-                staff_no = staffInfo.staff_no,
-                staff_name = staffInfo.staff_name
+                staff_no = staffInfo.no,
+                staff_name = staffInfo.name
             };
             return View(myViewModel);
 

@@ -38,7 +38,7 @@ namespace BPMS01Domain.Concrete
         /// <returns>指定工号的职工详细信息<see cref="staff"/></returns>
         public IEnumerable<staff> QueryStaffBystaff_no(int staff_no)
         {
-            return context.staff.Where(p=>p.staff_no==staff_no);
+            return context.staff.Where(p=>p.no==staff_no);
         }
 
         public IQueryable<enum_staff> enum_staff 
@@ -49,9 +49,9 @@ namespace BPMS01Domain.Concrete
                             select new enum_staff
                             {
                                 id = p.id,
-                                staff_no = p.staff_no,
-                                staff_password = p.staff_password,
-                                staff_name = p.staff_name,
+                                staff_no = p.no,
+                                staff_password = p.password,
+                                staff_name = p.name,
                                 gender = (gender)(p.gender),
                                 //typeof(LevelPower).GetCustomAttributes(typeof(Description), false);          
                                 office_phone = p.office_phone,
@@ -75,15 +75,15 @@ namespace BPMS01Domain.Concrete
             staff.id = Guid.NewGuid(); //去掉短横杠
 
             MD5 md5 = MD5.Create(); //实例化一个md5对像
-            byte[] bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(staff.staff_password));//加密后是一个字节类型的数组
+            byte[] bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(staff.password));//加密后是一个字节类型的数组
 
-            staff.staff_password = "";
+            staff.password = "";
 
             //字符串拼接
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < bytes.Length; i++)
             {
-                staff.staff_password = staff.staff_password + bytes[i].ToString("x2");
+                staff.password = staff.password + bytes[i].ToString("x2");
                 //sb.Append(bytes[i]);
             }
 
