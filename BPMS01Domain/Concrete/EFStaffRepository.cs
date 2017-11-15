@@ -12,6 +12,7 @@ using BPMS01Domain.Entities;
 using System.Security.Cryptography;     //Md5加密
 using System.Text;
 
+
 namespace BPMS01Domain.Concrete
 {
     public class EFStaffRepository:IStaffRepository
@@ -41,33 +42,7 @@ namespace BPMS01Domain.Concrete
             return context.staff.Where(p=>p.no==staff_no);
         }
 
-        public IQueryable<enum_staff> enum_staff 
-        {
-            get
-            {
-                var query = from p in context.staff
-                            select new enum_staff
-                            {
-                                id = p.id,
-                                staff_no = p.no,
-                                staff_password = p.password,
-                                staff_name = p.name,
-                                gender = (gender)(p.gender),
-                                //typeof(LevelPower).GetCustomAttributes(typeof(Description), false);          
-                                office_phone = p.office_phone,
-                                mobile_phone = p.mobile_phone,
-                                //position=(position)p.position,T
-                                //job_title=(job_title)p.job_title,
-                                //education=(education)p.education,
-                                position = (position)(p.position),
-                                job_title = (job_title)(p.job_title),
-                                education = (education)(p.education),
-                                hiredate = p.hiredate
-                            };
-                return query;
-            }
-        }
-    
+
 
 
     public bool AddStaff(staff staff)

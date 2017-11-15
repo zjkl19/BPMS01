@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;   //FormCollection
 using BPMS01Domain.Entities;
 
+
 namespace BPMS01Domain.Abstract
 {
     public interface IStaffRepository
@@ -19,12 +20,6 @@ namespace BPMS01Domain.Abstract
         /// <param name="staff_no">职工工号(与数据库中的定义相关联)<see cref="staff"/></param>
         /// <returns>指定工号的职工详细信息<see cref="r_project_staff"/></returns>
         IEnumerable<staff> QueryStaffBystaff_no(int staff_no);
-
-        /// <summary>
-        ///查看职工信息（数据库中数值转为整形）
-        /// </summary>
-        /// <returns>职工信息<see cref="enum_staff"/></returns>
-        IQueryable<enum_staff> enum_staff { get; }
 
 
         /// <summary>

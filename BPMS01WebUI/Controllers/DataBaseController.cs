@@ -8,6 +8,8 @@ using System.Data.Entity;
 using BPMS01Domain.Entities;
 using System.Collections;
 
+using BPMS01WebUI.Models;
+
 namespace BPMS01WebUI.Controllers
 {
     public class DataBaseController : Controller
@@ -42,9 +44,9 @@ namespace BPMS01WebUI.Controllers
                 gender=Convert.ToInt32(gender.male),
                 office_phone="123456",
                 mobile_phone="654321",
-                position= Convert.ToInt32(BPMS01Domain.Entities.position.none),
-                job_title=Convert.ToInt32(BPMS01Domain.Entities.job_title.assistantEngineer),
-                education=Convert.ToInt32(BPMS01Domain.Entities.education.master),
+                position= Convert.ToInt32(position.none),
+                job_title=Convert.ToInt32(job_title.assistantEngineer),
+                education=Convert.ToInt32(education.master),
                 hiredate=Convert.ToDateTime("2016-07-25")
             });
 
@@ -57,9 +59,9 @@ namespace BPMS01WebUI.Controllers
                 gender = Convert.ToInt32(gender.male),
                 office_phone = "123456",
                 mobile_phone = "654321",
-                position = Convert.ToInt32(BPMS01Domain.Entities.position.viceManager),
-                job_title = Convert.ToInt32(BPMS01Domain.Entities.job_title.engineer),
-                education = Convert.ToInt32(BPMS01Domain.Entities.education.master),
+                position = Convert.ToInt32(position.viceManager),
+                job_title = Convert.ToInt32(job_title.engineer),
+                education = Convert.ToInt32(education.master),
                 hiredate = Convert.ToDateTime("2011-08-25")
             });
 
@@ -72,9 +74,9 @@ namespace BPMS01WebUI.Controllers
                 gender = Convert.ToInt32(gender.male),
                 office_phone = "123456",
                 mobile_phone = "654321",
-                position = Convert.ToInt32(BPMS01Domain.Entities.position.none),
-                job_title = Convert.ToInt32(BPMS01Domain.Entities.job_title.none),
-                education = Convert.ToInt32(BPMS01Domain.Entities.education.undergraduate),
+                position = Convert.ToInt32(position.none),
+                job_title = Convert.ToInt32(job_title.none),
+                education = Convert.ToInt32(education.undergraduate),
                 hiredate = Convert.ToDateTime("2017-10-25")
             });
             var staff_wxq = dbContext.staff.Add(new staff()
@@ -86,9 +88,9 @@ namespace BPMS01WebUI.Controllers
                 gender = Convert.ToInt32(gender.male),
                 office_phone = "123456",
                 mobile_phone = "654321",
-                position = Convert.ToInt32(BPMS01Domain.Entities.position.none),
-                job_title = Convert.ToInt32(BPMS01Domain.Entities.job_title.assistantEngineer),
-                education = Convert.ToInt32(BPMS01Domain.Entities.education.undergraduate),
+                position = Convert.ToInt32(position.none),
+                job_title = Convert.ToInt32(job_title.assistantEngineer),
+                education = Convert.ToInt32(education.undergraduate),
                 hiredate = Convert.ToDateTime("2012-07-20")
             });
 

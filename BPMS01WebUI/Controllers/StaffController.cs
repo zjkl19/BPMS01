@@ -46,8 +46,26 @@ namespace BPMS01WebUI.Controllers
             //将分页处理后的列表传给View  
             //return View(pagedList);
 
-            var re = repository.enum_staff.OrderBy(x => x.id);
-            IPagedList<enum_staff> pagedList = re.ToPagedList(pageNumber, pageSize);
+            var re = repository.staff.OrderBy(x => x.id);
+
+            //转换为视图模型
+            var query = from p in re
+                        select new IndexStaffViewModel
+                        {
+                            id = p.id,
+                            staff_no = p.no,
+                            staff_password = p.password,    //optional
+                            staff_name = p.name,
+                            gender = (gender)(p.gender),
+                            office_phone = p.office_phone,
+                            mobile_phone = p.mobile_phone,
+                            position = (position)(p.position),
+                            job_title = (job_title)(p.job_title),
+                            education = (education)(p.education),
+                            hiredate = p.hiredate
+                        };
+
+            IPagedList<IndexStaffViewModel> pagedList = query.ToPagedList(pageNumber, pageSize);
             return View(pagedList);
         }
 
