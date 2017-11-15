@@ -33,6 +33,7 @@
                         @*<a href="#" class="dropdown-toggle" data-toggle="dropdown">ss</a>*@
                         @Html.ActionLink("合同管理", "About", "Home", new { @class = "dropdown-toggle" }, new { data_toggle = "dropdown" })
                         <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("合同总览", "Index", "Contract")</li>
                             <li>@Html.ActionLink("合同查询", "QueryContract", "Contract")</li>
                             <li>@Html.ActionLink("合同添加", "AddContract", "Contract")</li>
                             <li>@Html.ActionLink("合同修改", "ModContract", "Contract")</li>

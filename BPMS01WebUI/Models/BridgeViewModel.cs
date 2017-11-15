@@ -11,7 +11,7 @@ namespace BPMS01WebUI.Models
     public abstract class BridgeViewModel
     {
 
-        [ScaffoldColumn(false)]    //using System.ComponentModel.DataAnnotations;
+        [ScaffoldColumn(false)]   
         public string id { get; set; }
 
         [Display(Name="桥梁名称")]
