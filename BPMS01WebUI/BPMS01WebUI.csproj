@@ -233,6 +233,8 @@
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\DataBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\List_R_inspection_project_staff_ByStaffIdViewModel.cs" />
+    <Compile Include="Models\R_inspection_project_staffViewMode.cs" />
     <Compile Include="Models\IndexInspection_projectViewModel.cs" />
     <Compile Include="Models\Inspection_projectViewModel.cs" />
     <Compile Include="Models\ContractViewModel.cs" />
@@ -258,7 +260,7 @@
     <Compile Include="Models\AddStaffViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Query_R_bridge_inspection_staff_By_staff_idViewModel.cs" />
+    <Compile Include="Models\Query_R_inspection_project_staff_ByStaffIdViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -378,9 +380,9 @@
     <Content Include="Views\Shared\ListContract.cshtml" />
     <Content Include="Views\Shared\ListBridge.cshtml" />
     <Content Include="Views\Shared\ListInspection_project.cshtml" />
-    <Content Include="Views\R_inspection_project_staff\AddR_bridge_inspection_staff.cshtml" />
+    <Content Include="Views\R_inspection_project_staff\AddR_inspection_project_staff.cshtml" />
     <Content Include="Views\Shared\List_R_inspection_project_staff_By_staff_id.cshtml" />
-    <Content Include="Views\R_inspection_project_staff\Query_R_bridge_inspection_staff_By_staff_id.cshtml" />
+    <Content Include="Views\R_inspection_project_staff\Query_R_inspection_project_staff_ByStaffID.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\gender.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\gender1.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\EnumInt32.cshtml" />

@@ -81,65 +81,6 @@
 
     @Html.EditorForModel()
 
-    @Html.LabelFor(p => p.is_response, "项目负责")
-    //@Html.CheckBoxFor(p => p.is_client_signed)
-    @Html.DropDownListFor(p => p.is_response, new[] {
-    new SelectListItem() {Text="是",
-    Value=bool.TrueString },
-    new SelectListItem() {Text="否",
-    Value=bool.FalseString }
-    }, "请选择")
-    <br />
-
-    @Html.LabelFor(p => p.scene_coff, "现场检测")
-    //@Html.CheckBoxFor(p => p.is_client_signed)
-    @Html.DropDownListFor(p => p.scene_coff, new[] {
-    new SelectListItem() {Text="是",
-    Value=bool.TrueString },
-    new SelectListItem() {Text="否",
-    Value=bool.FalseString }
-    }, "请选择")
-    <br />
-
-    @Html.LabelFor(p => p.plan_coff, "方案制定")
-    //@Html.CheckBoxFor(p => p.is_client_signed)
-    @Html.DropDownListFor(p => p.plan_coff, new[] {
-    new SelectListItem() {Text="是",
-    Value=bool.TrueString },
-    new SelectListItem() {Text="否",
-    Value=bool.FalseString }
-    }, "请选择")
-    <br />
-
-    @Html.LabelFor(p => p.report_coff, "报告撰写")
-    //@Html.CheckBoxFor(p => p.is_client_signed)
-    @Html.DropDownListFor(p => p.report_coff, new[] {
-    new SelectListItem() {Text="是",
-    Value=bool.TrueString },
-    new SelectListItem() {Text="否",
-    Value=bool.FalseString }
-    }, "请选择")
-    <br />
-
-    @Html.LabelFor(p => p.report_check_coff, "报告校核")
-    //@Html.CheckBoxFor(p => p.is_client_signed)
-    @Html.DropDownListFor(p => p.report_check_coff, new[] {
-    new SelectListItem() {Text="是",
-    Value=bool.TrueString },
-    new SelectListItem() {Text="否",
-    Value=bool.FalseString }
-    }, "请选择")
-    <br />
-
-    @Html.LabelFor(p => p.others_coff, "其它")
-    //@Html.CheckBoxFor(p => p.is_client_signed)
-    @Html.DropDownListFor(p => p.others_coff, new[] {
-    new SelectListItem() {Text="是",
-    Value=bool.TrueString },
-    new SelectListItem() {Text="否",
-    Value=bool.FalseString }
-    }, "请选择")
-    <br />
     <input type="submit" value="添加" />
 }
 

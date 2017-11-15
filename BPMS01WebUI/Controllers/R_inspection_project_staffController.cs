@@ -11,6 +11,7 @@ using BPMS01Domain.Entities;
 using Ninject;  //重要！
 
 using BPMS01WebUI.Models;
+using X.PagedList;
 
 namespace BPMS01WebUI.Controllers
 {
@@ -18,22 +19,23 @@ namespace BPMS01WebUI.Controllers
     {
         //职工参与信息仓库（库模式）
         private IR_inspection_project_staffRepository repository;
+        private IInspection_projectRepository inspectionProjectRepository;
 
         //构造函数
-        public R_inspection_project_staffController(IR_inspection_project_staffRepository r_inspection_project_staffRepository)
+        public R_inspection_project_staffController(IR_inspection_project_staffRepository r_inspection_project_staffRepository, IInspection_projectRepository inspectionProjectRepository)
         {
             this.repository = r_inspection_project_staffRepository;
+            this.inspectionProjectRepository = inspectionProjectRepository;
         }
 
 
         /// <summary>
         ///通过职工id查询职工的参与情况
         /// </summary>
-        /// <returns>查询界面默认视图<see cref="r_inspection_project_staff"/></returns>
-        public ViewResult  Query_R_bridge_inspection_staff_By_staff_id()
+        public ViewResult  Query_R_inspection_project_staff_ByStaffId()
         {
             ViewBag.query = 0;
-            return View();
+            return View(new Query_R_inspection_project_staff_ByStaffIdViewModel());
         }
 
         /// <summary>
@@ -41,7 +43,7 @@ namespace BPMS01WebUI.Controllers
         /// </summary>
         /// <returns>查询界面视图</returns>
         [HttpPost]
-        public ViewResult Query_R_bridge_inspection_staff_By_staff_id(FormCollection fc)
+        public ViewResult Query_R_inspection_project_staff_ByStaffId(FormCollection fc)
         {
             ViewBag.query = 1;
 
@@ -54,13 +56,55 @@ namespace BPMS01WebUI.Controllers
         /// <summary>
         ///列出指定职工id的职工项目参与情况
         /// </summary>
-        /// <param name="staff_id"><see cref="BPMS01Domain.Entities.staff.id"/></param>
+        /// <param name="staff_id"><see cref="staff.id"/></param>
         /// <returns>含有职工项目参与信息的ViewResult<see cref="r_inspection_project_staff"/></returns>
         [ChildActionOnly]
         [HttpPost]
-        public PartialViewResult  List_R_bridge_inspection_staff_By_staff_id(Guid staff_id)
+        public PartialViewResult  List_R_inspection_project_staff_By_staff_id(Guid staff_id, int? page)
         {
-            return PartialView(repository.Query_R_inspection_project_staff_By_staff_id(staff_id));
+
+            //第几页
+            int pageNumber = page ?? 1;
+
+            //每页显示多少条  
+            int pageSize = 5;   //后期将该编码放到AppSetting里面
+
+            //根据id排序  
+            //var rs = repository.staff.OrderBy(x => x.id);
+
+            //通过ToPagedList扩展方法进行分页  
+            //IPagedList <staff> pagedList = rs.ToPagedList(pageNumber, pageSize);
+
+            //将分页处理后的列表传给View  
+            //return View(pagedList);
+
+
+            var re01 = repository.r_inspection_project_staff.OrderBy(x => x.id);
+            var re02 = inspectionProjectRepository.inspection_project.OrderBy(x => x.id);
+
+            var query = from p in re02
+                        join q in re01
+                        on p.id equals q.inspection_project_id
+                        where q.staff_id == staff_id
+                        select new List_R_inspection_project_staff_ByStaffIdViewModel
+                        {
+
+                            inspection_project_name = p.name,
+                            is_response = (is_response) q.is_response,
+                            scene_coff = (scene_coff)q.scene_coff,
+                            plan_coff = (plan_coff)q.plan_coff,
+                            report_coff =(report_coff) q.report_coff,
+                            report_check_coff = (report_check_coff)q.report_check_coff,
+                            others_coff = (others_coff)q.others_coff,
+                            production_value_ratio = q.production_value_ratio,
+                            production_value = q.production_value
+                        };
+
+
+
+            IPagedList<List_R_inspection_project_staff_ByStaffIdViewModel> pagedList = query.ToPagedList(pageNumber, pageSize);
+
+            return PartialView(pagedList);
         }
 
         /// <summary>
@@ -69,7 +113,7 @@ namespace BPMS01WebUI.Controllers
         /// <returns>ViewResult:添加项目参与信息的视图</returns>
         public ViewResult AddR_inspection_project_staff()
         {
-            return View();
+            return View(new AddR_inspection_project_staffViewModel());
 
         }
 
@@ -91,7 +135,7 @@ namespace BPMS01WebUI.Controllers
                 ViewBag.message = "添加信息失败！";
             }
 
-            return View();
+            return View(new AddR_inspection_project_staffViewModel());
 
         }
     }

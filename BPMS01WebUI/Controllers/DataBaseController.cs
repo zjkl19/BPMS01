@@ -188,6 +188,22 @@ namespace BPMS01WebUI.Controllers
                 standard_price = 20000.00M
             });
 
+            var r_i_p_s01 = dbContext.r_inspection_project_staff.Add(new r_inspection_project_staff()
+            {
+                id = Guid.NewGuid(),
+                inspection_project_id=project01.id,
+                staff_id=staff_ldn.id,
+                is_response= Convert.ToInt32(is_response.no),
+                scene_coff= Convert.ToInt32(scene_coff.yes),
+                plan_coff= Convert.ToInt32(plan_coff.yes),
+                report_coff= Convert.ToInt32(report_coff.yes),
+                report_check_coff= Convert.ToInt32(report_check_coff.yes),
+                others_coff= Convert.ToInt32(others_coff.yes),
+                production_value_ratio=0.5,
+                production_value=10000
+
+            });
+
             try
             {
                 dbContext.SaveChanges();

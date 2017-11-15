@@ -1,4 +1,7 @@
-﻿@model IEnumerable <BPMS01Domain.Entities.join_r_inspection_project_staff>
+﻿@model IPagedList <BPMS01WebUI.Models.List_R_inspection_project_staff_ByStaffIdViewModel>
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
 
 <table id="r_inspection_project_staff_table" class="table">
 
@@ -72,4 +75,5 @@
     }
 
 </table>
-
+每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页  
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
