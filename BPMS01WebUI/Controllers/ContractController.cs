@@ -96,24 +96,6 @@ namespace BPMS01WebUI.Controllers
 
         }
 
-        /// <summary>
-        /// 往合同模型添加职工id信息，往视图模型添加职工信息
-        /// </summary>
-        /// <param name="staffInfo">含有职工id，工号，姓名的信息</param>
-        /// <returns>ViewResult:含有职工id，工号，姓名的信息的AddContract View</returns>
-        [NonAction]
-        [HttpPost]
-        public ViewResult AddContract(staff staffInfo)
-        {
-            var myViewModel = new AddContractViewModel
-            {
-                staff_id = staffInfo.id,
-                staff_no = staffInfo.no,
-                staff_name = staffInfo.name
-            };
-            return View(myViewModel);
-
-        }
 
         /// <summary>
         /// 添加合同信息
@@ -132,7 +114,7 @@ namespace BPMS01WebUI.Controllers
                 ViewBag.message = "添加信息失败！";
             }
 
-            return View();
+            return View(new AddContractViewModel());
 
         }
     }

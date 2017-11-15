@@ -17,15 +17,15 @@ namespace BPMS01WebUI.Models
 
         [Display(Name = "工号")]
         [DataType(DataType.Text)]
-        public int staff_no { get; set; }
+        public int no { get; set; }
 
         [Display(Name = "密码")]
         [DataType(DataType.Password)]
-        public string staff_password { get; set; }
+        public string password { get; set; }
 
         [Display(Name = "姓名")]
         [DataType(DataType.Text)]
-        public string staff_name { get; set; }
+        public string name { get; set; }
 
         [Display(Name = "性别")]  
         [UIHint("EnumInt32")]

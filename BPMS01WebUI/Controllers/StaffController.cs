@@ -53,9 +53,9 @@ namespace BPMS01WebUI.Controllers
                         select new IndexStaffViewModel
                         {
                             id = p.id,
-                            staff_no = p.no,
-                            staff_password = p.password,    //optional
-                            staff_name = p.name,
+                            no = p.no,
+                            password = p.password,    //optional
+                            name = p.name,
                             gender = (gender)(p.gender),
                             office_phone = p.office_phone,
                             mobile_phone = p.mobile_phone,

@@ -234,7 +234,7 @@
     <Compile Include="Controllers\DataBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\List_R_inspection_project_staff_ByStaffIdViewModel.cs" />
-    <Compile Include="Models\R_inspection_project_staffViewMode.cs" />
+    <Compile Include="Models\R_inspection_project_staffViewModel.cs" />
     <Compile Include="Models\IndexInspection_projectViewModel.cs" />
     <Compile Include="Models\Inspection_projectViewModel.cs" />
     <Compile Include="Models\ContractViewModel.cs" />

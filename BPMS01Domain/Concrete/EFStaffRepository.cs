@@ -43,25 +43,15 @@ namespace BPMS01Domain.Concrete
         }
 
 
-
-
     public bool AddStaff(staff staff)
         {
             staff.id = Guid.NewGuid(); //去掉短横杠
 
-            MD5 md5 = MD5.Create(); //实例化一个md5对像
-            byte[] bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(staff.password));//加密后是一个字节类型的数组
-
-            staff.password = "";
-
-            //字符串拼接
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < bytes.Length; i++)
-            {
-                staff.password = staff.password + bytes[i].ToString("x2");
-                //sb.Append(bytes[i]);
-            }
-
+            byte[] result = Encoding.Default.GetBytes(staff.password);
+            MD5 md5 = new MD5CryptoServiceProvider();
+            byte[] output = md5.ComputeHash(result);
+            staff.password = BitConverter.ToString(output).Replace("-", "");
+    
             try
             {
                 context.staff.Add(staff);
