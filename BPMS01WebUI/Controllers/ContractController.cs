@@ -29,7 +29,7 @@ namespace BPMS01WebUI.Controllers
 
 
         /// <summary>
-        /// 合同信息
+        /// 合同总览
         /// </summary>
         /// <returns>PartialView:所有合同信息的视图</returns>
         public ActionResult Index(int? page)

@@ -233,6 +233,8 @@
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\DataBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\IndexInspection_projectViewModel.cs" />
+    <Compile Include="Models\Inspection_projectViewModel.cs" />
     <Compile Include="Models\ContractViewModel.cs" />
     <Compile Include="Models\IndexContractView.cs" />
     <Compile Include="Models\IndexBridgeViewModel.cs" />
@@ -388,6 +390,7 @@
     <Content Include="Views\DataBase\Initialize.cshtml" />
     <Content Include="Views\Bridge\Index.cshtml" />
     <Content Include="Views\Contract\Index.cshtml" />
+    <Content Include="Views\Inspection_project\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

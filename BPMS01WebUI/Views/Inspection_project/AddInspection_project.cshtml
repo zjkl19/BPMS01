@@ -104,20 +104,6 @@
     <button type="submit" id="button1" name="button1" formaction='@Url.Action("GetStd_pdt_value", "Inspection_project")'>自动计算</button>
     <br />
 
-    @Html.LabelFor(p => p.bridge_inspection, "桥梁检测类型")
-    <br />
-    @Html.DropDownListFor(p => p.bridge_inspection, new[] {
-    new SelectListItem() {Text="常规定期检测",
-    Value=Convert.ToString(1) },
-    new SelectListItem() {Text="结构定期检测",
-    Value=Convert.ToString(2) },
-    new SelectListItem() {Text="静力荷载试验",
-    Value=Convert.ToString(3) },
-    new SelectListItem() {Text="动力荷载试验",
-    Value=Convert.ToString(4) }
-    }, "请选择")
-    <br />
-
     @Html.LabelFor(p => p.contract_id, "关联合同")
     //参考AddContract.cshtml
     @Html.Hidden("contract_id", "")

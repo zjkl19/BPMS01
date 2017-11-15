@@ -79,6 +79,5 @@ namespace BPMS01Domain.Entities
                 .WillCascadeOnDelete(false);
         }
 
-        
     }
 }

@@ -110,9 +110,28 @@ namespace BPMS01WebUI.Controllers
                   delegation_client="莆田市建设局",
                   dlg_contactperson="李锋",
                   dlg_contactperson_phone="123456",
-                  accept_way=1,
-                  is_corporation_signed=1,
-                  is_client_signed=1
+                  accept_way= Convert.ToInt32(accept_way.bid),
+                  is_corporation_signed= Convert.ToInt32(is_corporation_signed.yes),
+                  is_client_signed= Convert.ToInt32(is_client_signed.yes)
+            });
+
+            var contract02 = dbContext.contract.Add(new contract()
+            {
+                id = Guid.NewGuid(),
+                staff_id = staff_lp.id,
+                no = "HT02CB1600201",
+                name = "某桥外观检查",
+                amount = 150000.00M,
+                signed_data = Convert.ToDateTime("2016-08-20"),
+                deadline = 30,
+                agmt_wk_cnt = "检测桥梁外观",
+                project_location = "莆田",
+                delegation_client = "莆田市建设局",
+                dlg_contactperson = "李锋",
+                dlg_contactperson_phone = "123456",
+                accept_way = Convert.ToInt32(accept_way.bid),
+                is_corporation_signed = Convert.ToInt32(is_corporation_signed.yes),
+                is_client_signed = Convert.ToInt32(is_client_signed.yes)
             });
 
             //
@@ -129,7 +148,7 @@ namespace BPMS01WebUI.Controllers
                 length=25.0,
                 width=10,
                 span_number=1,
-                structure_type=1
+                structure_type= Convert.ToInt32(structure_type.SimpleSupportedBeam)
             });
             bridgeArr.Add(bridge01);
             //(BPMSContext)bridgeArr[0]
@@ -140,7 +159,7 @@ namespace BPMS01WebUI.Controllers
                 length =60.0,
                 width = 14,
                 span_number = 2,
-                structure_type = 2
+                structure_type = Convert.ToInt32(structure_type.Continous_Rigid_Beam)
             });
             bridgeArr.Add(bridge02);
 
@@ -153,8 +172,20 @@ namespace BPMS01WebUI.Controllers
                 name = "某荷载试验项目",
                 enter_date= Convert.ToDateTime("2016-07-25"),
                 exit_date= Convert.ToDateTime("2016-08-25"),
-                inspection_type=1,
+                inspection_type= Convert.ToInt32(inspection_type.staticLoad),
                 standard_price=10000.00M
+            });
+
+            var project02 = dbContext.inspection_project.Add(new inspection_project()
+            {
+                id = Guid.NewGuid(),
+                contract_id = contract02.id,
+                bridge_id = bridge02.id,
+                name = "某外观检查项目",
+                enter_date = Convert.ToDateTime("2016-10-20"),
+                exit_date = Convert.ToDateTime("2016-11-25"),
+                inspection_type = Convert.ToInt32(inspection_type.regularPeriod),
+                standard_price = 20000.00M
             });
 
             try

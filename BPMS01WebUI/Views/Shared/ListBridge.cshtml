@@ -20,6 +20,9 @@
         <th>
             桥梁宽度
         </th>
+        <th>
+            桥梁跨数
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -41,6 +44,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.span_number)
             </td>
         </tr>
     }
