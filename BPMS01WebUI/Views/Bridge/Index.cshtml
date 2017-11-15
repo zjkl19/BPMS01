@@ -1,0 +1,59 @@
+﻿@model IPagedList<BPMS01WebUI.Models.IndexBridgeViewModel>
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            桥梁名称
+        </th>
+        <th>
+            桥梁总长
+        </th>
+        <th>
+            桥梁宽度
+        </th>
+        <th>
+            桥梁跨数
+        </th>
+        <th>
+            结构类型
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.length)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.width)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.span_number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.structure_type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
+每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页  
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

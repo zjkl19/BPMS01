@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace BPMS01WebUI.Models
 {
-    public class AddBridgeViewModel:BridgeViewModel
+    public class IndexBridgeViewModel:BridgeViewModel
     {
         //[DisplayName("添加桥梁名")]    //using System.ComponentModel;
 

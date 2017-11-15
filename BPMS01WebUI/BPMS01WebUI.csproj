@@ -233,6 +233,8 @@
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\DataBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\IndexBridgeViewModel.cs" />
+    <Compile Include="Models\BridgeViewModel.cs" />
     <Compile Include="Models\IndexStaffViewModel.cs" />
     <Compile Include="Models\StaffViewModel.cs" />
     <Compile Include="Models\HtmlExtensions.cs" />
@@ -382,6 +384,7 @@
     <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
     <Content Include="Views\DataBase\Index.cshtml" />
     <Content Include="Views\DataBase\Initialize.cshtml" />
+    <Content Include="Views\Bridge\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
