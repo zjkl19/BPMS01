@@ -117,10 +117,22 @@ namespace BPMS01WebUI.Controllers
         /// </summary>
         /// <param name="inspection_project_id">职工工号<see cref="inspection_project.id"/></param>
         /// <returns>PartialViewResult<see cref="List_R_inspection_project_staff_ByStaffIdViewModel "/></returns>
-        [ChildActionOnly]
-        [HttpPost]
-        public PartialViewResult List_R_inspection_project_staff_ByInspection_projectId(Guid inspection_project_id)
+
+        //[ChildActionOnly]
+        //[HttpPost]
+
+        //public PartialViewResult List_R_inspection_project_staff_ByInspection_projectId(Guid inspection_project_id)
+        //AddR_inspection_project_staffViewModel
+        //Guid inspection_project_id = new Guid()
+        public PartialViewResult List_R_inspection_project_staff_ByInspection_projectId(AddR_inspection_project_staffViewModel vm)
         {
+            //string str = "{00000000-0000-0000-0000-000000000000}";
+            //var inspection_project_id = vm.inspection_project_id;
+
+            //ref:
+            //string str = "{F3006154-054B-47A7-AACC-0508688F90CF}";
+            //Guid g = new Guid(str);
+            var inspection_project_id = vm.inspection_project_id;
 
             var re01 = repository.r_inspection_project_staff;
             var re02 = staffRepository.staff;
@@ -143,7 +155,7 @@ namespace BPMS01WebUI.Controllers
                             production_value_ratio=p.production_value_ratio,
                             production_value=p.production_value
                         };
-
+            //query = null;
             return PartialView(query);
         }
 
@@ -180,7 +192,12 @@ namespace BPMS01WebUI.Controllers
             ViewBag.query = 1;
             ViewBag.inspection_project_id = r_inspection_project_staff.inspection_project_id;
 
-            return View(new AddR_inspection_project_staffViewModel());
+            var myViewModel = new AddR_inspection_project_staffViewModel
+            {
+                inspection_project_id = r_inspection_project_staff.inspection_project_id
+            };
+
+            return View(myViewModel);
 
         }
     }

@@ -25,6 +25,7 @@ D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.AI.ServerTelemetryChannel.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.AI.Web.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.AI.WindowsServer.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.ApplicationInsights.dll
+D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.ApplicationInsights.TraceListener.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.AspNet.Identity.Core.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.AspNet.Identity.Owin.dll
@@ -42,6 +43,7 @@ D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.Web.Infrastructure.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Moq.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Newtonsoft.Json.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Owin.dll
+D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Diagnostics.DiagnosticSource.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Web.Helpers.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Web.Mvc.dll
 D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Web.Optimization.dll
@@ -56,9 +58,11 @@ D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.AI.Web.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.AI.WindowsServer.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.ApplicationInsights.xml
+D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.ApplicationInsights.TraceListener.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Moq.pdb
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Moq.xml
+D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Diagnostics.DiagnosticSource.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Web.Helpers.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Web.Mvc.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Web.Optimization.xml
@@ -84,7 +88,3 @@ D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.Owin.Security.Twitter.xml
 D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\vsProjects\BPMS01\BPMS01Domain\obj\Debug\BPMS01Domain.dll
 D:\vsProjects\BPMS01\BPMS01Domain\obj\Debug\BPMS01Domain.pdb
-D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.ApplicationInsights.TraceListener.dll
-D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Diagnostics.DiagnosticSource.dll
-D:\vsProjects\BPMS01\BPMS01Domain\bin\Microsoft.ApplicationInsights.TraceListener.xml
-D:\vsProjects\BPMS01\BPMS01Domain\bin\System.Diagnostics.DiagnosticSource.xml
