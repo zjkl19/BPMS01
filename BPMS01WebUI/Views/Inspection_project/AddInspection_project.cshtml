@@ -120,8 +120,8 @@
     @Html.EditorForModel()
 
     @Html.Label("收费标准价格：")
-    //@Html.TextBoxFor(p => p.standard_price)
-    @Html.TextBox("standard_price",TempData["std_pdt_value"])
+    @Html.TextBoxFor(p => p.standard_price)
+    @*@Html.TextBox("standard_price",TempData["std_pdt_value"])*@
     //@Html.ActionLink("自动计算","GetStd_pdt_value")
     //<button type="submit" id="button1" name="button1" formaction='@Url.Action("GetStd_pdt_value", "Inspection_project",new {bridge_id=0, bridge_inspection=1})'>自动计算</button>
     <button type="submit" id="button1" name="button1" formaction='@Url.Action("GetStd_pdt_value", "Inspection_project")'>自动计算</button>

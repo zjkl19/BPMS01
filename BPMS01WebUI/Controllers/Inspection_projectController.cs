@@ -89,17 +89,35 @@ namespace BPMS01WebUI.Controllers
             double bridgeWidth = (double)vm.bridge_width;
             int bridgeNspan = (int)vm.bridge_span_number;
             //int bridgeStructure_type, double bridgeLength, double bridgeWidth, int bridgeNspan, int inspection_type
-            TempData["std_pdt_value"] = GetQuota.GetStdPdtValue(bridgeStructure_type, bridgeLength, bridgeWidth, bridgeNspan, inspection_type);
-            return RedirectToAction("AddInspection_project");
+            //TempData["std_pdt_value"] = GetQuota.GetStdPdtValue(bridgeStructure_type, bridgeLength, bridgeWidth, bridgeNspan, inspection_type);
+            decimal std_pdt_value = GetQuota.GetStdPdtValue(bridgeStructure_type, bridgeLength, bridgeWidth, bridgeNspan, inspection_type);
+
+            var newViewModel = new AddInspection_projectViewModel
+            {
+                contract_id=vm.contract_id,
+                contract_name = vm.contract_name,
+                inspection_type=vm.inspection_type,               
+                bridge_id=vm.bridge_id,
+                bridge_name=vm.bridge_name,
+                bridge_structure_type = vm.bridge_structure_type,
+                standard_price = std_pdt_value
+            };
+
+            ModelState.Clear();
+
+            return View("AddInspection_project", newViewModel);
+            //return View(newView);
+            //return RedirectToAction("AddInspection_project", newViewModel);
         }
 
         /// <summary>
         /// 添加检测项目信息
         /// </summary>
         /// <returns>ViewResult:添加检测项目信息的视图</returns>
-        public ViewResult AddInspection_project()
+        public ViewResult AddInspection_project(AddInspection_projectViewModel vm)
         {
-            return View(new AddInspection_projectViewModel());
+            //return View(new AddInspection_projectViewModel());
+            return View(vm);
 
         }
 
