@@ -233,6 +233,7 @@
     <Compile Include="Controllers\ContractController.cs" />
     <Compile Include="Controllers\DataBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\List_R_inspection_project_staff_ByInspection_projectIdViewModel.cs" />
     <Compile Include="Models\List_R_inspection_project_staff_ByStaffIdViewModel.cs" />
     <Compile Include="Models\R_inspection_project_staffViewModel.cs" />
     <Compile Include="Models\IndexInspection_projectViewModel.cs" />
@@ -381,7 +382,7 @@
     <Content Include="Views\Shared\ListBridge.cshtml" />
     <Content Include="Views\Shared\ListInspection_project.cshtml" />
     <Content Include="Views\R_inspection_project_staff\AddR_inspection_project_staff.cshtml" />
-    <Content Include="Views\Shared\List_R_inspection_project_staff_By_staff_id.cshtml" />
+    <Content Include="Views\Shared\List_R_inspection_project_staff_ByStaffId.cshtml" />
     <Content Include="Views\R_inspection_project_staff\Query_R_inspection_project_staff_ByStaffID.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\gender.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\gender1.cshtml" />
@@ -393,6 +394,7 @@
     <Content Include="Views\Bridge\Index.cshtml" />
     <Content Include="Views\Contract\Index.cshtml" />
     <Content Include="Views\Inspection_project\Index.cshtml" />
+    <Content Include="Views\Shared\List_R_inspection_project_staff_ByInspection_projectId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

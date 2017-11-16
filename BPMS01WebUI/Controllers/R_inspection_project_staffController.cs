@@ -20,12 +20,14 @@ namespace BPMS01WebUI.Controllers
         //职工参与信息仓库（库模式）
         private IR_inspection_project_staffRepository repository;
         private IInspection_projectRepository inspectionProjectRepository;
+        private IStaffRepository staffRepository;
 
         //构造函数
-        public R_inspection_project_staffController(IR_inspection_project_staffRepository r_inspection_project_staffRepository, IInspection_projectRepository inspectionProjectRepository)
+        public R_inspection_project_staffController(IR_inspection_project_staffRepository r_inspection_project_staffRepository, IInspection_projectRepository inspectionProjectRepository, IStaffRepository staffRepository)
         {
             this.repository = r_inspection_project_staffRepository;
             this.inspectionProjectRepository = inspectionProjectRepository;
+            this.staffRepository = staffRepository;
         }
 
 
@@ -56,11 +58,12 @@ namespace BPMS01WebUI.Controllers
         /// <summary>
         ///列出指定职工id的职工项目参与情况
         /// </summary>
-        /// <param name="staff_id"><see cref="staff.id"/></param>
-        /// <returns>含有职工项目参与信息的ViewResult<see cref="r_inspection_project_staff"/></returns>
+        /// <param name="staff_id">职工id<see cref="staff.id"/></param>
+        /// <param name="page">页数</param>
+        /// <returns>含有职工项目参与信息的ViewResult<see cref="List_R_inspection_project_staff_ByStaffIdViewModel "/></returns>
         [ChildActionOnly]
         [HttpPost]
-        public PartialViewResult  List_R_inspection_project_staff_By_staff_id(Guid staff_id, int? page)
+        public PartialViewResult  List_R_inspection_project_staff_ByStaffId(Guid staff_id, int? page)
         {
 
             //第几页
@@ -107,12 +110,50 @@ namespace BPMS01WebUI.Controllers
             return PartialView(pagedList);
         }
 
+
+
+        /// <summary>
+        ///列出指定项目的职工项目参与情况
+        /// </summary>
+        /// <param name="inspection_project_id">职工工号<see cref="inspection_project.id"/></param>
+        /// <returns>PartialViewResult<see cref="List_R_inspection_project_staff_ByStaffIdViewModel "/></returns>
+        [ChildActionOnly]
+        [HttpPost]
+        public PartialViewResult List_R_inspection_project_staff_ByInspection_projectId(Guid inspection_project_id)
+        {
+
+            var re01 = repository.r_inspection_project_staff;
+            var re02 = staffRepository.staff;
+
+            var query = from p in re01
+                        join q in re02
+                        on p.staff_id equals q.id
+                        where p.inspection_project_id == inspection_project_id
+                        select new List_R_inspection_project_staff_ByInspection_projectIdViewModel
+                        {
+
+                            staff_no=q.no,
+                            staff_name=q.name,
+                            is_response=(is_response)p.is_response,
+                            scene_coff=(scene_coff)p.scene_coff,
+                            plan_coff=(plan_coff)p.plan_coff,
+                            report_coff=(report_coff)p.report_coff,
+                            report_check_coff=(report_check_coff)p.report_check_coff,
+                            others_coff=(others_coff)p.others_coff,
+                            production_value_ratio=p.production_value_ratio,
+                            production_value=p.production_value
+                        };
+
+            return PartialView(query);
+        }
+
         /// <summary>
         /// 添加项目参与信息
         /// </summary>
         /// <returns>ViewResult:添加项目参与信息的视图</returns>
         public ViewResult AddR_inspection_project_staff()
         {
+            ViewBag.query = 0;
             return View(new AddR_inspection_project_staffViewModel());
 
         }
@@ -134,6 +175,10 @@ namespace BPMS01WebUI.Controllers
             {
                 ViewBag.message = "添加信息失败！";
             }
+
+            //
+            ViewBag.query = 1;
+            ViewBag.inspection_project_id = r_inspection_project_staff.inspection_project_id;
 
             return View(new AddR_inspection_project_staffViewModel());
 

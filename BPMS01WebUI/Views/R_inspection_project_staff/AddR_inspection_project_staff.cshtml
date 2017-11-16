@@ -86,6 +86,11 @@
 
 <br />@ViewBag.message
 
+@if (ViewBag.query != 0)
+{
+    @Html.Action("List_R_inspection_project_staff_ByInspection_projectId", "R_inspection_project_staff", new { inspection_project_id = ViewBag.inspection_project_id })
+}
+
 <div class="modal fade" id="popup_inspection_project" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content text-left">

@@ -1,7 +1,7 @@
 ﻿@model BPMS01WebUI.Models.Query_R_inspection_project_staff_ByStaffIdViewModel
                           
 @{
-    ViewBag.Title = "Query_R_inspection_project_staff_By_staff_id";
+    ViewBag.Title = "Query_R_inspection_project_staff_ByStaffId";
 }
 
 <script src="../Scripts/jquery-1.10.2.min.js"></script>
@@ -54,7 +54,7 @@
 
 @if (ViewBag.query != 0)
 {
-    @Html.Action("List_R_inspection_project_staff_By_staff_id", "R_inspection_project_staff", new { staff_id = ViewBag.staff_id })
+    @Html.Action("List_R_inspection_project_staff_ByStaffId", "R_inspection_project_staff", new { staff_id = ViewBag.staff_id })
 }
 
 
