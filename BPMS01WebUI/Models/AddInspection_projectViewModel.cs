@@ -35,6 +35,9 @@ namespace BPMS01WebUI.Models
         public double bridge_width { get; set; }
 
         [HiddenInput(DisplayValue = false)]
+        public int bridge_span_number { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
         //[DataType(DataType.Text)]
         public structure_type bridge_structure_type { get; set; }
 

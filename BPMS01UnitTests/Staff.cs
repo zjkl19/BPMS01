@@ -97,7 +97,7 @@ namespace BPMS01UnitTests
                 no = 1743,
                 password = "123456",
                 name = "林迪南",
-                gender = 1,
+                gender = Convert.ToInt32(gender.male),
                 office_phone = "123456",
                 mobile_phone = "123456",
                 position = 1,
@@ -116,7 +116,7 @@ namespace BPMS01UnitTests
             //assert
             var p = result.gender;
             //Text = m.GetType().GetProperty("Name").ToString(),
-            Assert.AreEqual(p.GetType().GetProperty("Name").ToString(), "未知");
+            Assert.AreEqual(p.GetType().GetProperty("Name").ToString(), "男");
         }
 
     }

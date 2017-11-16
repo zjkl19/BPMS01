@@ -80,15 +80,16 @@ namespace BPMS01WebUI.Controllers
         
         //改注释,补单元测试？
         [HttpPost]
-        public ActionResult GetStd_pdt_value(FormCollection fc)
+        public ActionResult GetStd_pdt_value(AddInspection_projectViewModel vm)
         {
-
-            int bridgeStructure_type = Convert.ToInt32(fc["bridge_structure_type"]);  //桥梁结构类型
-            int inspection_type = Convert.ToInt32(fc["bridge_inspection"]);           //检测类型
-            double bridgeLength= Convert.ToDouble(fc["bridge_length"]);
-            double bridgeWidth = Convert.ToDouble(fc["bridge_width"]);
+            //int bridgeStructure_type, double bridgeLength, double bridgeWidth, int bridgeNspan, int inspection_type)
+            int bridgeStructure_type = (int)vm.bridge_structure_type;  //桥梁结构类型
+            int inspection_type = (int)vm.inspection_type;           //检测类型
+            double bridgeLength= (double)vm.bridge_length;
+            double bridgeWidth = (double)vm.bridge_width;
+            int bridgeNspan = (int)vm.bridge_span_number;
             //int bridgeStructure_type, double bridgeLength, double bridgeWidth, int bridgeNspan, int inspection_type
-            TempData["std_pdt_value"] = GetQuota.GetStdPdtValue(bridgeStructure_type, bridgeLength, bridgeWidth,1, inspection_type);
+            TempData["std_pdt_value"] = GetQuota.GetStdPdtValue(bridgeStructure_type, bridgeLength, bridgeWidth, bridgeNspan, inspection_type);
             return RedirectToAction("AddInspection_project");
         }
 
