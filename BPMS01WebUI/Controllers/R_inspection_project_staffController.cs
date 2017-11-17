@@ -103,7 +103,8 @@ namespace BPMS01WebUI.Controllers
                             production_value = q.production_value
                         };
 
-
+            ViewBag.sumProjects = query.Count();
+            ViewBag.sumProductValue = query.Sum(p => p.production_value); 
 
             IPagedList<List_R_inspection_project_staff_ByStaffIdViewModel> pagedList = query.ToPagedList(pageNumber, pageSize);
 

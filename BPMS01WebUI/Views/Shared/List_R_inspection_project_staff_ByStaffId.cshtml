@@ -2,7 +2,7 @@
 @using X.PagedList.Mvc;
 @using X.PagedList;
 
-
+<p>满足查询条件的查询结果如下：</p>
 <table id="r_inspection_project_staff_table" class="table">
 
     <tr>
@@ -75,5 +75,8 @@
     }
 
 </table>
+<p>项目总计：@ViewBag.sumProjects</p>
+<p>产值总计：@ViewBag.sumProductValue</p>
+
 每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页  
 @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
