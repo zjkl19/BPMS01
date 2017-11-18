@@ -104,9 +104,9 @@
 }
 
 <div id="ajaxBody">
-
+    @TempData["message"]
     @*@Html.Action("List_R_inspection_project_staff_ByInspection_projectId", "R_inspection_project_staff", new { inspection_project_id = Model.inspection_project_id })*@
-    @Html.Action("List_R_inspection_project_staff_ByInspection_projectId", new { vm = Model })
+    @Html.Action("List_R_inspection_project_staff_ByInspection_projectId", new { inspection_project_id = Model.inspection_project_id })
     @*Html.RenderPartial("List_R_inspection_project_staff_ByInspection_projectId", Model);*@
 
 </div>

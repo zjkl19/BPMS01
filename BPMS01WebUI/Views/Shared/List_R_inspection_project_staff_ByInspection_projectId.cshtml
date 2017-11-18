@@ -32,8 +32,9 @@
         <th>
             @Html.DisplayNameFor(model => model.production_value)
         </th>
-
-    </tr>
+        <th>
+        </th>
+</tr>
 
 @foreach (var item in Model) {
     <tr>
@@ -67,7 +68,14 @@
         <td>
             @Html.DisplayFor(modelItem => item.production_value)
         </td>
-
+        <td>
+            @using (Html.BeginForm("DeleteR_inspection_project_staff", "R_inspection_project_staff"))
+            {
+                @Html.Hidden("id",item.id)
+                <input type="submit" value="删除">
+            }
+            @*@Html.ActionLink("删除", "DeleteR_inspection_project_staff",new { id= item.id})*@
+        </td>
     </tr>
 }
 

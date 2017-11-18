@@ -13,10 +13,17 @@ namespace BPMS01Domain.Abstract
         IEnumerable<r_inspection_project_staff> r_inspection_project_staff { get; }
         
         /// <summary>
-        /// 往数据库添加项目参与者信息
+        /// 往数据库添加项目参与信息
         /// </summary>
         /// <param name="r_inspection_project_staff">"桥梁检测-职工"信息</param>
         /// <returns>添加成功返回1，否则返回0</returns>
         bool AddR_inspection_project_staff(r_inspection_project_staff r_inspection_project_staff);
+
+        /// <summary>
+        /// 删除项目参与信息
+        /// </summary>
+        /// <param name="id">"主键</param>
+        /// <returns>添加成功返回1，否则返回0</returns>
+        r_inspection_project_staff DeleteR_inspection_project_staff(Guid id);
     }
 }

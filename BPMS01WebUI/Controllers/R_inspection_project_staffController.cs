@@ -126,9 +126,10 @@ namespace BPMS01WebUI.Controllers
         //[HttpPost]
 
         //public PartialViewResult List_R_inspection_project_staff_ByInspection_projectId(Guid inspection_project_id)
+        //public PartialViewResult List_R_inspection_project_staff_ByInspection_projectId(AddR_inspection_project_staffViewModel vm)
         //AddR_inspection_project_staffViewModel
         //Guid inspection_project_id = new Guid()
-        public PartialViewResult List_R_inspection_project_staff_ByInspection_projectId(AddR_inspection_project_staffViewModel vm)
+        public PartialViewResult List_R_inspection_project_staff_ByInspection_projectId(Guid inspection_project_id=new Guid())
         {
             //string str = "{00000000-0000-0000-0000-000000000000}";
             //var inspection_project_id = vm.inspection_project_id;
@@ -136,7 +137,7 @@ namespace BPMS01WebUI.Controllers
             //ref:
             //string str = "{F3006154-054B-47A7-AACC-0508688F90CF}";
             //Guid g = new Guid(str);
-            var inspection_project_id = vm.inspection_project_id;
+            //var inspection_project_id = vm.inspection_project_id;
 
             var re01 = repository.r_inspection_project_staff;
             var re02 = staffRepository.staff;
@@ -147,7 +148,7 @@ namespace BPMS01WebUI.Controllers
                         where p.inspection_project_id == inspection_project_id
                         select new List_R_inspection_project_staff_ByInspection_projectIdViewModel
                         {
-
+                            id=p.id,
                             staff_no=q.no,
                             staff_name=q.name,
                             is_response=(is_response)p.is_response,
@@ -203,6 +204,23 @@ namespace BPMS01WebUI.Controllers
 
             return View(myViewModel);
 
+        }
+
+        /// <summary>
+        /// 根据id删除r_inspection_project_staff记录
+        /// </summary>
+        //[HttpPost]
+        public ActionResult DeleteR_inspection_project_staff(Guid id)
+        {
+            var deletedR_inspection_project_staff = repository.DeleteR_inspection_project_staff(id);
+            if (deletedR_inspection_project_staff != null)
+            {
+                TempData["message"] = string.Format("id:{0} was deleted", deletedR_inspection_project_staff.id);
+            }
+            //return RedirectToAction("List_R_inspection_project_staff_ByInspection_projectId");
+            return RedirectToAction("AddR_inspection_project_staff");
+            
+            
         }
     }
 }

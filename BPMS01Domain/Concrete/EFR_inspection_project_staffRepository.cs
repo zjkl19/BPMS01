@@ -44,6 +44,26 @@ namespace BPMS01Domain.Concrete
 
         }
 
+        public r_inspection_project_staff DeleteR_inspection_project_staff(Guid id)
+        {
+            var dbEntry = context.r_inspection_project_staff.Find(id);
+            if (dbEntry != null)
+            {
+                try
+                {
+                    context.r_inspection_project_staff.Remove(dbEntry);
+                    context.SaveChanges();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                
+            }
+            return dbEntry;
+        }
+
 
     }
 }
