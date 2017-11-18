@@ -4,7 +4,7 @@
     ViewBag.Title = "Query_R_inspection_project_staff_ByStaffId";
 }
 
-<script src="../Scripts/jquery-1.10.2.min.js"></script>
+
 <script>
 
     $(function () {
@@ -24,7 +24,7 @@
             staff_name = $(":input:radio:checked").map(function () {
 
                 return $(this).parent().siblings('td').eq(2).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
-
+                        
             }).get();   // 获取内容数组并拼接为字符串
 
 
