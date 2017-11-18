@@ -44,6 +44,7 @@ namespace BPMS01WebUI.Controllers
         /// 提交表单中的职工id进行查询
         /// </summary>
         /// <returns>查询界面视图</returns>
+        /*
         [HttpPost]
         public ViewResult Query_R_inspection_project_staff_ByStaffId(FormCollection fc)
         {
@@ -54,6 +55,7 @@ namespace BPMS01WebUI.Controllers
 
             return View();
         }
+        */
 
         /// <summary>
         ///列出指定职工id的职工项目参与情况
@@ -61,10 +63,11 @@ namespace BPMS01WebUI.Controllers
         /// <param name="staff_id">职工id<see cref="staff.id"/></param>
         /// <param name="page">页数</param>
         /// <returns>含有职工项目参与信息的ViewResult<see cref="List_R_inspection_project_staff_ByStaffIdViewModel "/></returns>
-        [ChildActionOnly]
-        [HttpPost]
-        public PartialViewResult  List_R_inspection_project_staff_ByStaffId(Guid staff_id, int? page)
+        //[ChildActionOnly]
+        //[HttpPost]
+        public PartialViewResult  List_R_inspection_project_staff_ByStaffId(Query_R_inspection_project_staff_ByStaffIdViewModel vm, int? page)
         {
+            var staff_id = vm.staff_id;
 
             //第几页
             int pageNumber = page ?? 1;

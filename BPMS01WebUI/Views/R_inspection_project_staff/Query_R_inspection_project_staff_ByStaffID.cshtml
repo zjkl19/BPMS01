@@ -1,7 +1,11 @@
 ﻿@model BPMS01WebUI.Models.Query_R_inspection_project_staff_ByStaffIdViewModel
-                          
+
 @{
     ViewBag.Title = "Query_R_inspection_project_staff_ByStaffId";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "ajaxBody"
+    };
 }
 
 
@@ -24,7 +28,7 @@
             staff_name = $(":input:radio:checked").map(function () {
 
                 return $(this).parent().siblings('td').eq(2).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
-                        
+
             }).get();   // 获取内容数组并拼接为字符串
 
 
@@ -40,7 +44,7 @@
 
 <h2>Query_R_inspection_project_staff_By_staff_id</h2>
 
-@using (Html.BeginForm("Query_R_inspection_project_staff_ByStaffId", "R_inspection_project_staff", FormMethod.Post))
+@using (Ajax.BeginForm("List_R_inspection_project_staff_ByStaffId", "R_inspection_project_staff", ajaxOpts))
 {
 
     @Html.LabelFor(p => p.staff_id, "选择职工")
@@ -52,11 +56,11 @@
     <input type="submit" value="查询" />
 }
 
-@if (ViewBag.query != 0)
-{
-    @Html.Action("List_R_inspection_project_staff_ByStaffId", "R_inspection_project_staff", new { staff_id = ViewBag.staff_id })
-}
+<div id="ajaxBody">
 
+    @Html.Action("List_R_inspection_project_staff_ByStaffId", "R_inspection_project_staff", new { vm = Model })
+
+</div>
 
 <div class="modal fade" id="popup_staff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">

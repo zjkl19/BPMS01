@@ -37,7 +37,8 @@ namespace BPMS01WebUI
 
             //Create bundel for jquery.unobtrusive-ajax.min.js    
             bundles.Add(new ScriptBundle("~/bundles/jqueryAjax").Include(
-                      "~/Scripts/jquery.unobtrusive-ajax.min"));
+                      "~/Scripts/jquery.unobtrusive-ajax.min.js"));
+
         }
     }
 }
