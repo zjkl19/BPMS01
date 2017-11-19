@@ -220,7 +220,6 @@ namespace BPMS01WebUI.Controllers
             //return RedirectToAction("List_R_inspection_project_staff_ByInspection_projectId");
             return RedirectToAction("AddR_inspection_project_staff");
             
-            
         }
     }
 }
