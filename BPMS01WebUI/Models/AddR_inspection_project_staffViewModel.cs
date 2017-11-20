@@ -22,6 +22,9 @@ namespace BPMS01WebUI.Models
         [ScaffoldColumn(false)]
         public string staff_name { get; set; }   //add
 
+        //[ScaffoldColumn(false)]
+        //public Nullable<double> production_value_ratio { get; set; }
+
 
 
     }

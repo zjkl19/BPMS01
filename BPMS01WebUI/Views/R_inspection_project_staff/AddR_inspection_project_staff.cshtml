@@ -6,6 +6,12 @@
     {
         UpdateTargetId = "ajaxBody"
     };
+
+    AjaxOptions ajaxPrice = new AjaxOptions
+    {
+        UpdateTargetId = "ajaxPriceBody",
+        HttpMethod = "Post"
+    };
 }
 
 <h2>AddR_inspection_project_staff</h2>
@@ -31,9 +37,9 @@
 
             //$("#inspection_project_id").attr("value", $.trim(id));
 
-            $("[id=inspection_project_id]").each(function(){ 
+            $("[id=inspection_project_id]").each(function () {
                 $(this).attr("value", $.trim(id))
-                });
+            });
 
             $("#inspection_project_name").attr("value", inspection_project_name);
         })
@@ -67,10 +73,36 @@
         })
     })
 
+    $("#TEMPcalcPrice").click(function () {//button的click事件
+
+
+        production_value_ratio = $("#production_value_ratio").map(function () {
+            return $(this).text();  
+
+        }).get()
+
+        production_value=$("#production_value").map(function () {
+
+            return $(this).text();  
+
+        }).get()
+
+        $("#p_v_r").attr("value", $(" input[name='production_value_ratio'] ").val());
+        $("#p_v").attr("value", production_value);
+
+        $("p").append("18");
+
+        $("#calcForm").submit();
+
+    });
+
+
+
 
 </script>
 
 <h2>AddInspection_project</h2>
+<p>
 
 @using (Html.BeginForm("AddR_inspection_project_staff", "R_inspection_project_staff", FormMethod.Post))
 {
@@ -88,20 +120,43 @@
     @Html.TextBoxFor(p => p.staff_name, new { @readonly = "readonly" })
     <br />
 
+
+    <div id="ajaxPriceBody">
+        @*分部视图*@
+        @*@Html.Action("ListPdtRatioAndValue", new { inspection_project_id = Model.inspection_project_id, production_value_ratio = 0, production_value = 0 })*@
+        @Html.Action("ListPdtRatioAndValue", new { inspection_project_id = Model.inspection_project_id, p_v_r =0, p_v = 0 })
+    </div>
+    @*@Ajax.ActionLink("自动计算产值", "ListPdtRatioAndValue", ajaxPrice);*@
+
     @Html.EditorForModel()
 
     <input type="submit" value="添加" />
 }
 
-<br />@ViewBag.message
+<br />
 
-@using (Ajax.BeginForm("List_R_inspection_project_staff_ByInspection_projectId", ajaxOpts))
+@*@Html.ActionLink("自动计算产值", "Calc_production_value", new { vm = Model })*@
+@using (Ajax.BeginForm("ListPdtRatioAndValue", "R_inspection_project_staff", ajaxPrice, new { id = "calcForm" }))
 {
     <div>
         @Html.Hidden("inspection_project_id", "")
+        @Html.Hidden("p_v_r", "")
+        @Html.Hidden("p_v", "")
+        <button id="calcPrice">自动计算产值</button>
+    </div>
+}
+
+<br />@ViewBag.message
+
+@using (Ajax.BeginForm("List_R_inspection_project_staff_ByInspection_projectId", ajaxOpts))
+            {
+    <div>
+        @Html.Hidden("inspection_project_id", "")
+
         <button type="submit">查看项目</button>
     </div>
 }
+
 
 <div id="ajaxBody">
     @TempData["message"]

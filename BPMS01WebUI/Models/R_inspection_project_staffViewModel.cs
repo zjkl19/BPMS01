@@ -24,8 +24,10 @@ namespace BPMS01WebUI.Models
         //[ScaffoldColumn(false)]
         //public string staff_name { get; set; }
 
+        [ScaffoldColumn(false)]
         [Display(Name = "产值比例")]
         public Nullable<double> production_value_ratio { get; set; }
+        [ScaffoldColumn(false)]
         [Display(Name = "产值")]
         public Nullable<double> production_value { get; set; }
 

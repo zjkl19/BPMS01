@@ -221,5 +221,66 @@ namespace BPMS01WebUI.Controllers
             return RedirectToAction("AddR_inspection_project_staff");
             
         }
+
+        /// <summary>
+        /// 按比例计算各人产值，并返回添加项目参与者信息的视图
+        /// </summary>
+        /// <param name="vm"><see cref="AddR_inspection_project_staffViewModel"/></param>
+        /// <returns></returns>
+        public ViewResult Calc_production_value(AddR_inspection_project_staffViewModel vm)
+        {
+            //查询指定id的检测项目记录
+            var re01 = inspectionProjectRepository.inspection_project.Where(p=>p.id==vm.inspection_project_id).FirstOrDefault();
+
+            //按比例计算各人产值
+            var calcPrice = Convert.ToDecimal(vm.production_value_ratio) * re01.standard_price;
+
+            
+
+            vm.production_value = Convert.ToDouble(calcPrice);
+            ModelState.Clear();
+            return View("AddR_inspection_project_staff", vm);
+            //return Json(vm);
+            //return View(vm);
+
+        }
+
+        /// <summary>
+        /// 列出产值比例和产值
+        /// </summary>
+        public PartialViewResult ListPdtRatioAndValue(Guid inspection_project_id = new Guid(), double p_v_r = 0,double p_v = 0)
+        //public PartialViewResult ListPdtRatioAndValue(AddR_inspection_project_staffViewModel vm)
+        {
+
+            //var inspection_project_id = inspection_project_id;
+            var production_value_ratio = p_v_r;
+            var production_value = p_v;
+
+            decimal totalPrice;
+            //查询指定id的检测项目记录
+            var re01 = inspectionProjectRepository.inspection_project.Where(p => p.id == inspection_project_id).FirstOrDefault();
+
+            if(re01==null)
+            {
+                totalPrice = 0;
+            }
+            else
+            {
+                totalPrice = Convert.ToDecimal(re01.standard_price);
+            }
+            //按比例计算各人产值
+            var calcPrice = Convert.ToDecimal(production_value_ratio) * totalPrice;
+
+            //vm.production_value = Convert.ToDouble(calcPrice);
+
+            var myViewModel = new ListPdtRatioAndValueViewModel
+            {
+                production_value_ratio = production_value_ratio,
+                production_value= (double)calcPrice
+            };
+
+            return PartialView(myViewModel);
+        }
+
     }
 }
