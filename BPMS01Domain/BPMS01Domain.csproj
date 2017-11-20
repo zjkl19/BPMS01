@@ -215,45 +215,20 @@
     <Compile Include="Abstract\IBridgeRepository.cs" />
     <Compile Include="Abstract\IContractRepository.cs" />
     <Compile Include="Abstract\IInspection_projectRepository.cs" />
-    <Compile Include="Abstract\IR_bridge_inspection_staffRepository.cs" />
+    <Compile Include="Abstract\IR_inspection_project_staffRepository.cs" />
     <Compile Include="Abstract\IStaffRepository.cs" />
     <Compile Include="Concrete\EFBridgeRepository.cs" />
     <Compile Include="Concrete\EFContractRepository.cs" />
-    <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFInspection_projectRepository.cs" />
-    <Compile Include="Concrete\EFR_bridge_inspection_staffRepository.cs" />
+    <Compile Include="Concrete\EFR_inspection_project_staffRepository.cs" />
     <Compile Include="Concrete\EFStaffRepository.cs" />
-    <Compile Include="Entities\BPMS01.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BPMS01.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\BPMS01.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BPMS01.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\BPMS01.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BPMS01.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\bridge.cs">
-      <DependentUpon>BPMS01.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\contract.cs">
-      <DependentUpon>BPMS01.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\inspection_project.cs">
-      <DependentUpon>BPMS01.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\r_bridge_inspection_staff.cs">
-      <DependentUpon>BPMS01.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\join_r_bridge_inspection_staff.cs" />
-    <Compile Include="Entities\staff.cs">
-      <DependentUpon>BPMS01.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Entities\BPMSContext.cs" />
+    <Compile Include="Entities\bridge.cs" />
+    <Compile Include="Entities\contract.cs" />
+    <Compile Include="Entities\inspection_project.cs" />
+    <Compile Include="Entities\join_r_inspection_project_staff.cs" />
+    <Compile Include="Entities\r_inspection_project_staff.cs" />
+    <Compile Include="Entities\staff.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\GetQuota.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -263,16 +238,6 @@
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Entities\BPMS01.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BPMS01.edmx</DependentUpon>
-      <LastGenOutput>BPMS01.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entities\BPMS01.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BPMS01.edmx</DependentUpon>
-      <LastGenOutput>BPMS01.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -317,13 +282,6 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
-    <EntityDeploy Include="Entities\BPMS01.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BPMS01.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Entities\BPMS01.edmx.diagram">
-      <DependentUpon>BPMS01.edmx</DependentUpon>
-    </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

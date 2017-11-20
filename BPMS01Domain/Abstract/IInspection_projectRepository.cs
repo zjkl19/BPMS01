@@ -16,8 +16,8 @@ namespace BPMS01Domain.Abstract
         /// <summary>
         /// 往数据库添加项目信息
         /// </summary>
-        /// <param name="fc">包含项目名称、进场时间等在内的表单信息</param>
-        /// <returns>添加成功返回1，否则返回0</returns>
-        bool AddInspection_project(FormCollection fc);
+        /// <param name="inspection_project">检测项目</param>
+        /// <returns>添加成功返回1，否则返回0</returns>      
+        bool AddInspection_project(inspection_project inspection_project);
     }
 }

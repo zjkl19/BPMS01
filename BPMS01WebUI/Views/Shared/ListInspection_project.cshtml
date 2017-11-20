@@ -1,5 +1,9 @@
 ﻿@model IEnumerable < BPMS01Domain.Entities.inspection_project>
 
+
+@{
+    //@Html.DisplayNameFor(model => model.staff_no)
+}
 <table id="inspection_project_table" class="table">
 
     <tr>
@@ -11,6 +15,9 @@
 
         <th>
             检测类型
+        </th>
+        <th>
+            标准产值
         </th>
     </tr>
 
@@ -26,7 +33,10 @@
                 @Html.DisplayFor(modelItem => item.name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.bridge_inspection)
+                @Html.DisplayFor(modelItem => item.inspection_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.standard_price)
             </td>
         </tr>
     }

@@ -24,9 +24,9 @@ namespace BPMS01UnitTests
             int bridgeNspan = 2;    //桥梁跨数
 
             //action
-            double std_pdt_price = GetQuota.GetStdPdtValue(bridgeStructure_type, bridgeLength, bridgeWidth, bridgeNspan, inspection_type);
+            decimal std_pdt_price = GetQuota.GetStdPdtValue(bridgeStructure_type, bridgeLength, bridgeWidth, bridgeNspan, inspection_type);
 
-            double key=35000+120*(35-30)+120*(42-40)+0*(2 - 1);    //答案
+            decimal key=35000+120*(35-30)+120*(42-40)+0*(2 - 1);    //答案
             //assert
             Assert.AreEqual(std_pdt_price, key);
         }

@@ -27,7 +27,7 @@ namespace BPMS01Domain.Models
         /// </summary>
         /// <param name="fc">包含项目id、职工id等在内的表单信息</param>
         /// <returns>添加成功返回1，否则返回0</returns>
-        public static double GetStdPdtValue(int bridgeStructure_type, double bridgeLength, double bridgeWidth, int bridgeNspan, int inspection_type)
+        public static decimal GetStdPdtValue(int bridgeStructure_type, double bridgeLength, double bridgeWidth, int bridgeNspan, int inspection_type)
         {
             var myBridge =new bridge(bridgeStructure_type, bridgeLength, bridgeWidth, bridgeNspan);
             var st = myBridge.structure_type;
@@ -43,7 +43,7 @@ namespace BPMS01Domain.Models
             standard_product_value = basicFee    //基本费用
                 + blFee + bwFee + bnsFee;    //累加费用
 
-            return standard_product_value;
+            return (decimal)standard_product_value;
         }
     }
 

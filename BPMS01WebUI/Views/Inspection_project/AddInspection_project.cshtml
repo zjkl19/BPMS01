@@ -9,7 +9,7 @@
 
     //windows.bridge_id = 0;
     //windows.bridge_inspection = 0;
-    
+
     $(function () {
 
         $('#selectContractButton').on('click', function () {
@@ -44,13 +44,13 @@
         $('#selectBridgeButton').on('click', function () {
             id = $(":input:radio:checked").map(function () {
 
-                return $(this).parent().siblings('td').eq(0).text();  
+                return $(this).parent().siblings('td').eq(0).text();
 
             }).get();   // 桥梁id
 
             name = $(":input:radio:checked").map(function () {
 
-                return $(this).parent().siblings('td').eq(1).text();  
+                return $(this).parent().siblings('td').eq(1).text();
 
             }).get();   // 桥梁名称
 
@@ -72,6 +72,12 @@
 
             }).get();   // 桥梁宽度
 
+            span_number = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(5).text();
+
+            }).get();   // 桥梁跨数
+
 
 
             $("#bridge_id").attr("value", $.trim(id));
@@ -84,8 +90,25 @@
 
             $("#bridge_width").attr("value", width);
 
+            $("#bridge_span_number").attr("value", span_number);
+
         })
     })
+
+
+      $(function() {
+          $("#enter_date").datepicker({
+          changeMonth: true,
+          changeYear: true
+        });
+      });
+
+      $(function () {
+          $("#exit_date").datepicker({
+              changeMonth: true,
+              changeYear: true
+          });
+      });
    
 
 </script>
@@ -97,25 +120,11 @@
     @Html.EditorForModel()
 
     @Html.Label("收费标准价格：")
-    //@Html.TextBoxFor(p => p.standard_price)
-    @Html.TextBox("standard_price",TempData["std_pdt_value"])
+    @Html.TextBoxFor(p => p.standard_price)
+    @*@Html.TextBox("standard_price",TempData["std_pdt_value"])*@
     //@Html.ActionLink("自动计算","GetStd_pdt_value")
     //<button type="submit" id="button1" name="button1" formaction='@Url.Action("GetStd_pdt_value", "Inspection_project",new {bridge_id=0, bridge_inspection=1})'>自动计算</button>
     <button type="submit" id="button1" name="button1" formaction='@Url.Action("GetStd_pdt_value", "Inspection_project")'>自动计算</button>
-    <br />
-
-    @Html.LabelFor(p => p.bridge_inspection, "桥梁检测类型")
-    <br />
-    @Html.DropDownListFor(p => p.bridge_inspection, new[] {
-    new SelectListItem() {Text="常规定期检测",
-    Value=Convert.ToString(1) },
-    new SelectListItem() {Text="结构定期检测",
-    Value=Convert.ToString(2) },
-    new SelectListItem() {Text="静力荷载试验",
-    Value=Convert.ToString(3) },
-    new SelectListItem() {Text="动力荷载试验",
-    Value=Convert.ToString(4) }
-    }, "请选择")
     <br />
 
     @Html.LabelFor(p => p.contract_id, "关联合同")

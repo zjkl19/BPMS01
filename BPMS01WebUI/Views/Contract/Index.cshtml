@@ -1,0 +1,107 @@
+﻿@model IPagedList<BPMS01WebUI.Models.IndexContractViewModel>
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            合同编号
+        </th>
+        <th>
+            合同名称
+        </th>
+        <th>
+            合同金额
+        </th>
+        <th>
+            签订日期
+        </th>
+        <th>
+            期限
+        </th>
+        <th>
+            约定工作内容
+        </th>
+        <th>
+            工程地点
+        </th>
+        <th>
+            委托单位
+        </th>
+        <th>
+            委托单位联系人
+        </th>
+        <th>
+            委托单位联系人电话
+        </th>
+        <th>
+            承接方式
+        </th>
+        <th>
+            签订状态（单位）
+        </th>
+        <th>
+            签订状态（客户）
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.signed_data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.agmt_wk_cnt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.project_location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.delegation_client)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dlg_contactperson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dlg_contactperson_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accept_way)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_corporation_signed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_client_signed)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
+每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页  
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

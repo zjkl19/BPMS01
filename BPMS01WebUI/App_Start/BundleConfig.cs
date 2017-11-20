@@ -34,6 +34,11 @@ namespace BPMS01WebUI
             //css   
             bundles.Add(new StyleBundle("~/Content/cssjqryUi").Include(
                                "~/Content/themes/base/jquery-ui.css"));
+
+            //Create bundel for jquery.unobtrusive-ajax.min.js    
+            bundles.Add(new ScriptBundle("~/bundles/jqueryAjax").Include(
+                      "~/Scripts/jquery.unobtrusive-ajax.min.js"));
+
         }
     }
 }

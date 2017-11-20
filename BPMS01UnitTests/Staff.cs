@@ -30,15 +30,15 @@ namespace BPMS01UnitTests
             {
                 //id = Guid.NewGuid().ToString("N"),
                 //AddStaff方法中自动生成id
-                staff_no = 1644,
-                staff_password = "e10adc3949ba59abbe56e057f20f883e",
-                staff_name = "黄学漾",
+                no = 1644,
+                password = "e10adc3949ba59abbe56e057f20f883e",
+                name = "黄学漾",
                 gender = 1,
                 office_phone = "123456",
                 mobile_phone = "123456",
-                position = "检测员",
-                job_title = "工程师",
-                education = "博士",
+                position = 1,
+                job_title = 1,
+                education = 1,
                 hiredate = Convert.ToDateTime("2015-06-25"),
 
             };
@@ -47,30 +47,30 @@ namespace BPMS01UnitTests
             Mock<IStaffRepository> mock = new Mock<IStaffRepository>();
             mock.Setup(m => m.staff).Returns(new staff[]    {
                 new staff{
-                id = "4562c49835d44f7a861f49af4593d6dc",
-                staff_no = 1743,
-                staff_password = "123456",
-                staff_name = "林迪南",
+                id = Guid.NewGuid(),
+                no = 1743,
+                password = "123456",
+                name = "林迪南",
                 gender = 1,
                 office_phone = "123456",
                 mobile_phone = "123456",
-                position = "检测员",
-                job_title = "工程师",
-                education = "研究生",
+                position = 1,
+                job_title = 1,
+                education = 1,
                 hiredate = Convert.ToDateTime("2016-07-25")
 
             },
                 new staff{
-                id = "7a876d66c9a54558b37ce2037bc1fb23",
-                staff_no = 1234,
-                staff_password = "123456",
-                staff_name = "张啸",
+                id = Guid.NewGuid(),
+                no = 1234,
+                password = "123456",
+                name = "张啸",
                 gender = 1,
                 office_phone = "654321",
                 mobile_phone = "654321",
-                position = "检测员",
-                job_title = "工程师",
-                education = "本科",
+                position = 1,
+                job_title = 1,
+                education = 1,
                 hiredate = Convert.ToDateTime("2014-07-25")
 
             }
@@ -93,16 +93,16 @@ namespace BPMS01UnitTests
             Mock<IStaffRepository> mock = new Mock<IStaffRepository>();
             mock.Setup(m => m.staff).Returns(new staff[]    {
                 new staff{
-                id = "4562c49835d44f7a861f49af4593d6dc",
-                staff_no = 1743,
-                staff_password = "123456",
-                staff_name = "林迪南",
-                gender = 1,
+                id =Guid.NewGuid(),
+                no = 1743,
+                password = "123456",
+                name = "林迪南",
+                gender = Convert.ToInt32(gender.male),
                 office_phone = "123456",
                 mobile_phone = "123456",
-                position = "检测员",
-                job_title = "工程师",
-                education = "研究生",
+                position = 1,
+                job_title = 1,
+                education = 1,
                 hiredate = Convert.ToDateTime("2016-07-25")
 
             },
@@ -116,7 +116,7 @@ namespace BPMS01UnitTests
             //assert
             var p = result.gender;
             //Text = m.GetType().GetProperty("Name").ToString(),
-            Assert.AreEqual(p.GetType().GetProperty("Name").ToString(), "未知");
+            Assert.AreEqual(p.GetType().GetProperty("Name").ToString(), "男");
         }
 
     }

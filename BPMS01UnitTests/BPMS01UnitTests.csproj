@@ -89,6 +89,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="R_inspection_project_staff.cs" />
     <Compile Include="Staff.cs" />
     <Compile Include="Standard_product_value.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

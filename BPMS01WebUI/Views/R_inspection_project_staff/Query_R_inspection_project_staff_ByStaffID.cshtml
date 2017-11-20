@@ -1,0 +1,93 @@
+﻿@model BPMS01WebUI.Models.Query_R_inspection_project_staff_ByStaffIdViewModel
+
+@{
+    ViewBag.Title = "Query_R_inspection_project_staff_ByStaffId";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "ajaxBody"
+    };
+}
+
+
+<script>
+
+    $(function () {
+
+        $('#selectStaffButton').on('click', function () {
+            id = $(":input:radio:checked").map(function () {
+                return $(this).parent().siblings('td').eq(0).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+            staff_no = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(1).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+            staff_name = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(2).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+
+
+            $("#staff_id").attr("value", $.trim(id));
+
+            $("#staff_name").attr("value", staff_name);
+        })
+    })
+
+
+</script>
+
+<script>
+    //window.onload = function () {$("#ajaxBody").hide();}
+</script>
+
+<h2>Query_R_inspection_project_staff_By_staff_id</h2>
+
+@using (Ajax.BeginForm("List_R_inspection_project_staff_ByStaffId", "R_inspection_project_staff", ajaxOpts))
+{
+
+    @Html.LabelFor(p => p.staff_id, "选择职工")
+    @Html.Hidden("staff_id", "")
+    <input type="button" data-toggle="modal" data-target="#popup_staff" value="选择职工" />
+    @Html.Label("职工姓名：")
+    @Html.TextBoxFor(p => p.staff_name, new { @readonly = "readonly" })
+    <br />
+    <input type="submit" value="查询" />
+}
+
+<div id="ajaxBody">
+
+    @Html.Action("List_R_inspection_project_staff_ByStaffId", "R_inspection_project_staff", new { vm = Model })
+
+</div>
+
+<div class="modal fade" id="popup_staff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content text-left">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">请选择职工</h4>
+
+            </div>
+
+            <div class="modal-body">
+                @Html.Action("ListStaff", "Staff")
+            </div>
+            <div class="modal-footer">
+                <div style="display: inline-block">
+                    <button id="selectStaffButton" class="btn btn-default" data-dismiss="modal">选择</button>
+                </div>
+                <div style="display: inline-block">
+                    <button class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

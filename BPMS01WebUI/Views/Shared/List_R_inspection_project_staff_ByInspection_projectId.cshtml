@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BPMS01WebUI.Models.List_R_inspection_project_staff_ByInspection_projectIdViewModel>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.staff_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.staff_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_response)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scene_coff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.plan_coff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.report_coff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.report_check_coff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.others_coff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.production_value_ratio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.production_value)
+        </th>
+        <th>
+        </th>
+</tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.staff_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.staff_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.is_response)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.scene_coff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.plan_coff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.report_coff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.report_check_coff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.others_coff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.production_value_ratio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.production_value)
+        </td>
+        <td>
+            @using (Html.BeginForm("DeleteR_inspection_project_staff", "R_inspection_project_staff"))
+            {
+                @Html.Hidden("id",item.id)
+                <input type="submit" value="删除">
+            }
+            @*@Html.ActionLink("删除", "DeleteR_inspection_project_staff",new { id= item.id})*@
+        </td>
+    </tr>
+}
+
+</table>

@@ -13,6 +13,8 @@
     <!-- 自定义添加开始 -->
     @Scripts.Render("~/bundles/jqueryui")
     @Styles.Render("~/Content/cssjqryUi")
+
+    @Scripts.Render("~/bundles/jqueryAjax")
     <!-- 自定义添加结束 -->
 
 </head>
@@ -33,6 +35,7 @@
                         @*<a href="#" class="dropdown-toggle" data-toggle="dropdown">ss</a>*@
                         @Html.ActionLink("合同管理", "About", "Home", new { @class = "dropdown-toggle" }, new { data_toggle = "dropdown" })
                         <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("合同总览", "Index", "Contract")</li>
                             <li>@Html.ActionLink("合同查询", "QueryContract", "Contract")</li>
                             <li>@Html.ActionLink("合同添加", "AddContract", "Contract")</li>
                             <li>@Html.ActionLink("合同修改", "ModContract", "Contract")</li>
@@ -52,13 +55,13 @@
                     <li class="dropdown">
                         @Html.ActionLink("项目信息管理", "About", "Home", new { @class = "dropdown-toggle" }, new { data_toggle = "dropdown" })
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("最新项目", "Index", "Inspection_project")</li>
+                            <li>@Html.ActionLink("项目总览", "Index", "Inspection_project")</li>
                             <li>@Html.ActionLink("项目查询", "QueryInspection_project", "Inspection_project")</li>
                             <li>@Html.ActionLink("项目添加", "AddInspection_project", "Inspection_project")</li>
                             <li>@Html.ActionLink("项目修改", "ModInspection_project", "Inspection_project")</li>
                             <li>@Html.ActionLink("项目删除", "DelInspection_project", "Inspection_project")</li>
-                            <li>@Html.ActionLink("项目参与者信息添加", "AddR_bridge_inspection_staff", "R_bridge_inspection_staff")</li>
-                            <li>@Html.ActionLink("项目产值查询", "Query_R_bridge_inspection_staff_By_staff_id", "R_bridge_inspection_staff")</li>
+                            <li>@Html.ActionLink("项目参与者信息添加", "AddR_inspection_project_staff", "R_inspection_project_staff")</li>
+                            <li>@Html.ActionLink("项目产值查询", "Query_R_inspection_project_staff_ByStaffId", "R_inspection_project_staff")</li>
                         </ul>
                     </li>
 

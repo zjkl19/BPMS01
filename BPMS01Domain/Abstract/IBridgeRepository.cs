@@ -16,8 +16,8 @@ namespace BPMS01Domain.Abstract
         /// <summary>
         /// 往数据库添加桥梁信息
         /// </summary>
-        /// <param name="fc">包含桥梁名称、桥梁长度等在内的表单信息</param>
+        /// <param name="bridge">桥梁信息</param>
         /// <returns>添加成功返回1，否则返回0</returns>
-        bool AddBridge(FormCollection fc);
+        bool AddBridge(bridge bridge);
     }
 }

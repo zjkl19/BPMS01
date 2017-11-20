@@ -1,0 +1,219 @@
+﻿@model BPMS01WebUI.Models.AddR_inspection_project_staffViewModel
+
+@{
+    ViewBag.Title = "AddR_inspection_project_staff";
+    AjaxOptions ajaxOpts = new AjaxOptions
+    {
+        UpdateTargetId = "ajaxBody"
+    };
+
+    AjaxOptions ajaxPrice = new AjaxOptions
+    {
+        UpdateTargetId = "ajaxPriceBody",
+        HttpMethod = "Post"
+    };
+}
+
+<h2>AddR_inspection_project_staff</h2>
+
+<script src="../Scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+
+    $(function () {
+
+        $('#selectInspection_projectButton').on('click', function () {
+            id = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(0).text();
+
+            }).get();   // 项目id
+
+            inspection_project_name = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(1).text();
+
+            }).get();   // 项目名称
+
+            //$("#inspection_project_id").attr("value", $.trim(id));
+
+            $("[id=inspection_project_id]").each(function () {
+                $(this).attr("value", $.trim(id))
+            });
+
+            $("#inspection_project_name").attr("value", inspection_project_name);
+        })
+    })
+
+    $(function () {
+
+        $('#selectStaffButton').on('click', function () {
+            id = $(":input:radio:checked").map(function () {
+                return $(this).parent().siblings('td').eq(0).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+            staff_no = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(1).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+            staff_name = $(":input:radio:checked").map(function () {
+
+                return $(this).parent().siblings('td').eq(2).text();  // 根据checkbox定位到后面的td，然后使用text()函数获取内容
+
+            }).get();   // 获取内容数组并拼接为字符串
+
+
+
+            $("#staff_id").attr("value", $.trim(id));
+
+            $("#staff_name").attr("value", staff_name);
+        })
+    })
+
+    $("#TEMPcalcPrice").click(function () {//button的click事件
+
+
+        production_value_ratio = $("#production_value_ratio").map(function () {
+            return $(this).text();  
+
+        }).get()
+
+        production_value=$("#production_value").map(function () {
+
+            return $(this).text();  
+
+        }).get()
+
+        $("#p_v_r").attr("value", $(" input[name='production_value_ratio'] ").val());
+        $("#p_v").attr("value", production_value);
+
+        $("p").append("18");
+
+        $("#calcForm").submit();
+
+    });
+
+
+
+
+</script>
+
+<h2>AddInspection_project</h2>
+<p>
+
+@using (Html.BeginForm("AddR_inspection_project_staff", "R_inspection_project_staff", FormMethod.Post))
+{
+    @Html.LabelFor(p => p.inspection_project_id, "项目")
+    @Html.Hidden("inspection_project_id", "")
+    <input type="button" data-toggle="modal" data-target="#popup_inspection_project" value="选择项目" />
+    @Html.Label("项目名称：")
+    @Html.TextBoxFor(p => p.inspection_project_name, new { @readonly = "readonly" })
+    <br />
+
+    @Html.LabelFor(p => p.staff_id, "选择职工")
+    @Html.Hidden("staff_id", "")
+    <input type="button" data-toggle="modal" data-target="#popup_staff" value="选择职工" />
+    @Html.Label("职工姓名：")
+    @Html.TextBoxFor(p => p.staff_name, new { @readonly = "readonly" })
+    <br />
+
+
+    <div id="ajaxPriceBody">
+        @*分部视图*@
+        @*@Html.Action("ListPdtRatioAndValue", new { inspection_project_id = Model.inspection_project_id, production_value_ratio = 0, production_value = 0 })*@
+        @Html.Action("ListPdtRatioAndValue", new { inspection_project_id = Model.inspection_project_id, p_v_r =0, p_v = 0 })
+    </div>
+    @*@Ajax.ActionLink("自动计算产值", "ListPdtRatioAndValue", ajaxPrice);*@
+
+    @Html.EditorForModel()
+
+    <input type="submit" value="添加" />
+}
+
+<br />
+
+@*@Html.ActionLink("自动计算产值", "Calc_production_value", new { vm = Model })*@
+@using (Ajax.BeginForm("ListPdtRatioAndValue", "R_inspection_project_staff", ajaxPrice, new { id = "calcForm" }))
+{
+    <div>
+        @Html.Hidden("inspection_project_id", "")
+        @Html.Hidden("p_v_r", "")
+        @Html.Hidden("p_v", "")
+        <button id="calcPrice">自动计算产值</button>
+    </div>
+}
+
+<br />@ViewBag.message
+
+@using (Ajax.BeginForm("List_R_inspection_project_staff_ByInspection_projectId", ajaxOpts))
+            {
+    <div>
+        @Html.Hidden("inspection_project_id", "")
+
+        <button type="submit">查看项目</button>
+    </div>
+}
+
+
+<div id="ajaxBody">
+    @TempData["message"]
+    @*@Html.Action("List_R_inspection_project_staff_ByInspection_projectId", "R_inspection_project_staff", new { inspection_project_id = Model.inspection_project_id })*@
+    @Html.Action("List_R_inspection_project_staff_ByInspection_projectId", new { inspection_project_id = Model.inspection_project_id })
+    @*Html.RenderPartial("List_R_inspection_project_staff_ByInspection_projectId", Model);*@
+
+</div>
+
+<div class="modal fade" id="popup_inspection_project" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content text-left">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">请选择合同</h4>
+
+            </div>
+
+            <div class="modal-body">
+                @Html.Action("ListInspection_project", "Inspection_project")
+            </div>
+            <div class="modal-footer">
+                <div style="display: inline-block">
+                    <button id="selectInspection_projectButton" class="btn btn-default" data-dismiss="modal">选择</button>
+                </div>
+                <div style="display: inline-block">
+                    <button class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="popup_staff" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content text-left">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">请选择职工</h4>
+
+            </div>
+
+            <div class="modal-body">
+                @Html.Action("ListStaff", "Staff")
+            </div>
+            <div class="modal-footer">
+                <div style="display: inline-block">
+                    <button id="selectStaffButton" class="btn btn-default" data-dismiss="modal">选择</button>
+                </div>
+                <div style="display: inline-block">
+                    <button class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

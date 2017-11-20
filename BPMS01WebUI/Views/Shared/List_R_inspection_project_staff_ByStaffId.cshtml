@@ -1,0 +1,82 @@
+﻿@model IPagedList <BPMS01WebUI.Models.List_R_inspection_project_staff_ByStaffIdViewModel>
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+<p>满足查询条件的查询结果如下：</p>
+<table id="r_inspection_project_staff_table" class="table">
+
+    <tr>
+
+        <th>
+            项目名称
+        </th>
+
+        <th>
+            项目负责
+        </th>
+        <th>
+            现场检测
+        </th>
+        <th>
+            方案指定
+        </th>
+        <th>
+            报告撰写
+        </th>
+        <th>
+            报告校核
+        </th>
+        <th>
+            其它工作
+        </th>
+        <th>
+            产值比例
+        </th>
+        <th>
+            产值
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.inspection_project_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.is_response)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.scene_coff)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.plan_coff)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.report_coff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.report_check_coff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.others_coff)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.production_value_ratio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.production_value)
+            </td>
+        </tr>
+    }
+
+</table>
+<p>项目总计：@ViewBag.sumProjects</p>
+<p>产值总计：@ViewBag.sumProductValue</p>
+
+每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页  
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

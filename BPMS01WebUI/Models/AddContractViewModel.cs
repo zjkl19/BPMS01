@@ -10,32 +10,20 @@ using System.ComponentModel;
 
 namespace BPMS01WebUI.Models
 {
-    public class AddContractViewModel
+    public class AddContractViewModel:ContractViewModel
     {
-        //一般情况下5个1分隔
-        public string id { get; set; }
 
-        public string staff_id { get; set; }
+        [ScaffoldColumn(false)]
+        public Guid staff_id { get; set; }
 
-        public decimal staff_no { get; set; }    //视图模型中额外增加的部分
+        [ScaffoldColumn(false)]
+        public int staff_no { get; set; }    //视图模型中额外增加的部分
+        [ScaffoldColumn(false)]
         public string staff_name { get; set; }   //视图模型中额外增加的部分
 
-        public string contract_no { get; set; }
-        public string contract_name { get; set; }
-        public decimal contract_amount { get; set; }
+        [Display(Name = "合同编号")]
+        public string no { get; set; }
 
-        //[DataType(DataType.Date)]
-        public DateTime contract_signed_data { get; set; }
-        public long contract_deadline { get; set; }
-        public string contract_agmt_wk_cnt { get; set; }
-        public string project_location { get; set; }
-        public string delegation_client { get; set; }
-
-        public string dlg_contactperson { get; set; }
-        public string dlg_contactperson_phone { get; set; }
-        public string accept_way { get; set; }
-        public bool is_corporation_signed { get; set; }
-        public bool is_client_signed { get; set; }
 
 
     }

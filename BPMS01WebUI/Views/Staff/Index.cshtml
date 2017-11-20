@@ -1,0 +1,87 @@
+﻿@model IPagedList<BPMS01WebUI.Models.IndexStaffViewModel> 
+@using X.PagedList.Mvc; 
+@using X.PagedList;
+
+ 
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            工号
+        </th>
+        <th>
+            姓名
+        </th>
+        <th>
+            性别
+        </th>
+        <th>
+            办公电话
+        </th>
+        <th>
+            移动电话
+        </th>
+        <th>
+            职位
+        </th>
+        <th>
+            职称
+        </th>
+        <th>
+            学历
+        </th>
+        <th>
+            入职日期
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @*@Html.EnumDropDownListFor(modelItem => item.gender,new { @disabled = "disabled" })*@
+            @Html.DisplayFor(modelItem => item.gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.office_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mobile_phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.job_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.education)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hiredate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
+
+每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页  
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+ 

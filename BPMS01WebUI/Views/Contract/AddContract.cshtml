@@ -83,7 +83,15 @@
 
     })
 
+    $(function () {
+        $("#signed_data").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+
 </script>
+
 
 <h2>AddContract</h2>
 
@@ -92,36 +100,8 @@
 
 @using (Html.BeginForm("AddContract", "Contract", FormMethod.Post))
 {
-    @Html.LabelFor(p => p.contract_no, "合同编号")
-    @Html.TextBoxFor(p => p.contract_no)
-    <br />
-    @Html.LabelFor(p => p.contract_name, "合同名称")
-    @Html.TextBoxFor(p => p.contract_name)
-    <br />
-    @Html.LabelFor(p => p.contract_amount, "合同金额")
-    @Html.TextBoxFor(p => p.contract_amount)
-    <br />
-    @Html.LabelFor(p => p.contract_signed_data, "合同签订日期")
-    @Html.TextBoxFor(p => p.contract_signed_data)
-    <br />
-    @Html.LabelFor(p => p.contract_deadline, "合同期限")
-    @Html.TextBoxFor(p => p.contract_deadline)
-    <br />
-    @Html.LabelFor(p => p.contract_agmt_wk_cnt, "合同约定工作内容")
-    @Html.TextAreaFor(p => p.contract_agmt_wk_cnt)   //使用了TextAreaFor，不是TextBoxFor
-    <br />
-    @Html.LabelFor(p => p.project_location, "工程地点")
-    @Html.TextBoxFor(p => p.project_location)
-    <br />
-    @Html.LabelFor(p => p.delegation_client, "委托单位")
-    @Html.TextBoxFor(p => p.delegation_client)
-    <br />
-    @Html.LabelFor(p => p.dlg_contactperson, "委托单位联系人")
-    @Html.TextBoxFor(p => p.dlg_contactperson)
-    <br />
-    @Html.LabelFor(p => p.dlg_contactperson_phone, "委托单位联系人电话")
-    @Html.TextBoxFor(p => p.dlg_contactperson_phone)
-    <br />
+    @Html.EditorForModel()
+    
 
     @Html.LabelFor(p => p.staff_id, "承接人")
 
@@ -132,28 +112,6 @@
     @Html.Label("承接人姓名：")
     @Html.TextBoxFor(p => p.staff_name, new { @readonly = "readonly" })
     <br />
-    @Html.LabelFor(p => p.accept_way, "承接方式")
-    @Html.TextBoxFor(p => p.accept_way)
-    <br />
-    @Html.LabelFor(p => p.is_corporation_signed, "单位是否签订")
-    //@Html.CheckBoxFor(p => p.is_corporation_signed)
-    @Html.DropDownListFor(p => p.is_corporation_signed,new[] {
-    new SelectListItem() {Text="是",
-    Value=bool.TrueString },
-    new SelectListItem() {Text="否",
-    Value=bool.FalseString }
-     },"请选择")
-    <br />
-    @Html.LabelFor(p => p.is_client_signed, "客户是否签订")
-    //@Html.CheckBoxFor(p => p.is_client_signed)
-    @Html.DropDownListFor(p => p.is_client_signed, new[] {
-    new SelectListItem() {Text="是",
-    Value=bool.TrueString },
-    new SelectListItem() {Text="否",
-    Value=bool.FalseString }
-    },"请选择")
-    <br />
-
 
     //<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">选择承接人</button>
     //@Html.ActionLink("列出所有职工", "ListStaff", "Staff")
