@@ -224,10 +224,12 @@
     <Compile Include="Concrete\EFStaffRepository.cs" />
     <Compile Include="Entities\BPMSContext.cs" />
     <Compile Include="Entities\bridge.cs" />
+    <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\contract.cs" />
     <Compile Include="Entities\inspection_project.cs" />
     <Compile Include="Entities\join_r_inspection_project_staff.cs" />
     <Compile Include="Entities\r_inspection_project_staff.cs" />
+    <Compile Include="Entities\News.cs" />
     <Compile Include="Entities\staff.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\GetQuota.cs" />

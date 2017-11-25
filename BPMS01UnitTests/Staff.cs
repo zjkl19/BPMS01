@@ -114,9 +114,10 @@ namespace BPMS01UnitTests
             var result = (AddStaffViewModel)myController.AddStaff().Model;
 
             //assert
-            var p = result.gender;
+            var p = result.no;
             //Text = m.GetType().GetProperty("Name").ToString(),
-            Assert.AreEqual(p.GetType().GetProperty("Name").ToString(), "男");
+            Assert.AreEqual(p, 1743);
+            //Assert.AreEqual(p.GetType().GetProperty("Name").ToString(), "男");
         }
 
     }

@@ -65,3 +65,11 @@ D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Moq.pdb
 D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Moq.xml
 D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\System.Web.Helpers.xml
 D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\X.PagedList.dll
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\X.PagedList.Mvc.dll
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\WebDriver.dll
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\WebDriver.Support.dll
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\WebDriver.xml
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\WebDriver.Support.xml
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Selenium.WebDriverBackedSelenium.dll
+D:\vsProjects\BPMS01\BPMS01UnitTests\bin\Debug\Selenium.WebDriverBackedSelenium.xml

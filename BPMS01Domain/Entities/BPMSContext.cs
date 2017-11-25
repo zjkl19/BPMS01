@@ -29,6 +29,9 @@ namespace BPMS01Domain.Entities
         public virtual DbSet<r_inspection_project_staff> r_inspection_project_staff { get; set; }
         public virtual DbSet<staff> staff { get; set; }
 
+        public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

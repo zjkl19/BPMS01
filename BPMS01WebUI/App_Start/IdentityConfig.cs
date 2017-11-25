@@ -12,6 +12,8 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using BPMS01WebUI.Models;
 
+using System.Web.Helpers;
+
 namespace BPMS01WebUI
 {
     public class EmailService : IIdentityMessageService
@@ -19,6 +21,13 @@ namespace BPMS01WebUI
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
+            //WebMail.SmtpPort = 465;
+            //WebMail.SmtpServer = "smtp.qq.com";
+            //WebMail.UserName = "1569160911@qq.com";
+            //WebMail.Password = "yfftlbzroifzfhac";
+            //WebMail.EnableSsl = true;
+            //WebMail.SmtpUseDefaultCredentials = true;
+            //WebMail.Send(message.Destination, message.Subject, message.Body);
             return Task.FromResult(0);
         }
     }
@@ -54,10 +63,10 @@ namespace BPMS01WebUI
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
+                RequireNonLetterOrDigit = false,
                 RequireDigit = true,
                 RequireLowercase = true,
-                RequireUppercase = true,
+                RequireUppercase = false,
             };
 
             // Configure user lockout defaults
