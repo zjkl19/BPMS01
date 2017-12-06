@@ -159,6 +159,8 @@ namespace BPMS01WebUI.Controllers.Tests
             //assert
             
             Assert.AreEqual(r1[0].production_value_ratio,0.5);
+            Assert.AreEqual(r1[0].staff_name, "李鹏");
+            Assert.AreEqual(r1[0].is_response, is_response.no);
         }
 
     }

@@ -165,6 +165,20 @@ namespace BPMS01WebUI.Controllers
         }
 
         /// <summary>
+        /// summary test
+        /// </summary>
+        /// <param name="str">echo number</param>
+        /// <returns></returns>
+        public PartialViewResult PVTest(string str="0")
+        {
+            str = str + "1";
+            return PartialView(new PVTestViewModel
+            {
+                str = str,
+            });
+        }
+
+        /// <summary>
         /// 添加项目参与信息
         /// </summary>
         /// <returns>ViewResult:添加项目参与信息的视图</returns>

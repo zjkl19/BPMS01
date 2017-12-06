@@ -53,7 +53,33 @@
         </td>
     </tr>
 }
+    @using (Html.BeginForm("AddBridge", "Bridge", FormMethod.Post))
+    {
+        <tr>
+            <td>
+                @Html.TextBox("lbt1")
+            </td>
+            <td>
+                @Html.TextBox("lbt2")
+            </td>
+            <td>
+                @Html.TextBox("lbt2")
+            </td>
+            <td>
+                @Html.TextBox("lbt2")
+            </td>
+            <td>
+                @Html.TextBox("lbt2")
+            </td>
+            <td>
+                <input type="submit" value="添加" />
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+
 每页 @Model.PageSize 条记录，共 @Model.PageCount 页，当前第 @Model.PageNumber 页  
 @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

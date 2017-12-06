@@ -1,0 +1,19 @@
+﻿@model BPMS01WebUI.Models.PVTestViewModel
+
+@{
+    AjaxOptions ajaxBodyTest = new AjaxOptions
+    {
+        UpdateTargetId = "ajaxBodyTest"
+    };
+}
+
+@using (Ajax.BeginForm("PVTest", "R_inspection_project_staff", ajaxBodyTest))
+{
+
+        @Html.Label("字符串：")
+        @Html.TextBoxFor(p => p.str)
+        @Html.DisplayFor(p=>p.str)
+        <br />
+        <input type="submit" value="ajax测试" />
+}
+
